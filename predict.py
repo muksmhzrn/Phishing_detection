@@ -8,8 +8,8 @@ import joblib
 # ---------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------
-MODEL_PATH = "phishing_model.joblib"
-EMAILS_CSV_PATH = "imap_emails.csv"
+MODEL_PATH = "pphishing_email_model.joblib"
+EMAILS_CSV_PATH = "email_dataset.csv"
 OUTPUT_PATH = "imap_emails_with_predictions.csv"
 
 # ---------------------------------------------------------
