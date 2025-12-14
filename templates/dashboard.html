@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detection Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f4f4f4; }
+        .phishing { color: red; font-weight: bold; }
+        .legit { color: green; font-weight: bold; }
+        .card { padding: 15px; background: #f9f9f9; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>📧 Phishing Detection Dashboard</h1>
+
+<div class="card">
+    <h3>Overall Statistics</h3>
+    <p><b>Total Emails:</b> {{ total_emails }}</p>
+    <p><b>Phishing:</b> {{ phishing_percent }}%</p>
+    <p><b>Legitimate:</b> {{ legit_percent }}%</p>
+</div>
+
+<div class="card">
+    <h3>🚨 Top Phishing Emails</h3>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Probability</th>
+        </tr>
+        {% for email in top_phishing %}
+        <tr>
+            <td>{{ email.subject }}</td>
+            <td>{{ email.phishing_probability }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<h3>📬 All Emails</h3>
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Prediction</th>
+        <th>Probability</th>
+    </tr>
+    {% for email in emails %}
+    <tr>
+        <td>{{ email.subject }}</td>
+        <td class="{{ 'phishing' if email.prediction_label == 'Phishing' else 'legit' }}">
+            {{ email.prediction_label }}
+        </td>
+        <td>{{ email.phishing_probability }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
