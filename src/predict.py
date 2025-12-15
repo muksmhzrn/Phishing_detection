@@ -18,13 +18,18 @@ PHISHING_THRESHOLD = 0.5
 # LOAD TRAINED MODEL
 # ---------------------------------------------------------
 model = joblib.load(MODEL_PATH)
-print("✅ Trained phishing model loaded")
+print("Trained phishing model loaded")
 
 # ---------------------------------------------------------
 # LOAD EMAIL DATASET
 # ---------------------------------------------------------
 df = pd.read_csv(EMAILS_CSV_PATH)
-print(f"📧 Emails loaded: {df.shape[0]}")
+print(f" Emails loaded: {df.shape[0]}")
+
+# ---------------------------------------------------------
+# DATE HANDLING
+# ---------------------------------------------------------
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
 # ---------------------------------------------------------
 # CREATE EMAIL TEXT (MATCH TRAINING)
@@ -76,19 +81,36 @@ df["final_label"] = df.apply(assign_final_label, axis=1)
 df["alert"] = df["phishing_probability"] >= PHISHING_THRESHOLD
 
 # ---------------------------------------------------------
-# DISPLAY SAMPLE
+# SORT BY LATEST EMAILS
 # ---------------------------------------------------------
-print("\n🔍 Sample predictions:")
+df = df.sort_values(by="date", ascending=False)
+
+# ---------------------------------------------------------
+# DISPLAY LATEST 5 EMAILS
+# ---------------------------------------------------------
+print("\n Latest 5 email predictions:")
 print(df[[
     "mailbox",
     "subject",
     "final_label",
     "phishing_probability",
     "alert"
-]].head())
+]].head(5))
+
+# ---------------------------------------------------------
+# DISPLAY LATEST 10 PHISHING EMAILS
+# ---------------------------------------------------------
+latest_phishing = df[df["final_label"] == "Phishing"].head(10)
+
+print("\n Latest Phishing Emails:")
+print(latest_phishing[[
+    "mailbox",
+    "subject",
+    "phishing_probability"
+]])
 
 # ---------------------------------------------------------
 # SAVE RESULTS
 # ---------------------------------------------------------
 df.to_csv(OUTPUT_PATH, index=False)
-print(f"\n✅ Results saved to: {OUTPUT_PATH}")
+print(f"\n Results saved to: {OUTPUT_PATH}")
