@@ -10,7 +10,7 @@ load_dotenv()
 IMAP_SERVER = os.getenv("IMAP_SERVER")
 USERNAME = os.getenv("USRNAME")
 PASSWORD =os.getenv("PASSWORD")
-OUTPUT_FILE = "email_dataset.csv"
+OUTPUT_FILE = "data/processed/email_dataset.csv"
 
 def decode_text(value):
     if not value:

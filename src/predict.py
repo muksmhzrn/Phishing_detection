@@ -9,9 +9,9 @@ import joblib
 # CONFIGURATION
 # ---------------------------------------------------------
 # MODEL_PATH = "pphishing_email_model.joblib"
-MODEL_PATH = "phishing_email_model.joblib"
-EMAILS_CSV_PATH = "email_dataset.csv"
-OUTPUT_PATH = "imap_emails_with_predictions.csv"
+MODEL_PATH = "data/processed/phishing_email_model.joblib"
+EMAILS_CSV_PATH = "data/processed/email_dataset.csv"
+OUTPUT_PATH = "data/processed/imap_emails_with_predictions.csv"
 
 # ---------------------------------------------------------
 # LOAD TRAINED MODEL

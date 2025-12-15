@@ -6,12 +6,12 @@ app = Flask(__name__)
 # -------------------------------------------------
 # LOAD PREDICTION RESULTS
 # -------------------------------------------------
-df = pd.read_csv("imap_emails_with_predictions.csv")
+df = pd.read_csv("data/processed/imap_emails_with_predictions.csv")
 
 # -------------------------------------------------
 # ROUTE: DASHBOARD
-# -------------------------------------------------
-@app.route("/")
+# ------------------------------------------------
+@app.route("/") 
 def dashboard():
 
     total_emails = len(df)
