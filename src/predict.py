@@ -1,5 +1,5 @@
 # =========================================================
-# PHISHING DETECTION USING TRAINED MODEL (JOBLIB)
+# PHISHING & SPAM DETECTION USING TRAINED MODEL
 # =========================================================
 
 import pandas as pd
@@ -8,10 +8,11 @@ import joblib
 # ---------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------
-# MODEL_PATH = "pphishing_email_model.joblib"
 MODEL_PATH = "data/processed/phishing_email_model.joblib"
 EMAILS_CSV_PATH = "data/processed/email_dataset.csv"
 OUTPUT_PATH = "data/processed/imap_emails_with_predictions.csv"
+
+PHISHING_THRESHOLD = 0.5
 
 # ---------------------------------------------------------
 # LOAD TRAINED MODEL
@@ -20,58 +21,74 @@ model = joblib.load(MODEL_PATH)
 print("✅ Trained phishing model loaded")
 
 # ---------------------------------------------------------
-# LOAD IMAP EMAILS CSV
+# LOAD EMAIL DATASET
 # ---------------------------------------------------------
 df = pd.read_csv(EMAILS_CSV_PATH)
 print(f"📧 Emails loaded: {df.shape[0]}")
 
 # ---------------------------------------------------------
-# CREATE EMAIL TEXT (MUST MATCH TRAINING)
+# CREATE EMAIL TEXT (MATCH TRAINING)
 # ---------------------------------------------------------
 df["Email Text"] = (
     df["subject"].fillna("") + " " +
     df["body"].fillna("")
 )
 
-# Remove empty emails
 df = df[df["Email Text"].str.strip() != ""].copy()
 
 # ---------------------------------------------------------
-# PREDICT PHISHING / LEGITIMATE
+# PHISHING PREDICTION
 # ---------------------------------------------------------
 df["prediction"] = model.predict(df["Email Text"])
 
-# Convert numeric labels to readable text
-df["prediction_label"] = df["prediction"].map({
-    0: "Legitimate",
-    1: "Phishing"
-})
-
-# ---------------------------------------------------------
-# PREDICTION CONFIDENCE (PROBABILITY)
-# ---------------------------------------------------------
 df["phishing_probability"] = model.predict_proba(
     df["Email Text"]
 )[:, 1]
 
 # ---------------------------------------------------------
-# OPTIONAL: ALERT THRESHOLD (SOC-STYLE)
+# PHISHING LABEL
 # ---------------------------------------------------------
-df["alert"] = df["phishing_probability"] >= 0.7
+df["prediction_label"] = df["phishing_probability"].apply(
+    lambda x: "Phishing" if x >= PHISHING_THRESHOLD else "Legitimate"
+)
 
 # ---------------------------------------------------------
-# DISPLAY SAMPLE RESULTS
+# SPAM-AWARE FINAL LABEL
+# ---------------------------------------------------------
+def assign_final_label(row):
+    mailbox = str(row["mailbox"]).lower()
+
+    if "spam" in mailbox and row["phishing_probability"] >= PHISHING_THRESHOLD:
+        return "Spam-Phishing"
+    elif "spam" in mailbox:
+        return "Spam"
+    elif row["phishing_probability"] >= PHISHING_THRESHOLD:
+        return "Phishing"
+    else:
+        return "Legitimate"
+
+
+df["final_label"] = df.apply(assign_final_label, axis=1)
+
+# ---------------------------------------------------------
+# ALERT FLAG
+# ---------------------------------------------------------
+df["alert"] = df["phishing_probability"] >= PHISHING_THRESHOLD
+
+# ---------------------------------------------------------
+# DISPLAY SAMPLE
 # ---------------------------------------------------------
 print("\n🔍 Sample predictions:")
 print(df[[
+    "mailbox",
     "subject",
-    "prediction_label",
+    "final_label",
     "phishing_probability",
     "alert"
 ]].head())
 
 # ---------------------------------------------------------
-# SAVE RESULTS TO CSV
+# SAVE RESULTS
 # ---------------------------------------------------------
 df.to_csv(OUTPUT_PATH, index=False)
 print(f"\n✅ Results saved to: {OUTPUT_PATH}")

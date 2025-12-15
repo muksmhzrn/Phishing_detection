@@ -2,60 +2,243 @@
 <html>
 <head>
     <title>Phishing Detection Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         body { font-family: Arial; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; }
-        th { background-color: #f4f4f4; }
+
+        .row { display: flex; gap: 20px; }
+
+        .card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            flex: 1;
+        }
+
+        /* MEDIUM PIE SIZE */
+        .chart-container {
+            width: 220px;
+            height: 220px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        th { background: #f4f4f4; }
+
+        tr { cursor: pointer; }
+
         .phishing { color: red; font-weight: bold; }
         .legit { color: green; font-weight: bold; }
-        .card { padding: 15px; background: #f9f9f9; margin-bottom: 20px; }
+
+        select { padding: 5px; margin-bottom: 10px; }
+
+        .pagination {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .pagination button {
+            padding: 5px 10px;
+            margin: 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 
 <h1>📧 Phishing Detection Dashboard</h1>
 
-<div class="card">
-    <h3>Overall Statistics</h3>
-    <p><b>Total Emails:</b> {{ total_emails }}</p>
-    <p><b>Phishing:</b> {{ phishing_percent }}%</p>
-    <p><b>Legitimate:</b> {{ legit_percent }}%</p>
+<!-- PIE + TOP PHISHING -->
+<div class="row">
+
+    <div class="card">
+        <h3>Email Classification</h3>
+        <div class="chart-container">
+            <canvas id="phishingPie"></canvas>
+        </div>
+
+        <p><b>Total:</b> {{ total_emails }}</p>
+        <p class="phishing"><b>Phishing:</b> {{ phishing_count }}</p>
+        <p class="legit"><b>Legitimate:</b> {{ legit_count }}</p>
+    </div>
+
+    <div class="card">
+        <h3>🚨 Top Phishing Emails</h3>
+        <table>
+            <tr>
+                <th>Sender</th>
+                <th>Subject</th>
+                <th>Probability</th>
+            </tr>
+            {% for email in top_phishing %}
+            <tr onclick="openEmail(
+                `{{ email.subject | escape }}`,
+                `{{ email.sender | escape }}`,
+                `{{ email.date | escape }}`,
+                `{{ email.prediction_label }}`,
+                `{{ (email.phishing_probability * 100) | round(2) }}%`,
+                `{{ email.cleaned_body | escape }}`
+            )">
+                <td>{{ email.sender }}</td>
+                <td>{{ email.subject }}</td>
+                <td>{{ (email.phishing_probability * 100) | round(2) }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
 </div>
 
-<div class="card">
-    <h3>🚨 Top Phishing Emails</h3>
+<!-- ALL EMAILS -->
+<div class="card" style="margin-top:20px;">
+    <h3>All Emails</h3>
+
+    <select id="filterSelect" onchange="applyFilter()">
+        <option value="all">All</option>
+        <option value="Phishing">Phishing</option>
+        <option value="Legitimate">Legitimate</option>
+    </select>
+
     <table>
         <tr>
+            <th>Mailbox</th>
+            <th>Sender</th>
+            <th>Date</th>
             <th>Subject</th>
+            <th>Prediction</th>
             <th>Probability</th>
         </tr>
-        {% for email in top_phishing %}
-        <tr>
+
+        {% for email in emails %}
+        <tr class="email-row"
+            data-prediction="{{ email.prediction_label }}"
+            onclick="openEmail(
+                `{{ email.subject | escape }}`,
+                `{{ email.sender | escape }}`,
+                `{{ email.date | escape }}`,
+                `{{ email.prediction_label }}`,
+                `{{ (email.phishing_probability * 100) | round(2) }}%`,
+                `{{ email.cleaned_body | escape }}`
+            )">
+            <td>{{ email.mailbox }}</td>
+            <td>{{ email.sender }}</td>
+            <td>{{ email.date }}</td>
             <td>{{ email.subject }}</td>
-            <td>{{ email.phishing_probability }}</td>
+            <td class="{{ 'phishing' if email.prediction_label == 'Phishing' else 'legit' }}">
+                {{ email.prediction_label }}
+            </td>
+            <td>{{ (email.phishing_probability * 100) | round(2) }}%</td>
         </tr>
         {% endfor %}
     </table>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+        <button onclick="prevPage()">⬅ Prev</button>
+        <span id="pageInfo"></span>
+        <button onclick="nextPage()">Next ➡</button>
+    </div>
 </div>
 
-<h3>📬 All Emails</h3>
-<table>
-    <tr>
-        <th>Subject</th>
-        <th>Prediction</th>
-        <th>Probability</th>
-    </tr>
-    {% for email in emails %}
-    <tr>
-        <td>{{ email.subject }}</td>
-        <td class="{{ 'phishing' if email.prediction_label == 'Phishing' else 'legit' }}">
-            {{ email.prediction_label }}
-        </td>
-        <td>{{ email.phishing_probability }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<!-- MODAL -->
+<div id="emailModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6)">
+    <div style="background:#fff; width:70%; margin:5% auto; padding:20px; max-height:80%; overflow:auto">
+        <h3 id="modalSubject"></h3>
+        <p><b>From:</b> <span id="modalSender"></span></p>
+        <p><b>Date:</b> <span id="modalDate"></span></p>
+        <p><b>Prediction:</b> <span id="modalPrediction"></span></p>
+        <p><b>Probability:</b> <span id="modalProbability"></span></p>
+        <hr>
+        <pre id="modalBody" style="white-space:pre-wrap;"></pre>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+/* PIE CHART */
+new Chart(document.getElementById("phishingPie"), {
+    type: "pie",
+    data: {
+        labels: ["Phishing", "Legitimate"],
+        datasets: [{
+            data: [{{ phishing_percent }}, {{ legit_percent }}],
+            backgroundColor: ["#ff4d4d", "#4CAF50"]
+        }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+});
+
+/* PAGINATION + FILTER */
+const rows = Array.from(document.querySelectorAll(".email-row"));
+const rowsPerPage = 15;
+let currentPage = 1;
+let filteredRows = rows;
+
+function renderTable() {
+    rows.forEach(r => r.style.display = "none");
+
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    filteredRows.slice(start, end).forEach(r => r.style.display = "");
+    document.getElementById("pageInfo").innerText =
+        `Page ${currentPage} of ${Math.ceil(filteredRows.length / rowsPerPage)}`;
+}
+
+function applyFilter() {
+    const filter = document.getElementById("filterSelect").value;
+    filteredRows = rows.filter(r =>
+        filter === "all" || r.dataset.prediction === filter
+    );
+    currentPage = 1;
+    renderTable();
+}
+
+function nextPage() {
+    if (currentPage * rowsPerPage < filteredRows.length) {
+        currentPage++;
+        renderTable();
+    }
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+}
+
+/* MODAL */
+function openEmail(subject, sender, date, prediction, probability, body) {
+    modalSubject.innerText = subject;
+    modalSender.innerText = sender;
+    modalDate.innerText = date;
+    modalPrediction.innerText = prediction;
+    modalProbability.innerText = probability;
+    modalBody.innerText = body;
+    emailModal.style.display = "block";
+}
+
+function closeModal() {
+    emailModal.style.display = "none";
+}
+
+/* INIT */
+applyFilter();
+</script>
 
 </body>
 </html>
