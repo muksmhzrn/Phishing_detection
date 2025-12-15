@@ -2,35 +2,100 @@
 <html>
 <head>
     <title>SOC Alerts</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #fff3f3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        th {
+            background: #ffe6e6;
+        }
+
+        .high {
+            background: #ffcccc;
+            font-weight: bold;
+            color: #b30000;
+        }
+
+        .medium {
+            background: #fff0cc;
+            color: #cc7a00;
+        }
+
+        .low {
+            background: #e6ffe6;
+            color: #006600;
+        }
+    </style>
 </head>
 
-<body style="font-family:Arial; margin:20px; background:#fff3f3;">
+<body>
 
-<h2>SOC ALERT </h2>
-<p>Total Critical Alerts: {{ total_alerts }}</p>
+<h2> SOC ALERTS</h2>
+<p><b>Total Active Alerts:</b> {{ total_alerts }}</p>
 
-<a href="/">Back to Dashboard</a>
+<a href="/" style="
+    display:inline-block;
+    margin-bottom:10px;
+    text-decoration:none;
+    background:#333;
+    color:white;
+    padding:6px 10px;
+    border-radius:4px;
+"> Dashboard</a>
 
 <hr>
 
-<table border="1" width="100%">
+<table>
 <tr>
-<th>Mailbox</th>
-<th>Sender</th>
-<th>Subject</th>
-<th>Probability</th>
-<th>Severity</th>
+    <th>Mailbox</th>
+    <th>Sender</th>
+    <th>Subject</th>
+    <th>Probability</th>
+    <th>Severity</th>
+    <th>Analyst Recommendation</th>
 </tr>
 
 {% for a in alerts %}
-<tr style="background:#ffcccc;">
-<td>{{ a.mailbox }}</td>
-<td>{{ a.sender }}</td>
-<td>{{ a.subject }}</td>
-<td>{{ (a.phishing_probability * 100) | round(2) }}%</td>
-<td><b>HIGH</b></td>
+{% set prob = a.phishing_probability %}
+{% if prob >= 0.8 %}
+    {% set sev = "HIGH" %}
+    {% set cls = "high" %}
+    {% set action = "Immediately block sender, reset user credentials, investigate URLs" %}
+{% elif prob >= 0.5 %}
+    {% set sev = "MEDIUM" %}
+    {% set cls = "medium" %}
+    {% set action = "Warn user, monitor activity, block sender if repeated" %}
+{% else %}
+    {% set sev = "LOW" %}
+    {% set cls = "low" %}
+    {% set action = "No immediate action required, continue monitoring" %}
+{% endif %}
+
+<tr class="{{ cls }}">
+    <td>{{ a.mailbox }}</td>
+    <td>{{ a.sender }}</td>
+    <td>{{ a.subject }}</td>
+    <td>{{ (prob * 100) | round(2) }}%</td>
+    <td>{{ sev }}</td>
+    <td>{{ action }}</td>
 </tr>
 {% endfor %}
+
 </table>
 
 </body>

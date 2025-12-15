@@ -1,4 +1,132 @@
 mailbox,sender,receiver,date,subject,body,cleaned_body,urls,num_urls,body_length,label,Email Text,prediction,phishing_probability,prediction_label,final_label,alert,severity,soc_alert
+Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 19:00:09+05:45,Official Rewards Team” <rewards-now@free-offer-win[.]xyz>,"HELLO USER!!!
+
+CONGRATULATIONS!!!
+YOU HAVE BEEN SELECTED TO RECEIVE *$5,000 CASH BONUS* 💰💰💰
+
+⏰ *LIMITED TIME — RESPOND IN 30 MINUTES OR LOSE IT FOREVER!!!*
+
+CLICK HERE NOW:
+http://claim-your-money-fast[.]xyz/verify
+
+WHY WAIT???
+
+   -
+
+   NO VERIFICATION REQUIRED
+   -
+
+   100% GUARANTEED
+   -
+
+   ACT NOW!!!
+
+Reply with:
+
+   -
+
+   Full Name
+   -
+
+   Email Password
+   -
+
+   Bank Details
+
+THIS IS YOUR LAST NOTICE!!!","HELLO USER!!! CONGRATULATIONS!!! YOU HAVE BEEN SELECTED TO RECEIVE *$5,000 CASH BONUS* 💰💰💰 ⏰ *LIMITED TIME — RESPOND IN 30 MINUTES OR LOSE IT FOREVER!!!* CLICK HERE NOW: WHY WAIT??? - NO VERIFICATION REQUIRED - 100% GUARANTEED - ACT NOW!!! Reply with: - Full Name - Email Password - Bank Details THIS IS YOUR LAST NOTICE!!!",http://claim-your-money-fast[.]xyz/verify,1,56,,"Official Rewards Team” <rewards-now@free-offer-win[.]xyz> HELLO USER!!!
+
+CONGRATULATIONS!!!
+YOU HAVE BEEN SELECTED TO RECEIVE *$5,000 CASH BONUS* 💰💰💰
+
+⏰ *LIMITED TIME — RESPOND IN 30 MINUTES OR LOSE IT FOREVER!!!*
+
+CLICK HERE NOW:
+http://claim-your-money-fast[.]xyz/verify
+
+WHY WAIT???
+
+   -
+
+   NO VERIFICATION REQUIRED
+   -
+
+   100% GUARANTEED
+   -
+
+   ACT NOW!!!
+
+Reply with:
+
+   -
+
+   Full Name
+   -
+
+   Email Password
+   -
+
+   Bank Details
+
+THIS IS YOUR LAST NOTICE!!!",1,0.997793956595212,Phishing,Phishing,True,Critical,True
+Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 18:56:27+05:45,Immediate Action Required – Account Suspension in 24 Hours,"Dear Valued Customer,
+
+We detected *unusual activity* on your account that violates our security
+policy.
+
+To protect your account, we have *temporarily limited access*.
+You must verify your information *within 24 hours* or your account
+will be *permanently
+suspended*.
+
+👉 *Verify Your Account Now:*
+http://paypaI-secure-verification[.]com/login
+
+If you do not complete this process immediately, you may experience:
+
+   -
+
+   Loss of access to funds
+   -
+
+   Transaction failures
+   -
+
+   Permanent account closure
+
+Thank you for your prompt cooperation.
+
+Sincerely,
+*Security Operations Team*
+PayPal Customer SupportF","Dear Valued Customer, We detected *unusual activity* on your account that violates our security policy. To protect your account, we have *temporarily limited access*. You must verify your information *within 24 hours* or your account will be *permanently suspended*. 👉 *Verify Your Account Now:* If you do not complete this process immediately, you may experience: - Loss of access to funds - Transaction failures - Permanent account closure Thank you for your prompt cooperation. Sincerely, *Security Operations Team* PayPal Customer SupportF",http://paypaI-secure-verification[.]com/login,1,81,,"Immediate Action Required – Account Suspension in 24 Hours Dear Valued Customer,
+
+We detected *unusual activity* on your account that violates our security
+policy.
+
+To protect your account, we have *temporarily limited access*.
+You must verify your information *within 24 hours* or your account
+will be *permanently
+suspended*.
+
+👉 *Verify Your Account Now:*
+http://paypaI-secure-verification[.]com/login
+
+If you do not complete this process immediately, you may experience:
+
+   -
+
+   Loss of access to funds
+   -
+
+   Transaction failures
+   -
+
+   Permanent account closure
+
+Thank you for your prompt cooperation.
+
+Sincerely,
+*Security Operations Team*
+PayPal Customer SupportF",1,0.9754073615193974,Phishing,Phishing,True,Critical,True
 Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 18:07:27+05:45,Fwd: Meeting Minutes of 15th December 2025,"---------- Forwarded message ---------
 From: LND Kathmandu <lnd.ktm@bwnepal.com>
 Date: Mon, Dec 15, 2025 at 4:27 PM
@@ -179,6 +307,11 @@ If you do not complete this verification, your access may be restricted.
 Thank you for your cooperation,
 IT Support Team
 Company Name",0,0.2570761710225483,Legitimate,Legitimate,False,Low,False
+Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,test,"Hello test
+
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",Hello test Best Western Hotels & Resorts ® | bestwestern.com,"https://www.bestwestern.com/en_US.html,https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html",2,10,,"test Hello test
+
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",0,0.23389661322794647,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,gaaga,"import re
 from bs4 import BeautifulSoup
 
@@ -379,11 +512,6 @@ Try it on:
 You already know the lyrics. Now imagine them in a genre no one saw coming.
 
 Create a cover and see how it sounds<https://clicks.suno.com/f/a/um8uGQ6h_KIu0evpugu4Jw~~/AAQRxRA~/Ie2OrIRVgK51ntzVnlVHmPcyOiWSLMJyt5jymcg0d-gy1KKByWEmZdfGLjWoCLmOFtHt4LM4kv58u6qi-KZG8I_njSO6-ocCdChqQ0_mA7r-Zy5QBCCOJkzTQ4WbBPIA>",0,0.06269375555826229,Legitimate,Legitimate,False,Low,False
-Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,test,"Hello test
-
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",Hello test Best Western Hotels & Resorts ® | bestwestern.com,"https://www.bestwestern.com/en_US.html,https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html",2,10,,"test Hello test
-
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",0,0.23389661322794647,Legitimate,Legitimate,False,Low,False
 Inbox,Mukesh Maharjan <NP01MS7A240038@islingtoncollege.edu.np>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:39:59+00:00,hacked ,"hacking
 
 Get Outlook for iOS<https://aka.ms/o0ukef>",hacking Get Outlook for iOS,https://aka.ms/o0ukef,1,5,,"hacked  hacking
