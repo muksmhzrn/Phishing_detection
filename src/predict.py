@@ -109,6 +109,27 @@ print(latest_phishing[[
     "phishing_probability"
 ]])
 
+
+
+# ---------------------------------------------------------
+# SEVERITY SCORING (SOC VIEW)
+# ---------------------------------------------------------
+def assign_severity(prob):
+    if prob >= 0.80:
+        return "Critical"
+    elif prob >= 0.65:
+        return "High"
+    elif prob >= 0.50:
+        return "Medium"
+    else:
+        return "Low"
+
+df["severity"] = df["phishing_probability"].apply(assign_severity)
+
+# SOC ALERT FLAG
+df["soc_alert"] = df["severity"].isin(["Critical", "High"])
+
+
 # ---------------------------------------------------------
 # SAVE RESULTS
 # ---------------------------------------------------------

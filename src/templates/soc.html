@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOC Alerts</title>
+</head>
+
+<body style="font-family:Arial; margin:20px; background:#fff3f3;">
+
+<h2>SOC ALERT </h2>
+<p>Total Critical Alerts: {{ total_alerts }}</p>
+
+<a href="/">Back to Dashboard</a>
+
+<hr>
+
+<table border="1" width="100%">
+<tr>
+<th>Mailbox</th>
+<th>Sender</th>
+<th>Subject</th>
+<th>Probability</th>
+<th>Severity</th>
+</tr>
+
+{% for a in alerts %}
+<tr style="background:#ffcccc;">
+<td>{{ a.mailbox }}</td>
+<td>{{ a.sender }}</td>
+<td>{{ a.subject }}</td>
+<td>{{ (a.phishing_probability * 100) | round(2) }}%</td>
+<td><b>HIGH</b></td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
