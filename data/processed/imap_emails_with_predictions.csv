@@ -458,7 +458,7 @@ Reply with:
 
    Bank Details
 
-THIS IS YOUR LAST NOTICE!!!",0.997793956595212,Phishing,Critical,True
+THIS IS YOUR LAST NOTICE!!!",1,0.997793956595212,Phishing,Phishing,True,Critical,True
 Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 18:56:27+05:45,Immediate Action Required – Account Suspension in 24 Hours,"Dear Valued Customer,
 
 We detected *unusual activity* on your account that violates our security
@@ -517,7 +517,7 @@ Thank you for your prompt cooperation.
 
 Sincerely,
 *Security Operations Team*
-PayPal Customer SupportF",0.9754073615193974,Phishing,Critical,True
+PayPal Customer SupportF",1,0.9754073615193974,Phishing,Phishing,True,Critical,True
 Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 18:07:27+05:45,Fwd: Meeting Minutes of 15th December 2025,"---------- Forwarded message ---------
 From: LND Kathmandu <lnd.ktm@bwnepal.com>
 Date: Mon, Dec 15, 2025 at 4:27 PM
@@ -580,7 +580,7 @@ Reservations: reservations.ktm@bwnepal.com
 <https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®
 <https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>
 |
-bestwestern.com <https://www.bestwestern.com/en_US.html>*",0.10433941457862897,Legitimate,Low,False
+bestwestern.com <https://www.bestwestern.com/en_US.html>*",0,0.10433941457862897,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 11:19:46+00:00,security upgrade,"Dear Employee,
 As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
@@ -591,7 +591,7 @@ As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
 🔗 http://it-support[.]example/reset
 Non-compliance may result in account lockout.
-IT Helpdesk",0.36660208083339774,Legitimate,Low,False
+IT Helpdesk",0,0.36660208083339774,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:48:24+00:00,Mandatory Password Reset – Action Required,"Dear Employee,
 As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
@@ -602,7 +602,7 @@ As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
 🔗 http://it-support[.]example/reset
 Non-compliance may result in account lockout.
-IT Helpdesk",0.4434644709611666,Legitimate,Low,False
+IT Helpdesk",0,0.4434644709611666,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:48:04+00:00,Invoice #87432 – Payment Pending,"Hello,
 Please find attached the invoice for your recent transaction. Payment is overdue.
 Amount Due: $1,245.00
@@ -613,7 +613,7 @@ Please find attached the invoice for your recent transaction. Payment is overdue
 Amount Due: $1,245.00
 Download Invoice: http://billing-docs[.]example/invoice.pdf
 Kindly process the payment today to avoid service interruption.
-Accounts Department",0.4686858223737016,Legitimate,Low,False
+Accounts Department",0,0.4686858223737016,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:47:36+00:00,⚠️ Unusual Login Attempt Detected,"Dear User,
 We detected a suspicious login attempt on your email account from an unknown device.
 If this was not you, please verify your account immediately to prevent suspension.
@@ -626,8 +626,8 @@ If this was not you, please verify your account immediately to prevent suspensio
 🔗 Verify Account: http://security-check[.]example/login
 Failure to act within 24 hours will result in limited access.
 Security Team
-Email Protection Services",0.6882028053036711,Phishing,High,True
-Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:46:14+00:00,global ,"global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .","global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .",,0,592,,"global  global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .",0.26328648434253377,Legitimate,Low,False
+Email Protection Services",1,0.6882028053036711,Phishing,Phishing,True,High,True
+Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:46:14+00:00,global ,"global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .","global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .",,0,592,,"global  global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .",0,0.26328648434253377,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 09:44:52+00:00,"Dear All,","Dear All,
 
 Please find the attached file regarding meeting minute of 14th December 2025
@@ -656,7 +656,7 @@ P: 01-5971499
 Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 
-[cid:6003002c-2c38-42fc-8589-816380f6c668]",0.2538834450489369,Legitimate,Low,False
+[cid:6003002c-2c38-42fc-8589-816380f6c668]",0,0.2538834450489369,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:30+00:00,Action Required: Unusual Login Activity Detected,"From: IT Support Team <it-support@example.com<mailto:it-support@example.com>
 >
 To: Employee Name
@@ -697,12 +697,12 @@ If you do not complete this verification, your access may be restricted.
 
 Thank you for your cooperation,
 IT Support Team
-Company Name",0.2570761710225483,Legitimate,Low,False
+Company Name",0,0.2570761710225483,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,test,"Hello test
 
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",Hello test Best Western Hotels & Resorts ® | bestwestern.com,"https://www.bestwestern.com/en_US.html,https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html",2,10,,"test Hello test
 
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",0.23389661322794647,Legitimate,Low,False
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>",0,0.23389661322794647,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,gaaga,"import re
 from bs4 import BeautifulSoup
 
@@ -879,7 +879,7 @@ P: 01-5971499
 Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 
-[cid:fd5012f4-010d-48db-8555-82c381356638]",0.05811533873951869,Legitimate,Low,False
+[cid:fd5012f4-010d-48db-8555-82c381356638]",0,0.05811533873951869,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:45:20+00:00,,"We all know the classics. But what happens when you give them a twist?
 
 With Suno, you can create genre-bending covers that sound like they came from another dimension. This is your chance to flip the script and surprise your ears.
@@ -902,13 +902,13 @@ Try it on:
 
 You already know the lyrics. Now imagine them in a genre no one saw coming.
 
-Create a cover and see how it sounds<https://clicks.suno.com/f/a/um8uGQ6h_KIu0evpugu4Jw~~/AAQRxRA~/Ie2OrIRVgK51ntzVnlVHmPcyOiWSLMJyt5jymcg0d-gy1KKByWEmZdfGLjWoCLmOFtHt4LM4kv58u6qi-KZG8I_njSO6-ocCdChqQ0_mA7r-Zy5QBCCOJkzTQ4WbBPIA>",0.06269375555826229,Legitimate,Low,False
+Create a cover and see how it sounds<https://clicks.suno.com/f/a/um8uGQ6h_KIu0evpugu4Jw~~/AAQRxRA~/Ie2OrIRVgK51ntzVnlVHmPcyOiWSLMJyt5jymcg0d-gy1KKByWEmZdfGLjWoCLmOFtHt4LM4kv58u6qi-KZG8I_njSO6-ocCdChqQ0_mA7r-Zy5QBCCOJkzTQ4WbBPIA>",0,0.06269375555826229,Legitimate,Legitimate,False,Low,False
 Inbox,Mukesh Maharjan <NP01MS7A240038@islingtoncollege.edu.np>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:39:59+00:00,hacked ,"hacking
 
 Get Outlook for iOS<https://aka.ms/o0ukef>",hacking Get Outlook for iOS,https://aka.ms/o0ukef,1,5,,"hacked  hacking
 
-Get Outlook for iOS<https://aka.ms/o0ukef>",0.12752949922974213,Legitimate,Low,False
-Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:34:55+00:00,tessssss,Get Outlook for iOS<https://aka.ms/o0ukef>,Get Outlook for iOS,https://aka.ms/o0ukef,1,4,,tessssss Get Outlook for iOS<https://aka.ms/o0ukef>,0.13040571398189285,Legitimate,Low,False
+Get Outlook for iOS<https://aka.ms/o0ukef>",0,0.12752949922974213,Legitimate,Legitimate,False,Low,False
+Inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:34:55+00:00,tessssss,Get Outlook for iOS<https://aka.ms/o0ukef>,Get Outlook for iOS,https://aka.ms/o0ukef,1,4,,tessssss Get Outlook for iOS<https://aka.ms/o0ukef>,0,0.13040571398189285,Legitimate,Legitimate,False,Low,False
 Inbox,"""Hissatsu !"" <abhistha1012@gmail.com>","""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 07:54:32+05:45,phis,"Subject: Action Required: Unusual Login Activity Detected
 
 From: IT Support Team <it-support@example.com
@@ -955,7 +955,7 @@ If you do not complete this verification, your access may be restricted.
 
 Thank you for your cooperation,
 IT Support Team
-Company Name",0.3520667796570198,Legitimate,Low,False
+Company Name",0,0.3520667796570198,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 01:12:04+00:00,URGENT: Password Expiry – Action Required Within 2 Hours,"Dear User,
 We detected unusual sign-in activity on your email account earlier today.
 As part of our security policy, your password is scheduled to expire within the next 2 hours. Failure to verify your account may result in temporary suspension of email access.
@@ -972,14 +972,14 @@ Please confirm your credentials immediately using the secure portal below:
 If this action is not completed within the stated time, your account will be locked automatically.
 Thank you for your cooperation,
 IT Security Team
-Secure IT Helpdesk",0.6791075708159748,Phishing,High,True
+Secure IT Helpdesk",1,0.6791075708159748,Phishing,Phishing,True,High,True
 Inbox,R e e y e e s <crimsonpearl987@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 06:50:45+05:45,Job Vacancy,"Hello!
 This is the email link for newly opened job vacancy!
 
 Welcome to Costco Wholesale <https://www.costco.com/>",Hello! This is the email link for newly opened job vacancy! Welcome to Costco Wholesale,https://www.costco.com/,1,15,,"Job Vacancy Hello!
 This is the email link for newly opened job vacancy!
 
-Welcome to Costco Wholesale <https://www.costco.com/>",0.549934831959893,Phishing,Medium,False
+Welcome to Costco Wholesale <https://www.costco.com/>",1,0.549934831959893,Phishing,Phishing,True,Medium,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 06:38:41+05:45,temporary suspension of email access.,"Dear User,
 We detected unusual sign-in activity on your email account earlier today.
 As part of our security policy, your password is scheduled to *expire
@@ -1006,8 +1006,8 @@ If this action is not completed within the stated time, your account will
 be locked automatically.
 Thank you for your cooperation,
 *IT Security Team*
-Secure IT Helpdesk",0.5688548293008657,Phishing,Medium,False
-Spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:23:57+05:45,test,testt,testt,,0,1,,test testt,0.1110132748888795,Spam,Low,False
+Secure IT Helpdesk",1,0.5688548293008657,Phishing,Phishing,True,Medium,False
+Spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-15 05:23:57+05:45,test,testt,testt,,0,1,,test testt,0,0.1110132748888795,Legitimate,Spam,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 17:42:23+00:00,Fw: Subject: URGENT: Password Expiry – Action Required Within 2 Hours,"Dear  Ji
 
 Greetings of the Day!
@@ -1144,7 +1144,7 @@ Please confirm your credentials immediately using the secure portal below:
 If this action is not completed within the stated time, your account will be locked automatically.
 Thank you for your cooperation,
 IT Security Team
-Secure IT Helpdesk",0.48325048966134904,Legitimate,Low,False
+Secure IT Helpdesk",0,0.48325048966134904,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 17:39:58+00:00,Fw: Request to Create Corrected Email ID for Dosm,"Dear  Ji
 
 Greetings of the Day!
@@ -1239,7 +1239,7 @@ P: 01-5971499
 Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 
-[cid:e2cb9bd0-b9da-4f68-8bb6-4f8ec5201500]",0.6231264927079859,Phishing,Medium,False
+[cid:e2cb9bd0-b9da-4f68-8bb6-4f8ec5201500]",1,0.6231264927079859,Phishing,Phishing,True,Medium,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 17:39:35+00:00,Fw: Subject: URGENT: Password Expiry – Action Required Within 2 Hours,"Dear  Ji
 
 Greetings of the Day!
@@ -1314,7 +1314,7 @@ Please confirm your credentials immediately using the secure portal below:
 If this action is not completed within the stated time, your account will be locked automatically.
 Thank you for your cooperation,
 IT Security Team
-Secure IT Helpdesk",0.5734509353663029,Phishing,Medium,False
+Secure IT Helpdesk",1,0.5734509353663029,Phishing,Phishing,True,Medium,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 17:36:36+00:00,Subject: URGENT: Password Expiry – Action Required Within 2 Hours,"Dear User,
 We detected unusual sign-in activity on your email account earlier today.
 As part of our security policy, your password is scheduled to expire within the next 2 hours. Failure to verify your account may result in temporary suspension of email access.
@@ -1331,7 +1331,7 @@ Please confirm your credentials immediately using the secure portal below:
 If this action is not completed within the stated time, your account will be locked automatically.
 Thank you for your cooperation,
 IT Security Team
-Secure IT Helpdesk",0.7006381649044138,Phishing,High,True
+Secure IT Helpdesk",1,0.7006381649044138,Phishing,Phishing,True,High,True
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 17:29:40+00:00,Fw: MOD Report of 14.12.2025,"Dear  Ji    mukskskks
 
 Greetings of the Day!
@@ -1424,7 +1424,7 @@ P: 01-5971499
 Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 
-[cid:888866ac-2709-4beb-a374-df2ce1435fff]",0.1790375681216899,Legitimate,Low,False
+[cid:888866ac-2709-4beb-a374-df2ce1435fff]",0,0.1790375681216899,Legitimate,Legitimate,False,Low,False
 Inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",2025-12-14 15:27:05+00:00,"Fw: BOB of December,2025 & BOB of Next Year,2026.","Dear  Ji
 
 Greetings of the Day!
@@ -1515,7 +1515,7 @@ Pingalasthan,Tilganga Marg | Kathmandu
 P: 01-5971499
 Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-[cid:05179f0f-9f30-41ed-8c5f-bfc4935fa85f]",0.1857907282122724,Legitimate,Low,False
+[cid:05179f0f-9f30-41ed-8c5f-bfc4935fa85f]",0,0.1857907282122724,Legitimate,Legitimate,False,Low,False
 Inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,2025-12-14 06:11:10+00:00,Security alert,"[image: Google]
 App password created to sign in to your account
 
@@ -1542,7 +1542,7 @@ You can also see security activity at
 https://myaccount.google.com/notifications
 You received this email to let you know about important changes to your
 Google Account and services.
-© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0.17675535073785203,Legitimate,Low,False
+© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0,0.17675535073785203,Legitimate,Legitimate,False,Low,False
 Inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,2025-12-14 06:04:49+00:00,Security alert,"[image: Google]
 Authenticator app added as sign-in step
 
@@ -1569,7 +1569,7 @@ You can also see security activity at
 https://myaccount.google.com/notifications
 You received this email to let you know about important changes to your
 Google Account and services.
-© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0.15812801459740297,Legitimate,Low,False
+© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0,0.15812801459740297,Legitimate,Legitimate,False,Low,False
 Inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,2025-12-14 06:04:12+00:00,2-Step Verification turned on,"[image: Google]
 2-Step Verification turned on
 
@@ -1610,4 +1610,4 @@ You can also see security activity at
 https://myaccount.google.com/notifications
 You received this email to let you know about important changes to your
 Google Account and services.
-© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0.09546563666663067,Legitimate,Low,False
+© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",0,0.09546563666663067,Legitimate,Legitimate,False,Low,False
