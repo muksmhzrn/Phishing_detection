@@ -49,7 +49,7 @@ def normalize_date(date_str):
 def connect():
     mail = imaplib.IMAP4_SSL(IMAP_SERVER)
     mail.login(USERNAME, PASSWORD)
-    print("[✓] Connected to Gmail IMAP")
+    print(" Connected to Gmail IMAP")
     return mail
 
 
@@ -114,7 +114,7 @@ def build_dataset():
             ])
 
         for mailbox, label in MAILBOXES.items():
-            print(f"[+] Checking {label}")
+            print(f" Checking {label}")
             mail.select(mailbox)
 
             status, data = mail.search(None, "ALL")
@@ -130,7 +130,7 @@ def build_dataset():
 
                 message_id = msg.get("Message-ID", "").strip()
 
-                # 🚫 HARD DEDUPLICATION (FIXES SPAM LOOP)
+                #  HARD DEDUPLICATION (FIXES SPAM LOOP)
                 if not message_id or message_id in seen_message_ids:
                     continue
 
@@ -163,7 +163,7 @@ def build_dataset():
             print(f"    → {added} new emails added")
 
     save_seen_message_ids(seen_message_ids.union(new_message_ids))
-    print("\n[✓] Gmail ingestion completed safely")
+    print("\n Gmail ingestion completed safely")
 
 
 # -------------------------------------------------

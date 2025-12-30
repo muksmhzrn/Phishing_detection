@@ -5,98 +5,163 @@
 
     <style>
         body {
-            font-family: Arial;
-            margin: 20px;
-            background: #fff3f3;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(180deg, #eef2f7, #f9fbfd);
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
         }
 
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: rgba(15, 32, 39, 0.92);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        .back-btn {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 24px;
+            font-weight: bold;
+            box-shadow: 0 6px 18px rgba(0,114,255,0.6);
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 22px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        /* ===== TABLE ===== */
         table {
             width: 100%;
             border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            font-size: 14px;
+            margin-top: 14px;
+            border-radius: 14px;
+            overflow: hidden;
         }
 
         th {
-            background: #ffe6e6;
+            background: #ecf1f6;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
-        .high {
-            background: #ffcccc;
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e1e4e8;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        tr:hover {
+            background: #f2f7ff;
+        }
+
+        /* ===== ALERT ROW HIGHLIGHT ===== */
+        .critical {
+            background: #fff5f5;
+        }
+
+        .suspicious {
+            background: #fffaf0;
+        }
+
+        .monitor {
+            background: #f6fff6;
+        }
+
+        .prob {
             font-weight: bold;
-            color: #b30000;
         }
 
-        .medium {
-            background: #fff0cc;
-            color: #cc7a00;
-        }
-
-        .low {
-            background: #e6ffe6;
-            color: #006600;
+        .recommendation {
+            font-size: 13px;
+            line-height: 1.5;
         }
     </style>
 </head>
 
 <body>
 
-<h2> SOC ALERTS</h2>
-<p><b>Total Active Alerts:</b> {{ total_alerts }}</p>
+<!-- ================= TOP BAR ================= -->
+<div class="top-bar">
+    <div>
+        <h2> SOC Analyst Alert Console</h2>
+        <div class="subtitle">
+            Real-time phishing alerts with automated analyst guidance
+        </div>
+    </div>
 
-<a href="/" style="
-    display:inline-block;
-    margin-bottom:10px;
-    text-decoration:none;
-    background:#333;
-    color:white;
-    padding:6px 10px;
-    border-radius:4px;
-"> Dashboard</a>
+    <a href="/?model={{ model }}" class="back-btn">
+         Back to Dashboard
+    </a>
+</div>
 
-<hr>
+<!-- ================= ALERT TABLE ================= -->
+<div class="card">
+    <h3> Active Alerts ({{ total_alerts }})</h3>
 
-<table>
-<tr>
-    <th>Mailbox</th>
-    <th>Sender</th>
-    <th>Subject</th>
-    <th>Probability</th>
-    <th>Severity</th>
-    <th>Analyst Recommendation</th>
-</tr>
+    <table>
+        <tr>
+            <th>Mailbox</th>
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Phishing Probability</th>
+            <th>Real-Time Analyst Recommendation</th>
+        </tr>
 
-{% for a in alerts %}
-{% set prob = a.phishing_probability %}
-{% if prob >= 0.8 %}
-    {% set sev = "HIGH" %}
-    {% set cls = "high" %}
-    {% set action = "Immediately block sender, reset user credentials, investigate URLs" %}
-{% elif prob >= 0.5 %}
-    {% set sev = "MEDIUM" %}
-    {% set cls = "medium" %}
-    {% set action = "Warn user, monitor activity, block sender if repeated" %}
-{% else %}
-    {% set sev = "LOW" %}
-    {% set cls = "low" %}
-    {% set action = "No immediate action required, continue monitoring" %}
-{% endif %}
+        {% for a in alerts %}
+        {% set prob = a.phishing_probability %}
 
-<tr class="{{ cls }}">
-    <td>{{ a.mailbox }}</td>
-    <td>{{ a.sender }}</td>
-    <td>{{ a.subject }}</td>
-    <td>{{ (prob * 100) | round(2) }}%</td>
-    <td>{{ sev }}</td>
-    <td>{{ action }}</td>
-</tr>
-{% endfor %}
+        {% if prob >= 0.85 %}
+            {% set cls = "critical" %}
+            {% set action = 
+            " Immediate response required. Block sender at email gateway and firewall level. 
+             Reset affected user credentials, isolate endpoint if links were clicked, 
+             and perform IOC sweep across mailboxes and proxy logs." %}
+        {% elif prob >= 0.6 %}
+            {% set cls = "suspicious" %}
+            {% set action = 
+            "Suspicious activity detected. Quarantine email, notify user, 
+             monitor authentication logs, and analyze embedded URLs or attachments 
+             before escalation." %}
+        {% else %}
+            {% set cls = "monitor" %}
+            {% set action = 
+            " Low confidence alert. No immediate containment required. 
+             Retain email for correlation, continue monitoring user activity, 
+             and reassess if similar patterns reoccur." %}
+        {% endif %}
 
-</table>
+        <tr class="{{ cls }}">
+            <td>{{ a.mailbox }}</td>
+            <td>{{ a.sender }}</td>
+            <td>{{ a.subject }}</td>
+            <td class="prob">{{ (prob * 100) | round(2) }}%</td>
+            <td class="recommendation">{{ action }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 
 </body>
 </html>
