@@ -6,6 +6,9 @@ from flask import Flask, render_template, request, redirect, session, url_for
 import os
 from database import init_db
 from auth import login_required
+import sys
+print("PYTHON EXECUTABLE:", sys.executable)
+
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # for session
