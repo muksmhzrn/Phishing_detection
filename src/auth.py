@@ -1,50 +1,39 @@
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import database
 
-
-def register_user(email: str, password: str, app_password: str, db_path: str):
-    """
-    Returns: (ok: bool, message: str)
-    - Enforces unique email
-    - Stores password hash + app_password (IMAP field from register form)
-    """
+def register_user(email, password, app_password, db_path):
     if not email or not password or not app_password:
-        return False, "Email, password, and Gmail App Password are required."
+        return False  # prevents 400
 
-    pw_hash = generate_password_hash(password)
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
 
     try:
-        conn = database.get_conn(db_path)
-        conn.execute(
-            "INSERT INTO users (email, password_hash, app_password) VALUES (?, ?, ?)",
-            (email, pw_hash, app_password),
+        cur.execute(
+            "INSERT INTO users (email, password, app_password) VALUES (?, ?, ?)",
+            (email, generate_password_hash(password), app_password)
         )
         conn.commit()
-        conn.close()
-        return True, "OK"
+        return True
+
     except sqlite3.IntegrityError:
-        return False, "Email already registered. Please login."
-    except Exception:
-        return False, "Registration failed due to a server error."
+        return False  # duplicate email
+
+    finally:
+        conn.close()
 
 
-def login_user(email: str, password: str, db_path: str):
-    """
-    Returns user dict {id,email,app_password} or None
-    """
-    if not email or not password:
-        return None
+def login_user(email, password, db_path):
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
 
-    conn = database.get_conn(db_path)
-    user = conn.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchone()
+    cur.execute("SELECT * FROM users WHERE email = ?", (email,))
+    user = cur.fetchone()
     conn.close()
 
-    if not user:
-        return None
+    if user and check_password_hash(user["password"], password):
+        return dict(user)
 
-    if not check_password_hash(user["password_hash"], password):
-        return None
-
-    return {"id": user["id"], "email": user["email"], "app_password": user["app_password"]}
+    return None

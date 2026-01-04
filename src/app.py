@@ -1,29 +1,68 @@
-from flask import Flask, render_template, request, redirect, session
 import os
 import csv
-import threading
+import math
+from threading import Thread
+from flask import Flask, render_template, request, redirect, session, url_for
 
-import auth
-import database
+from auth import login_user, register_user
+from database import init_db
 from gmail_dataset_builder import sync_gmail_to_csv
 
+# ------------------ CONFIG ------------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data", "user_data")
+DB_PATH = os.path.join(BASE_DIR, "data", "users.db")
+
+EMAILS_PER_PAGE = 15
+# --------------------------------------------
+
 app = Flask(__name__)
-app.secret_key = "coursework-secret-key"
+app.secret_key = "change_this_for_production"
 
-DB_PATH = "data/users.db"
+# Ensure base folders exist
+os.makedirs(DATA_DIR, exist_ok=True)
+
+# Initialize database
+init_db(DB_PATH)
+
+# ------------------ HELPERS ------------------
+
+def get_user_csv(user_id):
+    user_dir = os.path.join(DATA_DIR, str(user_id))
+    os.makedirs(user_dir, exist_ok=True)
+    return os.path.join(user_dir, "imap_emails.csv")
 
 
-def get_user_dir(user_id):
-    path = os.path.join("user_data", f"user_{user_id}")
-    os.makedirs(path, exist_ok=True)
-    return path
+def load_emails(csv_path):
+    if not os.path.exists(csv_path):
+        return []
 
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader)
+
+
+# ------------------ ROUTES ------------------
 
 @app.route("/")
 def index():
-    if "user" in session:
+    if "user_id" in session:
         return redirect("/dashboard")
     return redirect("/login")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+        app_password = request.form["app_password"]
+
+        success = register_user(email, password, app_password, DB_PATH)
+        if success:
+            return redirect("/login")
+
+    return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -32,106 +71,25 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
-        user = auth.login_user(email, password, DB_PATH)
-        if not user:
-            return render_template("login.html", error="Invalid credentials")
+        user = login_user(email, password, DB_PATH)
+        if user:
+            session["user_id"] = user["id"]
+            session["email"] = user["email"]
+            session["app_password"] = user["app_password"]
 
-        session["user"] = user
+            # ---------- BACKGROUND GMAIL SYNC ----------
+            csv_path = get_user_csv(user["id"])
 
-        user_dir = get_user_dir(user["id"])
-        threading.Thread(
-            target=sync_gmail_to_csv,
-            args=(user["email"], user["app_password"], user_dir),
-            daemon=True
-        ).start()
+            Thread(
+                target=sync_gmail_to_csv,
+                args=(user["email"], user["app_password"], csv_path),
+                daemon=True
+            ).start()
+            # ------------------------------------------
 
-        return redirect("/dashboard")
+            return redirect("/dashboard")
 
-    return render_template("login.html", error=None)
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "POST":
-        ok, msg = auth.register_user(
-            request.form["email"],
-            request.form["password"],
-            request.form["imap"],
-            DB_PATH
-        )
-        if not ok:
-            return render_template("register.html", error=msg)
-
-        return redirect("/login")
-
-    return render_template("register.html")
-
-
-@app.route("/dashboard")
-def dashboard():
-    if "user" not in session:
-        return redirect("/login")
-
-    user = session["user"]
-    user_dir = get_user_dir(user["id"])
-    csv_path = os.path.join(user_dir, "imap_email.csv")
-
-    emails = []
-    if os.path.exists(csv_path):
-        with open(csv_path, encoding="utf-8") as f:
-            emails = list(csv.DictReader(f))
-
-    # pagination-safe
-    page = int(request.args.get("page", 1))
-    per_page = 15
-    total = len(emails)
-    total_pages = max(1, (total + per_page - 1) // per_page)
-
-    start = (page - 1) * per_page
-    end = start + per_page
-
-    return render_template(
-        "dashboard.html",
-        emails=emails[start:end],
-        email_count=total,
-        page=page,
-        total_pages=total_pages,
-        user_email=user["email"]
-    )
-
-
-@app.route("/soc")
-def soc_dashboard():
-    if "user" not in session:
-        return redirect("/login")
-
-    user = session["user"]
-    user_dir = get_user_dir(user["id"])
-    csv_path = os.path.join(user_dir, "imap_email.csv")
-
-    emails = []
-    phishing = 0
-    legitimate = 0
-
-    if os.path.exists(csv_path):
-        with open(csv_path, encoding="utf-8") as f:
-            emails = list(csv.DictReader(f))
-
-        for e in emails:
-            label = e.get("prediction", "").lower()
-            if label == "phishing":
-                phishing += 1
-            elif label == "legitimate":
-                legitimate += 1
-
-    return render_template(
-        "soc.html",
-        total_emails=len(emails),
-        phishing_count=phishing,
-        legitimate_count=legitimate,
-        user_email=user["email"]
-    )
-
+    return render_template("login.html")
 
 
 @app.route("/logout")
@@ -140,6 +98,62 @@ def logout():
     return redirect("/login")
 
 
+@app.route("/dashboard")
+def dashboard():
+    if "user_id" not in session:
+        return redirect("/login")
+
+    user_id = session["user_id"]
+    csv_path = get_user_csv(user_id)
+
+    emails = load_emails(csv_path)
+    total_emails = len(emails)
+
+    page = request.args.get("page", 1, type=int)
+    total_pages = max(1, math.ceil(total_emails / EMAILS_PER_PAGE))
+
+    start = (page - 1) * EMAILS_PER_PAGE
+    end = start + EMAILS_PER_PAGE
+    emails_page = emails[start:end]
+
+    phishing_count = sum(1 for e in emails if e.get("label") == "Phishing")
+    legit_count = total_emails - phishing_count
+
+    return render_template(
+        "dashboard.html",
+        emails=emails_page,
+        email_count=total_emails,
+        phishing_count=phishing_count,
+        legit_count=legit_count,
+        page=page,
+        total_pages=total_pages,
+        user_email=session.get("email")
+    )
+
+
+@app.route("/soc")
+def soc_alerts():
+    if "user_id" not in session:
+        return redirect("/login")
+
+    user_id = session["user_id"]
+    csv_path = get_user_csv(user_id)
+
+    emails = load_emails(csv_path)
+
+    alerts = [
+        e for e in emails
+        if float(e.get("phishing_probability", 0)) >= 0.8
+    ]
+
+    return render_template(
+        "soc.html",
+        alerts=alerts,
+        user_email=session.get("email")
+    )
+
+
+# ------------------ RUN ------------------
+
 if __name__ == "__main__":
-    database.init_db(DB_PATH)
-    app.run()
+    app.run(host="127.0.0.1", port=5000)
