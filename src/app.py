@@ -100,6 +100,40 @@ def dashboard():
     )
 
 
+@app.route("/soc")
+def soc_dashboard():
+    if "user" not in session:
+        return redirect("/login")
+
+    user = session["user"]
+    user_dir = get_user_dir(user["id"])
+    csv_path = os.path.join(user_dir, "imap_email.csv")
+
+    emails = []
+    phishing = 0
+    legitimate = 0
+
+    if os.path.exists(csv_path):
+        with open(csv_path, encoding="utf-8") as f:
+            emails = list(csv.DictReader(f))
+
+        for e in emails:
+            label = e.get("prediction", "").lower()
+            if label == "phishing":
+                phishing += 1
+            elif label == "legitimate":
+                legitimate += 1
+
+    return render_template(
+        "soc.html",
+        total_emails=len(emails),
+        phishing_count=phishing,
+        legitimate_count=legitimate,
+        user_email=user["email"]
+    )
+
+
+
 @app.route("/logout")
 def logout():
     session.clear()
