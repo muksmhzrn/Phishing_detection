@@ -1,6 +1,5 @@
 .env
 merged_phishing_dataset.csv
-phishing_email_model.joblib
 email_dataset.csv
 .venv
 # Created by https://www.toptal.com/developers/gitignore/api/python
