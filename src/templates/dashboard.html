@@ -254,20 +254,20 @@
 <div class="topbar">
   <div>
     <div class="title">Phishing Detection Dashboard</div>
-    <div class="sub">Logged in as: <b>{{ user_email }}</b> • User ID: <b>{{ user_id }}</b></div>
+    <div class="sub">Logged in as: <b>{{ user_email|default('Unknown') }}</b> • User ID: <b>{{ user_id|default('N/A') }}</b></div>
   </div>
 
   <div class="right-controls">
     <form method="get" class="model-toggle">
-      <input type="hidden" name="filter" value="{{ label_filter }}">
-      <button name="model" value="baseline" class="{{ 'active' if model=='baseline' }}"> Baseline</button>
-      <button name="model" value="xgboost" class="{{ 'active' if model=='xgboost' }}"> XGBoost</button>
+      <input type="hidden" name="filter" value="{{ label_filter|default('all') }}">
+      <button name="model" value="baseline" class="{{ 'active' if model=='baseline' else '' }}"> Baseline</button>
+      <button name="model" value="xgboost" class="{{ 'active' if model=='xgboost' else '' }}"> XGBoost</button>
     </form>
 
-    <a href="/dashboard?model={{ model }}&filter={{ label_filter }}&refresh=1" class="btn refresh-btn">Refresh</a>
+    <a href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&refresh=1" class="btn refresh-btn">Refresh</a>
 
-    <a href="/soc?model={{ model }}" class="btn soc-btn">
-      SOC Alerts {{ soc_alert_count }}
+    <a href="/soc?model={{ model|default('baseline') }}" class="btn soc-btn">
+      SOC Alerts {{ soc_alert_count|default(0) }}
     </a>
 
     <a href="/logout" class="btn logout-btn">Logout</a>
@@ -282,31 +282,27 @@
     <h3>Email Classification</h3>
     <div class="chart-container">
       <canvas id="pie"></canvas>
-      <div class="chart-center">
-    
-
-      </div>
+      <div class="chart-center"></div>
     </div>
   </div>
 
   <!-- Middle stats -->
   <div class="card" style="flex: .9;">
     <h3>Summary</h3>
-    <div class="muted">Current model: <b>{{ model }}</b></div>
-    <div class="big-number">{{ total_emails }}</div>
+    <div class="muted">Current model: <b>{{ model|default('baseline') }}</b></div>
+    <div class="big-number">{{ total_emails|default(0) }}</div>
     <div class="muted">Total emails processed</div>
 
     <div class="stat-row">
-      <span class="pill green">Legit: {{ legit_count }}</span>
-      <span class="pill red">Phishing: {{ phishing_count }}</span>
-      
+      <span class="pill green">Legit: {{ legit_count|default(0) }}</span>
+      <span class="pill red">Phishing: {{ phishing_count|default(0) }}</span>
     </div>
   </div>
 
   <!-- Top phishing -->
   <div class="card" style="flex: 1.2;">
     <h3>Top Phishing Emails</h3>
-    {% if top_phishing and top_phishing|length > 0 %}
+    {% if top_phishing|default([])|length > 0 %}
       <ul style="margin:0;padding-left:18px;">
         {% for p in top_phishing %}
           <li style="margin-bottom:10px;">
@@ -325,13 +321,13 @@
 <!-- ===== FILTER + SHOWING ===== -->
 <div class="filter-bar">
   <div class="filters">
-    <a class="filter-btn {{ 'active' if label_filter=='all' }}" href="/dashboard?model={{ model }}&filter=all&page=1">All</a>
-    <a class="filter-btn {{ 'active' if label_filter=='legit' }}" href="/dashboard?model={{ model }}&filter=legit&page=1">Legitimate</a>
-    <a class="filter-btn {{ 'active' if label_filter=='phishing' }}" href="/dashboard?model={{ model }}&filter=phishing&page=1">Phishing</a>
+    <a class="filter-btn {{ 'active' if label_filter=='all' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=all&page=1">All</a>
+    <a class="filter-btn {{ 'active' if label_filter=='legit' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=legit&page=1">Legitimate</a>
+    <a class="filter-btn {{ 'active' if label_filter=='phishing' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=phishing&page=1">Phishing</a>
   </div>
 
   <div class="showing">
-    Showing <b>{{ showing_from }}</b>–<b>{{ showing_to }}</b> of <b>{{ filtered_total }}</b>
+    Showing <b>{{ showing_from|default(0) }}</b>–<b>{{ showing_to|default(0) }}</b> of <b>{{ filtered_total|default(0) }}</b>
   </div>
 </div>
 
@@ -341,43 +337,46 @@
     <th>Mailbox</th><th>Sender</th><th>Date</th><th>Subject</th><th>Label</th><th>Score</th>
   </tr>
 
-  {% for e in emails %}
+  {% for e in emails|default([]) %}
   <tr class="email-row"
       onclick="openEmail(
-        '{{ e.subject|escape }}',
-        '{{ e.sender|escape }}',
-        '{{ e.receiver|escape }}',
-        '{{ e.date }}',
-        '{{ e.final_label|escape }}',
-        '{{ ((e.phishing_probability|float)*100)|round(2) }}%',
-        '{{ e.cleaned_body|escape }}'
+        '{{ e.subject|default('')|escape }}',
+        '{{ e.sender|default('')|escape }}',
+        '{{ e.receiver|default('')|escape }}',
+        '{{ e.date|default('') }}',
+        '{{ e.final_label|default('')|escape }}',
+        '{{ ((e.phishing_probability|float|default(0))*100)|round(2) }}%',
+        '{{ e.cleaned_body|default('')|escape }}'
       )">
-    <td>{{ e.mailbox }}</td>
-    <td>{{ e.sender }}</td>
-    <td>{{ e.date }}</td>
-    <td>{{ e.subject }}</td>
-    <td class="{{ 'phishing' if 'Phishing' in e.final_label else 'legit' }}">{{ e.final_label }}</td>
-    <td>{{ ((e.phishing_probability|float)*100)|round(2) }}%</td>
+    <td>{{ e.mailbox|default('') }}</td>
+    <td>{{ e.sender|default('') }}</td>
+    <td>{{ e.date|default('') }}</td>
+    <td>{{ e.subject|default('') }}</td>
+    <td class="{{ 'phishing' if 'Phishing' in e.final_label else 'legit' }}">{{ e.final_label|default('') }}</td>
+    <td>{{ ((e.phishing_probability|float|default(0))*100)|round(2) }}%</td>
   </tr>
   {% endfor %}
 </table>
 
 <!-- ===== PAGINATION ===== -->
 <div class="pagination">
+  {% set page = page|default(1) %}
+  {% set total_pages = total_pages|default(1) %}
+
   {% if page > 1 %}
-    <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ page-1 }}">Prev</a>
+    <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ page-1 }}">Prev</a>
   {% endif %}
 
   {% for p in range(1, total_pages+1) %}
     {% if p == page %}
-      <a class="page-link active" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ p }}">{{ p }}</a>
+      <a class="page-link active" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ p }}">{{ p }}</a>
     {% else %}
-      <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ p }}">{{ p }}</a>
+      <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ p }}">{{ p }}</a>
     {% endif %}
   {% endfor %}
 
   {% if page < total_pages %}
-    <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ page+1 }}">Next</a>
+    <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ page+1 }}">Next</a>
   {% endif %}
 </div>
 
@@ -406,7 +405,8 @@
     data: {
       labels: ["Phishing", "Legitimate"],
       datasets: [{
-        data: [phishing, legit]
+        data: [phishing, legit],
+        backgroundColor: ['#e74c3c', '#27ae60']
       }]
     }
   });

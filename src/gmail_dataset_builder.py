@@ -1,92 +1,129 @@
 import imaplib
 import email
-import csv
+import pandas as pd
 import os
-import ssl
+import time
+import threading
+from auth import get_user_gmail_credentials  # your existing auth module
 
-IMAP_HOST = "imap.gmail.com"
-IMAP_PORT = 993
+DATA_DIR = "data/user_data"
+SYNC_INTERVAL = 180  # seconds
 
-
-def sync_gmail_to_csv(email_addr, app_password, csv_path):
-    """
-    Pulls emails from Gmail Inbox and Spam.
-    - If CSV does not exist → pulls all emails
-    - If CSV exists → pulls only new emails
-    - Never crashes the app
-    """
-
+def fetch_emails_from_gmail(user_email, app_password, csv_path):
+    """Fetch new emails from Gmail and append to CSV."""
     try:
-        context = ssl.create_default_context()
+        mail = imaplib.IMAP4_SSL("imap.gmail.com")
+        mail.login(user_email, app_password)
+        mail.select("inbox")
 
-        mail = imaplib.IMAP4_SSL(
-            IMAP_HOST,
-            IMAP_PORT,
-            ssl_context=context,
-            timeout=15
-        )
-
-        mail.login(email_addr, app_password)
-
-        last_uid = 0
-        rows = []
-
-        # Load existing data if present
+        # Load existing emails
         if os.path.exists(csv_path):
-            with open(csv_path, newline="", encoding="utf-8") as f:
-                rows = list(csv.DictReader(f))
-                if rows:
-                    last_uid = int(rows[-1]["uid"])
+            df_existing = pd.read_csv(csv_path, dtype=str)
+            if "uid" in df_existing.columns and not df_existing.empty:
+                last_uid = df_existing["uid"].astype(int).max()
+            else:
+                last_uid = None
+        else:
+            df_existing = pd.DataFrame()
+            last_uid = None
 
-        for folder in ["INBOX", "[Gmail]/Spam"]:
-            mail.select(folder)
-            status, data = mail.uid("search", None, "ALL")
-            if status != "OK":
+        # Search for new emails
+        if last_uid:
+            result, data = mail.uid("search", None, f"(UID {int(last_uid)+1}:*)")
+        else:
+            result, data = mail.uid("search", None, "ALL")
+
+        if result != "OK":
+            print(f"[SYNC] Failed to search emails for {user_email}")
+            return
+
+        uids = data[0].split()
+        if not uids:
+            print(f"[SYNC] No new emails for {user_email}")
+            return
+
+        emails_list = []
+        for uid in uids:
+            result, msg_data = mail.uid("fetch", uid, "(RFC822)")
+            if result != "OK":
                 continue
 
-            for uid in data[0].split():
-                uid = int(uid)
-                if uid <= last_uid:
-                    continue
+            raw_email = msg_data[0][1]
+            msg = email.message_from_bytes(raw_email)
 
-                _, msg_data = mail.uid("fetch", str(uid), "(RFC822)")
-                msg = email.message_from_bytes(msg_data[0][1])
+            # Decode email parts
+            subject = email.header.decode_header(msg.get("Subject"))[0][0]
+            if isinstance(subject, bytes):
+                subject = subject.decode(errors="ignore")
 
-                subject = msg.get("Subject", "")
-                sender = msg.get("From", "")
-                date = msg.get("Date", "")
-                body = ""
+            from_ = msg.get("From")
+            to_ = msg.get("To")
+            date_ = msg.get("Date")
 
-                if msg.is_multipart():
-                    for part in msg.walk():
-                        if part.get_content_type() == "text/plain":
-                            body = part.get_payload(decode=True).decode(errors="ignore")
-                            break
-                else:
+            # Get email body (plain text)
+            body = ""
+            if msg.is_multipart():
+                for part in msg.walk():
+                    if part.get_content_type() == "text/plain" and part.get_content_disposition() in (None, "inline"):
+                        try:
+                            body += part.get_payload(decode=True).decode(errors="ignore")
+                        except:
+                            pass
+            else:
+                try:
                     body = msg.get_payload(decode=True).decode(errors="ignore")
+                except:
+                    pass
 
-                rows.append({
-                    "uid": uid,
-                    "folder": folder,
-                    "from": sender,
-                    "subject": subject,
-                    "body": body,
-                    "date": date,
-                    "prediction": ""
-                })
+            emails_list.append({
+                "uid": int(uid),
+                "mailbox": "inbox",
+                "sender": from_,
+                "receiver": to_,
+                "subject": subject,
+                "body": body,
+                "date": date_,
+            })
+
+        if emails_list:
+            df_new = pd.DataFrame(emails_list)
+            if not df_existing.empty:
+                df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+            else:
+                df_combined = df_new
+            df_combined.drop_duplicates(subset=["uid"], inplace=True)
+            df_combined.sort_values(by="uid", ascending=True, inplace=True)
+            os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+            df_combined.to_csv(csv_path, index=False)
+            print(f"[SYNC] {len(df_new)} new emails saved for {user_email}")
 
         mail.logout()
 
-        os.makedirs(os.path.dirname(csv_path), exist_ok=True)
-
-        with open(csv_path, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(
-                f,
-                fieldnames=["uid", "folder", "from", "subject", "body", "date", "prediction"]
-            )
-            writer.writeheader()
-            writer.writerows(rows)
-
     except Exception as e:
-        # VERY IMPORTANT: never crash Flask
-        print(f"[IMAP WARNING] Gmail sync skipped: {e}")
+        print(f"[SYNC] Error fetching emails for {user_email}: {e}")
+
+
+def sync_gmail_to_csv(user_id):
+    """Background sync thread for a specific user."""
+    creds = get_user_gmail_credentials(user_id)
+    if not creds:
+        print(f"[SYNC] No credentials found for user {user_id}")
+        return
+
+    user_email = creds.get("email")
+    app_password = creds.get("app_password")
+    user_dir = os.path.join(DATA_DIR, user_id)
+    csv_path = os.path.join(user_dir, "imap_emails.csv")
+
+    def background_sync():
+        while True:
+            try:
+                print(f"[SYNC] Checking Gmail for new emails for user {user_id}...")
+                fetch_emails_from_gmail(user_email, app_password, csv_path)
+            except Exception as e:
+                print(f"[ERROR] Background sync failed: {e}")
+            time.sleep(SYNC_INTERVAL)
+
+    thread = threading.Thread(target=background_sync, daemon=True)
+    thread.start()
+    print(f"[SYNC] Background Gmail sync started for user {user_email}")

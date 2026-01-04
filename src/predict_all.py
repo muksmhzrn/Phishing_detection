@@ -4,31 +4,35 @@ import pandas as pd
 import joblib
 
 PHISHING_THRESHOLD = 0.5
+SOC_THRESHOLD = 0.7
 
-BASE_MODEL_PATH = "data/raw/phishing_email_model.joblib"
-XGB_MODEL_PATH = "data/raw/xgboost_phishing_email_model.joblib"  # <-- YOUR REAL FILE
+# Paths to models
+LOGISTIC_MODEL_PATH = "data/raw/phishing_email_model.joblib"     # baseline logistic model
+XGB_MODEL_PATH = "data/raw/xgboost_phishing_email_model.joblib"  # xgboost model
 
 
 def assign_final_label(prob: float) -> str:
+    """Convert probability to Phishing / Legitimate label"""
     return "Phishing" if float(prob) >= PHISHING_THRESHOLD else "Legitimate"
 
 
 def prepare_dataset(input_csv: str) -> pd.DataFrame:
+    """Load and preprocess dataset for prediction"""
     df = pd.read_csv(input_csv)
 
+    # Ensure columns exist
     for col in ["subject", "body", "date"]:
         if col not in df.columns:
             df[col] = ""
 
-    # timezone-safe
+    # Convert date safely
     df["date"] = pd.to_datetime(df.get("date"), errors="coerce", utc=True)
 
-    # simple text feature (same as your working approach)
+    # Combine subject + body as text
     df["Email Text"] = df["subject"].fillna("").astype(str) + " " + df["body"].fillna("").astype(str)
     df = df[df["Email Text"].str.strip() != ""].copy()
-    df = df.sort_values(by="date", ascending=False, na_position="last")
 
-    # make dashboard safe
+    # Add cleaned_body for dashboard display
     if "cleaned_body" not in df.columns:
         df["cleaned_body"] = df["body"].fillna("").astype(str)
 
@@ -36,6 +40,7 @@ def prepare_dataset(input_csv: str) -> pd.DataFrame:
 
 
 def run_model(model_path: str, df: pd.DataFrame, out_path: str, name: str) -> bool:
+    """Load model, predict probabilities, assign labels, save CSV"""
     if not os.path.exists(model_path):
         print(f"[!] {name}: model not found -> {model_path}")
         return False
@@ -56,27 +61,21 @@ def run_model(model_path: str, df: pd.DataFrame, out_path: str, name: str) -> bo
     out = df.copy()
     out["phishing_probability"] = probs
     out["final_label"] = out["phishing_probability"].apply(assign_final_label)
-    out["soc_alert"] = out["phishing_probability"] >= 0.7
+    out["soc_alert"] = out["phishing_probability"] >= SOC_THRESHOLD
 
     out.to_csv(out_path, index=False)
-    print(f"[✓] {name}: saved -> {out_path}")
+    print(f"[✓] {name}: predictions saved -> {out_path}")
     return True
 
 
 def main():
-    print("=== PREDICT DEBUG ===")
-    print("sys.executable:", sys.executable)
-    print("cwd:", os.getcwd())
-    print("VIRTUAL_ENV:", os.environ.get("VIRTUAL_ENV"))
-    print("=====================")
-
     if len(sys.argv) < 2:
-        print('Usage: python predict_all.py "output_dir"')
+        print('Usage: python predict_all.py "user_data_dir"')
         sys.exit(1)
 
     output_dir = sys.argv[1].strip()
     if not os.path.isdir(output_dir):
-        print(f"[!] output_dir not found: {output_dir}")
+        print(f"[!] user_data_dir not found: {output_dir}")
         sys.exit(1)
 
     input_csv = os.path.join(output_dir, "imap_emails.csv")
@@ -86,15 +85,14 @@ def main():
 
     df = prepare_dataset(input_csv)
 
-    # Baseline
-    base_out = os.path.join(output_dir, "imap_emails_with_predictions.csv")
-    run_model(BASE_MODEL_PATH, df, base_out, "BASELINE")
+    # Logistic model predictions
+    logistic_out = os.path.join(output_dir, "imap_emails_with_predictions_logistic.csv")
+    run_model(LOGISTIC_MODEL_PATH, df, logistic_out, "LOGISTIC")
 
-    # XGBoost: verify import first
+    # XGBoost predictions
     try:
         import xgboost
         print("[✓] xgboost import OK:", xgboost.__version__)
-        print("[✓] xgboost location:", xgboost.__file__)
     except Exception as e:
         print("[!] xgboost import FAILED:", repr(e))
         return
