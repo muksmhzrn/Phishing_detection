@@ -1,315 +1,429 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SOC Phishing Detection Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>SOC Phishing Detection Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<style>
-body{
-    font-family:"Segoe UI",Tahoma,sans-serif;
-    background:linear-gradient(180deg,#eef2f7,#f9fbfd);
-    margin:0;
-    padding:20px;
-    color:#2c3e50;
-}
+  <style>
+    body{
+      font-family:"Segoe UI",Tahoma,sans-serif;
+      background:linear-gradient(180deg,#eef2f7,#f9fbfd);
+      margin:0;
+      padding:20px;
+      color:#2c3e50;
+    }
 
-/* ===== TOP BAR ===== */
-.top-bar{
-    background:rgba(15,32,39,.92);
-    color:white;
-    padding:20px 24px;
-    border-radius:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 12px 30px rgba(0,0,0,.35);
-}
-.subtitle{font-size:12px;opacity:.85}
-.right-controls{display:flex;gap:16px;align-items:center}
+    /* ===== TOP BAR ===== */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding:18px 22px;
+      border-radius:20px;
+      background:#111;
+      color:#fff;
+      box-shadow:0 12px 30px rgba(0,0,0,.14);
+    }
+    .topbar .title{
+      font-size: 24px;
+      font-weight: 900;
+      margin:0;
+    }
+    .topbar .sub{
+      margin-top:6px;
+      font-size:13px;
+      opacity:.9;
+    }
 
-/* ===== MODEL TOGGLE ===== */
-.model-toggle{
-    background:rgba(255,255,255,.12);
-    padding:6px;
-    border-radius:30px;
-    display:flex;
-    gap:6px;
-}
-.model-toggle button{
-    border:none;
-    padding:8px 18px;
-    border-radius:22px;
-    background:transparent;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-.model-toggle .active{
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-}
+    .right-controls{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
 
-/* ===== SOC BTN ===== */
-.soc-btn{
-    padding:10px 18px;
-    background:linear-gradient(135deg,#ff2d2d,#b30000);
-    color:white;
-    border-radius:24px;
-    text-decoration:none;
-    font-weight:bold;
-}
+    .model-toggle button{
+      border:none;
+      padding:8px 18px;
+      border-radius:22px;
+      background:transparent;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .model-toggle .active{
+      background:linear-gradient(135deg,#00c6ff,#0072ff);
+    }
 
-/* ===== LAYOUT ===== */
-.row{display:flex;gap:20px;margin-top:22px}
-.card{
-    background:white;
-    border-radius:18px;
-    padding:20px;
-    box-shadow:0 12px 30px rgba(0,0,0,.1);
-    flex:1;
-}
+    .btn{
+      padding:10px 18px;
+      color:#fff;
+      border-radius:24px;
+      text-decoration:none;
+      font-weight:900;
+      display:inline-block;
+      box-shadow:0 10px 22px rgba(0,0,0,.20);
+    }
+    .soc-btn{ background:linear-gradient(135deg,#ff2d2d,#b30000); }
+    .logout-btn{ background:linear-gradient(135deg,#444,#111); }
+    .refresh-btn{ background:linear-gradient(135deg,#11998e,#38ef7d); }
 
-/* ===== PIE ===== */
-.chart-container{
-    width:240px;
-    height:240px;
-    margin:auto;
-    position:relative;
-}
-.chart-center{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    pointer-events:none;
-}
+    /* ===== LAYOUT ===== */
+    .row{display:flex;gap:20px;margin-top:22px;flex-wrap:wrap}
+    .card{
+      background:white;
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 12px 30px rgba(0,0,0,.1);
+      flex:1;
+      min-width: 280px;
+    }
 
-/* ===== TABLE ===== */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:12px;
-    border-radius:14px;
-    overflow:hidden;
-}
-th{
-    background:#ecf1f6;
-    font-size:12px;
-    text-transform:uppercase;
-}
-th,td{
-    padding:11px;
-    border-bottom:1px solid #e1e4e8;
-    font-size:14px;
-}
-tr:hover{background:#f2f7ff;cursor:pointer}
-.phishing{color:#e74c3c;font-weight:bold}
-.legit{color:#27ae60;font-weight:bold}
+    .card h3{margin:0 0 12px 0}
 
-/* ===== FILTER + PAGINATION ===== */
-.filter-box{margin-bottom:10px}
-.pagination{text-align:center;margin-top:12px}
-.pagination button{
-    padding:6px 10px;
-    margin:3px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
+    /* ===== PIE ===== */
+    .chart-container{
+      position:relative;
+      height:260px;
+    }
+    .chart-center{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      text-align:center;
+      pointer-events:none;
+    }
 
-/* ===== MODAL ===== */
-#emailModal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
-    z-index:1000;
-}
-#modalBox{
-    background:white;
-    width:70%;
-    margin:5% auto;
-    padding:22px;
-    border-radius:18px;
-    max-height:80%;
-    overflow-y:auto;
-}
-#modalBox pre{
-    white-space:pre-wrap;
-    word-wrap:break-word;
-    font-family:inherit;
-}
-.highlight{
-    background:#ffcccc;
-    color:#b30000;
-    font-weight:bold;
-}
-</style>
+    /* ===== STATS CARD (MIDDLE) ===== */
+    .big-number{
+      font-size: 44px;
+      font-weight: 900;
+      color:#111;
+      margin: 6px 0;
+      line-height: 1;
+    }
+    .muted{color:#666;font-size:13px}
+    .stat-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:13px;
+      color:#111;
+      background:#f2f6ff;
+      border:1px solid #e6ecff;
+      display:inline-block;
+    }
+    .pill.red{background:#fff0f0;border-color:#ffd0d0}
+    .pill.green{background:#eefbf3;border-color:#cdeedd}
+
+    /* ===== FILTER ===== */
+    .filter-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+    .filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .filter-btn{
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid #d7deea;
+      background:#fff;
+      color:#111;
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+    }
+    .filter-btn.active{
+      background:linear-gradient(135deg,#0072ff,#00c6ff);
+      border:none;
+      color:#fff;
+    }
+    .showing{
+      font-size:13px;
+      color:#555;
+      font-weight:700;
+    }
+
+    /* ===== TABLE ===== */
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    th,td{
+      padding:12px 14px;
+      border-bottom:1px solid #e1e4e8;
+      font-size:14px;
+      vertical-align: top;
+    }
+    th{
+      background:#f6f8fb;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#333;
+    }
+    tr:hover{background:#f2f7ff;cursor:pointer}
+    .phishing{color:#e74c3c;font-weight:900}
+    .legit{color:#27ae60;font-weight:900}
+
+    /* ===== PAGINATION ===== */
+    .pagination{
+      text-align:center;
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .page-link{
+      padding:8px 12px;
+      border-radius:10px;
+      background:#fff;
+      border:1px solid #d7deea;
+      color:#111;
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+    }
+    .page-link.active{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+
+    /* ===== MODAL ===== */
+    #emailModal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.7);
+      z-index:1000;
+    }
+    #modalBox{
+      background:white;
+      width:70%;
+      margin:5% auto;
+      padding:20px;
+      border-radius:14px;
+      max-height:80%;
+      overflow:auto;
+      box-shadow:0 12px 30px rgba(0,0,0,.4);
+    }
+    #closeModal{
+      float:right;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:900;
+      padding:6px 10px;
+      border-radius:10px;
+      background:#111;
+      color:#fff;
+    }
+    pre{
+      white-space:pre-wrap;
+      word-wrap:break-word;
+      background:#f6f8fb;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid #e6ebf3;
+    }
+  </style>
 </head>
 
 <body>
 
 <!-- ===== TOP BAR ===== -->
-<div class="top-bar">
-    <div>
-        <h2>Phishing Monitoring Dashboard</h2>
-        <div class="subtitle">• Real-time detection</div>
-    </div>
+<div class="topbar">
+  <div>
+    <div class="title">Phishing Detection Dashboard</div>
+    <div class="sub">Logged in as: <b>{{ user_email }}</b> • User ID: <b>{{ user_id }}</b></div>
+  </div>
 
-    <div class="right-controls">
-        <form method="get" class="model-toggle">
-            <button name="model" value="baseline" class="{{ 'active' if model=='baseline' }}">🧪 Baseline</button>
-            <button name="model" value="xgboost" class="{{ 'active' if model=='xgboost' }}">🤖 XGBoost</button>
-        </form>
+  <div class="right-controls">
+    <form method="get" class="model-toggle">
+      <input type="hidden" name="filter" value="{{ label_filter }}">
+      <button name="model" value="baseline" class="{{ 'active' if model=='baseline' }}"> Baseline</button>
+      <button name="model" value="xgboost" class="{{ 'active' if model=='xgboost' }}"> XGBoost</button>
+    </form>
 
-        <a href="/soc?model={{ model }}" class="soc-btn">
-             SOC Alerts ({{ soc_alert_count }})
-        </a>
-    </div>
+    <a href="/dashboard?model={{ model }}&filter={{ label_filter }}&refresh=1" class="btn refresh-btn">Refresh</a>
+
+    <a href="/soc?model={{ model }}" class="btn soc-btn">
+      SOC Alerts {{ soc_alert_count }}
+    </a>
+
+    <a href="/logout" class="btn logout-btn">Logout</a>
+  </div>
 </div>
 
-<!-- ===== PIE + TOP PHISHING ===== -->
+<!-- ===== CARDS ===== -->
 <div class="row">
 
-<div class="card">
-<h3>Email Classification</h3>
-<div class="chart-container">
-<canvas id="pie"></canvas>
-<div class="chart-center">
-<div style="font-size:26px;font-weight:bold">{{ total_emails }}</div>
-<div style="font-size:12px">Total Emails</div>
-</div>
-</div>
+  <!-- Pie -->
+  <div class="card" style="flex: 1.2;">
+    <h3>Email Classification</h3>
+    <div class="chart-container">
+      <canvas id="pie"></canvas>
+      <div class="chart-center">
+    
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Middle stats -->
+  <div class="card" style="flex: .9;">
+    <h3>Summary</h3>
+    <div class="muted">Current model: <b>{{ model }}</b></div>
+    <div class="big-number">{{ total_emails }}</div>
+    <div class="muted">Total emails processed</div>
+
+    <div class="stat-row">
+      <span class="pill green">Legit: {{ legit_count }}</span>
+      <span class="pill red">Phishing: {{ phishing_count }}</span>
+      
+    </div>
+  </div>
+
+  <!-- Top phishing -->
+  <div class="card" style="flex: 1.2;">
+    <h3>Top Phishing Emails</h3>
+    {% if top_phishing and top_phishing|length > 0 %}
+      <ul style="margin:0;padding-left:18px;">
+        {% for p in top_phishing %}
+          <li style="margin-bottom:10px;">
+            <b>{{ (p.phishing_probability*100)|round(2) }}%</b> — {{ p.subject }}<br>
+            <span style="font-size:12px;color:#555">{{ p.sender }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="muted">No phishing emails detected yet.</div>
+    {% endif %}
+  </div>
+
 </div>
 
-<div class="card">
-<h3> Top Phishing Emails</h3>
+<!-- ===== FILTER + SHOWING ===== -->
+<div class="filter-bar">
+  <div class="filters">
+    <a class="filter-btn {{ 'active' if label_filter=='all' }}" href="/dashboard?model={{ model }}&filter=all&page=1">All</a>
+    <a class="filter-btn {{ 'active' if label_filter=='legit' }}" href="/dashboard?model={{ model }}&filter=legit&page=1">Legitimate</a>
+    <a class="filter-btn {{ 'active' if label_filter=='phishing' }}" href="/dashboard?model={{ model }}&filter=phishing&page=1">Phishing</a>
+  </div>
+
+  <div class="showing">
+    Showing <b>{{ showing_from }}</b>–<b>{{ showing_to }}</b> of <b>{{ filtered_total }}</b>
+  </div>
+</div>
+
+<!-- ===== EMAIL TABLE (15 per page) ===== -->
 <table>
-<tr><th>Sender</th><th>Subject</th><th>Probability</th></tr>
-{% for e in top_phishing %}
-<tr onclick="openEmail('{{ e.subject|escape }}','{{ e.sender|escape }}','{{ e.date }}','{{ e.final_label }}','{{ (e.phishing_probability*100)|round(2) }}%','{{ e.cleaned_body|escape }}')">
-<td>{{ e.sender }}</td>
-<td>{{ e.subject }}</td>
-<td>{{ (e.phishing_probability*100)|round(2) }}%</td>
-</tr>
-{% endfor %}
-</table>
-</div>
+  <tr>
+    <th>Mailbox</th><th>Sender</th><th>Date</th><th>Subject</th><th>Label</th><th>Score</th>
+  </tr>
 
-</div>
-
-<!-- ===== ALL EMAILS ===== -->
-<div class="card" style="margin-top:22px">
-<h3> All Emails</h3>
-
-<div class="filter-box">
-<select id="labelFilter" onchange="applyFilter()">
-<option value="All">All</option>
-<option value="Phishing">Phishing</option>
-<option value="Legitimate">Legitimate</option>
-</select>
-</div>
-
-<table>
-<tr>
-<th>Mailbox</th><th>Sender</th><th>Date</th><th>Subject</th><th>Label</th><th>Prob</th>
-</tr>
-
-{% for e in emails %}
-<tr class="email-row" data-label="{{ e.final_label }}"
-onclick="openEmail('{{ e.subject|escape }}','{{ e.sender|escape }}','{{ e.date }}','{{ e.final_label }}','{{ (e.phishing_probability*100)|round(2) }}%','{{ e.cleaned_body|escape }}')">
-<td>{{ e.mailbox }}</td>
-<td>{{ e.sender }}</td>
-<td>{{ e.date }}</td>
-<td>{{ e.subject }}</td>
-<td class="{{ 'phishing' if 'Phishing' in e.final_label else 'legit' }}">{{ e.final_label }}</td>
-<td>{{ (e.phishing_probability*100)|round(2) }}%</td>
-</tr>
-{% endfor %}
+  {% for e in emails %}
+  <tr class="email-row"
+      onclick="openEmail(
+        '{{ e.subject|escape }}',
+        '{{ e.sender|escape }}',
+        '{{ e.receiver|escape }}',
+        '{{ e.date }}',
+        '{{ e.final_label|escape }}',
+        '{{ ((e.phishing_probability|float)*100)|round(2) }}%',
+        '{{ e.cleaned_body|escape }}'
+      )">
+    <td>{{ e.mailbox }}</td>
+    <td>{{ e.sender }}</td>
+    <td>{{ e.date }}</td>
+    <td>{{ e.subject }}</td>
+    <td class="{{ 'phishing' if 'Phishing' in e.final_label else 'legit' }}">{{ e.final_label }}</td>
+    <td>{{ ((e.phishing_probability|float)*100)|round(2) }}%</td>
+  </tr>
+  {% endfor %}
 </table>
 
-<div class="pagination" id="pagination"></div>
+<!-- ===== PAGINATION ===== -->
+<div class="pagination">
+  {% if page > 1 %}
+    <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ page-1 }}">Prev</a>
+  {% endif %}
+
+  {% for p in range(1, total_pages+1) %}
+    {% if p == page %}
+      <a class="page-link active" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ p }}">{{ p }}</a>
+    {% else %}
+      <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ p }}">{{ p }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page < total_pages %}
+    <a class="page-link" href="/dashboard?model={{ model }}&filter={{ label_filter }}&page={{ page+1 }}">Next</a>
+  {% endif %}
 </div>
 
 <!-- ===== MODAL ===== -->
 <div id="emailModal">
-<div id="modalBox">
-<h3 id="mSubject"></h3>
-<p><b>From:</b> <span id="mSender"></span></p>
-<p><b>Date:</b> <span id="mDate"></span></p>
-<p><b>Label:</b> <span id="mLabel"></span></p>
-<p><b>Probability:</b> <span id="mProb"></span></p>
-<hr>
-<pre id="modalBody"></pre>
-<button onclick="closeModal()">Close</button>
-</div>
+  <div id="modalBox">
+    <span id="closeModal" onclick="closeModal()">X</span>
+    <h2 id="mSubject"></h2>
+    <p><b>From:</b> <span id="mSender"></span></p>
+    <p><b>To:</b> <span id="mReceiver"></span></p>
+    <p><b>Date:</b> <span id="mDate"></span></p>
+    <p><b>Label:</b> <span id="mLabel"></span></p>
+    <p><b>Probability:</b> <span id="mProb"></span></p>
+    <h3>Body</h3>
+    <pre id="mBody"></pre>
+  </div>
 </div>
 
 <script>
-/* ===== AUTO REFRESH ===== */
-setTimeout(()=>location.reload(),60000);
+  // Pie chart
+  const phishing = {{ phishing_count|default(0) }};
+  const legit = {{ legit_count|default(0) }};
 
-/* ===== PIE ===== */
-new Chart(pie,{
-type:"doughnut",
-data:{
-labels:["Phishing","Legitimate"],
-datasets:[{
-data:[{{ phishing_count }},{{ legit_count }}],
-backgroundColor:["#e74c3c","#27ae60"]
-}]
-},
-options:{cutout:"72%"}
-});
+  new Chart(document.getElementById("pie"), {
+    type: "pie",
+    data: {
+      labels: ["Phishing", "Legitimate"],
+      datasets: [{
+        data: [phishing, legit]
+      }]
+    }
+  });
 
-/* ===== MODAL + HIGHLIGHT ===== */
-function highlight(text){
-const words=["password","verify","login","urgent","account","click","bank","reset","otp","invoice"];
-words.forEach(w=>{
-text=text.replace(new RegExp("\\b"+w+"\\b","gi"),
-`<span class="highlight">$&</span>`);
-});
-return text;
-}
-function openEmail(s,f,d,l,p,b){
-mSubject.innerText=s;
-mSender.innerText=f;
-mDate.innerText=d;
-mLabel.innerText=l;
-mProb.innerText=p;
-modalBody.innerHTML=highlight(b.replace(/\n/g,"<br>"));
-emailModal.style.display="block";
-}
-function closeModal(){emailModal.style.display="none";}
-
-/* ===== FILTER + PAGINATION ===== */
-const rows=[...document.querySelectorAll(".email-row")];
-const perPage=15;
-let page=1,filtered=rows;
-
-function applyFilter(){
-const v=labelFilter.value;
-filtered=rows.filter(r=>v==="All"||r.dataset.label.includes(v));
-page=1;render();
-}
-function render(){
-rows.forEach(r=>r.style.display="none");
-filtered.slice((page-1)*perPage,page*perPage)
-.forEach(r=>r.style.display="");
-renderPagination();
-}
-function renderPagination(){
-pagination.innerHTML="";
-const total=Math.ceil(filtered.length/perPage);
-for(let i=1;i<=total;i++){
-const b=document.createElement("button");
-b.innerText=i;
-if(i===page)b.style.fontWeight="bold";
-b.onclick=()=>{page=i;render();}
-pagination.appendChild(b);
-}
-}
-render();
+  function openEmail(subject, sender, receiver, date, label, prob, body){
+    document.getElementById("mSubject").innerText = subject;
+    document.getElementById("mSender").innerText = sender;
+    document.getElementById("mReceiver").innerText = receiver;
+    document.getElementById("mDate").innerText = date;
+    document.getElementById("mLabel").innerText = label;
+    document.getElementById("mProb").innerText = prob;
+    document.getElementById("mBody").innerText = body;
+    document.getElementById("emailModal").style.display = "block";
+  }
+  function closeModal(){
+    document.getElementById("emailModal").style.display = "none";
+  }
 </script>
 
 </body>

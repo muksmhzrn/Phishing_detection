@@ -1,128 +1,107 @@
-# =========================================================
-# PHISHING DETECTION – BASELINE + XGBOOST (SOC READY)
-# =========================================================
-
+import os
+import sys
 import pandas as pd
 import joblib
-import sys
-import warnings
-warnings.filterwarnings("ignore", category=UserWarning)
-warnings.filterwarnings("ignore", category=FutureWarning)
-
-
-# ---------------------------------------------------------
-# CONFIG
-# ---------------------------------------------------------
-BASE_MODEL_PATH = "data/raw/phishing_email_model.joblib"
-XGB_MODEL_PATH = "data/raw/fxgboost_phishing_email_model.joblib"
-
-EMAILS_CSV = "data/processed/email_dataset.csv"
-
-BASE_OUTPUT = "data/processed/imap_emails_with_predictions.csv"
-XGB_OUTPUT = "data/processed/imap_emails_with_predictions_xgb.csv"
-
 
 PHISHING_THRESHOLD = 0.5
 
-# ---------------------------------------------------------
-# HELPER FUNCTIONS
-# ---------------------------------------------------------
-def assign_final_label(row):
-    prob = row["phishing_probability"]
-
-    if prob >= PHISHING_THRESHOLD:
-        return "Phishing"
-    else:
-        return "Legitimate"
+BASE_MODEL_PATH = "data/raw/phishing_email_model.joblib"
+XGB_MODEL_PATH = "data/raw/xgboost_phishing_email_model.joblib"  # <-- YOUR REAL FILE
 
 
-def prepare_dataset():
-    df = pd.read_csv(EMAILS_CSV)
+def assign_final_label(prob: float) -> str:
+    return "Phishing" if float(prob) >= PHISHING_THRESHOLD else "Legitimate"
 
+
+def prepare_dataset(input_csv: str) -> pd.DataFrame:
+    df = pd.read_csv(input_csv)
+
+    for col in ["subject", "body", "date"]:
+        if col not in df.columns:
+            df[col] = ""
+
+    # timezone-safe
     df["date"] = pd.to_datetime(df.get("date"), errors="coerce", utc=True)
 
-    df["Email Text"] = (
-        df["subject"].fillna("") + " " + df["body"].fillna("")
-    )
-
+    # simple text feature (same as your working approach)
+    df["Email Text"] = df["subject"].fillna("").astype(str) + " " + df["body"].fillna("").astype(str)
     df = df[df["Email Text"].str.strip() != ""].copy()
-    df = df.sort_values(by="date", ascending=False)
+    df = df.sort_values(by="date", ascending=False, na_position="last")
+
+    # make dashboard safe
+    if "cleaned_body" not in df.columns:
+        df["cleaned_body"] = df["body"].fillna("").astype(str)
 
     return df
 
 
-# ---------------------------------------------------------
-# BASELINE MODEL
-# ---------------------------------------------------------
-print("\n Running Baseline Model")
+def run_model(model_path: str, df: pd.DataFrame, out_path: str, name: str) -> bool:
+    if not os.path.exists(model_path):
+        print(f"[!] {name}: model not found -> {model_path}")
+        return False
 
-df_base = prepare_dataset()
+    try:
+        model = joblib.load(model_path)
+        print(f"[✓] {name}: model loaded -> {model_path}")
+    except Exception as e:
+        print(f"[!] {name}: failed to load model -> {e}")
+        return False
 
-base_model = joblib.load(BASE_MODEL_PATH)
-print(" Baseline model loaded")
+    try:
+        probs = model.predict_proba(df["Email Text"])[:, 1]
+    except Exception as e:
+        print(f"[!] {name}: predict_proba failed -> {e}")
+        return False
 
-df_base["phishing_probability"] = base_model.predict_proba(
-    df_base["Email Text"]
-)[:, 1]
+    out = df.copy()
+    out["phishing_probability"] = probs
+    out["final_label"] = out["phishing_probability"].apply(assign_final_label)
+    out["soc_alert"] = out["phishing_probability"] >= 0.7
 
-df_base["final_label"] = df_base.apply(assign_final_label, axis=1)
-df_base["alert"] = df_base["phishing_probability"] >= PHISHING_THRESHOLD
-
-df_base.to_csv(BASE_OUTPUT, index=False)
-print(f" Baseline results saved → {BASE_OUTPUT}")
-
-print("\n  Latest 5 tested emails (Baseline):")
-print(df_base[[
-    "mailbox",
-    "subject",
-    "final_label",
-    "phishing_probability",
-    "alert"
-]].head(5))
+    out.to_csv(out_path, index=False)
+    print(f"[✓] {name}: saved -> {out_path}")
+    return True
 
 
-# ---------------------------------------------------------
-# XGBOOST MODEL
-# ---------------------------------------------------------
-print("\n Running XGBoost Model")
+def main():
+    print("=== PREDICT DEBUG ===")
+    print("sys.executable:", sys.executable)
+    print("cwd:", os.getcwd())
+    print("VIRTUAL_ENV:", os.environ.get("VIRTUAL_ENV"))
+    print("=====================")
 
-try:
-    import xgboost
-except ImportError:
-    print(" xgboost not installed. Skipping XGBoost predictions.")
-    sys.exit(0)
+    if len(sys.argv) < 2:
+        print('Usage: python predict_all.py "output_dir"')
+        sys.exit(1)
 
-df_xgb = prepare_dataset()
+    output_dir = sys.argv[1].strip()
+    if not os.path.isdir(output_dir):
+        print(f"[!] output_dir not found: {output_dir}")
+        sys.exit(1)
 
-xgb_model = joblib.load(XGB_MODEL_PATH)
-print(" XGBoost model loaded")
+    input_csv = os.path.join(output_dir, "imap_emails.csv")
+    if not os.path.exists(input_csv):
+        print(f"[!] Dataset not found: {input_csv}")
+        sys.exit(1)
 
-df_xgb["phishing_probability"] = xgb_model.predict_proba(
-    df_xgb["Email Text"]
-)[:, 1]
+    df = prepare_dataset(input_csv)
 
-df_xgb["final_label"] = df_xgb.apply(assign_final_label, axis=1)
-df_xgb["alert"] = df_xgb["phishing_probability"] >= PHISHING_THRESHOLD
+    # Baseline
+    base_out = os.path.join(output_dir, "imap_emails_with_predictions.csv")
+    run_model(BASE_MODEL_PATH, df, base_out, "BASELINE")
 
-df_xgb.to_csv(XGB_OUTPUT, index=False)
-print(f" XGBoost results saved → {XGB_OUTPUT}")
+    # XGBoost: verify import first
+    try:
+        import xgboost
+        print("[✓] xgboost import OK:", xgboost.__version__)
+        print("[✓] xgboost location:", xgboost.__file__)
+    except Exception as e:
+        print("[!] xgboost import FAILED:", repr(e))
+        return
 
-print("\n Latest 5 tested emails (XGBoost):")
-print(df_xgb[[
-    "mailbox",
-    "subject",
-    "final_label",
-    "phishing_probability",
-    "alert"
-]].head(5))
+    xgb_out = os.path.join(output_dir, "imap_emails_with_predictions_xgb.csv")
+    run_model(XGB_MODEL_PATH, df, xgb_out, "XGBOOST")
 
-print("\n Latest SOC Alerts (XGBoost):")
-print(
-    df_xgb[df_xgb["alert"] == True][[
-        "mailbox",
-        "subject",
-        "phishing_probability"
-    ]].head(5)
-)
 
-print("\n Prediction pipeline completed successfully")
+if __name__ == "__main__":
+    main()

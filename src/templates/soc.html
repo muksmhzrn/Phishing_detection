@@ -1,167 +1,288 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SOC Alerts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOC Alerts | Phishing Detection</title>
 
-    <style>
-        body {
-            font-family: "Segoe UI", Tahoma, sans-serif;
-            background: linear-gradient(180deg, #eef2f7, #f9fbfd);
-            color: #2c3e50;
-            margin: 0;
-            padding: 20px;
-        }
+  <style>
+    body{
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:#eef2f7;
+      margin:0;
+      padding:0;
+    }
 
-        /* ===== TOP BAR ===== */
-        .top-bar {
-            background: rgba(15, 32, 39, 0.92);
-            backdrop-filter: blur(8px);
-            color: white;
-            padding: 20px 24px;
-            border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Top Header like your dashboard */
+    .topbar{
+      max-width: 1200px;
+      margin: 18px auto 0;
+      padding: 22px 26px;
+      border-radius: 18px;
+      background: #111;
+      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.15);
+    }
 
-        .subtitle {
-            font-size: 12px;
-            opacity: 0.85;
-        }
+    .title-wrap h1{
+      margin:0;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+    .title-wrap .sub{
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: .9;
+    }
 
-        .back-btn {
-            padding: 10px 18px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 24px;
-            font-weight: bold;
-            box-shadow: 0 6px 18px rgba(0,114,255,0.6);
-        }
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
 
-        /* ===== CARD ===== */
-        .card {
-            background: white;
-            border-radius: 18px;
-            padding: 20px;
-            margin-top: 22px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color:#fff;
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+      transition: transform .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
 
-        /* ===== TABLE ===== */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 14px;
-            border-radius: 14px;
-            overflow: hidden;
-        }
+    .btn-blue{ background: linear-gradient(135deg,#0072ff,#00c6ff); }
+    .btn-green{ background: linear-gradient(135deg,#11998e,#38ef7d); }
+    .btn-gray{ background: linear-gradient(135deg,#444,#111); }
 
-        th {
-            background: #ecf1f6;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
+    .container{
+      max-width: 1200px;
+      margin: 18px auto;
+      padding: 0 18px 30px;
+    }
 
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 14px;
-            vertical-align: top;
-        }
+    .notice{
+      background:#fff3cd;
+      border:1px solid #ffeeba;
+      color:#856404;
+      padding:12px;
+      border-radius:12px;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
 
-        tr:hover {
-            background: #f2f7ff;
-        }
+    .summary{
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+      margin-bottom: 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .summary .title{
+      font-size: 16px;
+      font-weight: 900;
+      color:#111;
+    }
+    .summary .meta{
+      font-size: 13px;
+      color:#555;
+      margin-top: 4px;
+    }
 
-        /* ===== ALERT ROW HIGHLIGHT ===== */
-        .critical {
-            background: #fff5f5;
-        }
+    .badge{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius: 999px;
+      font-weight:900;
+      font-size: 12px;
+      color:white;
+      background: linear-gradient(135deg,#ff416c,#ff4b2b);
+      white-space: nowrap;
+    }
 
-        .suspicious {
-            background: #fffaf0;
-        }
+    .card{
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+      overflow:hidden;
+    }
 
-        .monitor {
-            background: #f6fff6;
-        }
+    .card-head{
+      padding: 14px 18px;
+      border-bottom: 1px solid #eee;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
 
-        .prob {
-            font-weight: bold;
-        }
+    .card-head h3{
+      margin:0;
+      font-size: 15px;
+      font-weight: 900;
+      color:#111;
+    }
 
-        .recommendation {
-            font-size: 13px;
-            line-height: 1.5;
-        }
-    </style>
+    table{
+      width:100%;
+      border-collapse: collapse;
+    }
+    th, td{
+      padding: 12px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      text-align:left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+    th{
+      background: #f6f8fb;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      color:#333;
+    }
+    tr:hover td{
+      background: #fafcff;
+    }
+
+    .prob{
+      font-weight: 900;
+      color:#b30000;
+      white-space: nowrap;
+    }
+
+    .pill{
+      display:inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      color:white;
+      background: linear-gradient(135deg,#ff416c,#ff4b2b);
+      white-space: nowrap;
+    }
+
+    .empty{
+      padding: 18px;
+      color:#666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px){
+      th:nth-child(2), td:nth-child(2),
+      th:nth-child(3), td:nth-child(3){
+        display:none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
-<div class="top-bar">
-    <div>
-        <h2> SOC Analyst Alert Console</h2>
-        <div class="subtitle">
-            Real-time phishing alerts with automated analyst guidance
-        </div>
+  <div class="topbar">
+    <div class="title-wrap">
+      <h1>SOC Alerts</h1>
+      <div class="sub">Logged in as: {{ user_email }} • Model: {{ model }}</div>
     </div>
 
-    <a href="/?model={{ model }}" class="back-btn">
-         Back to Dashboard
-    </a>
-</div>
+    <div class="actions">
+      <a class="btn btn-blue" href="/dashboard?model={{ model }}"> Dashboard</a>
+      <a class="btn btn-green" href="/dashboard?model={{ model }}&refresh=1">Refresh</a>
+      <a class="btn btn-gray" href="/logout">Logout</a>
+    </div>
+  </div>
 
-<!-- ================= ALERT TABLE ================= -->
-<div class="card">
-    <h3> Active Alerts ({{ total_alerts }})</h3>
+  <div class="container">
 
-    <table>
-        <tr>
-            <th>Mailbox</th>
+    {% if notice %}
+      <div class="notice">{{ notice }}</div>
+    {% endif %}
+
+    <!-- ONLY TWO BUTTONS: Baseline / XGBoost -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+      <a class="btn btn-blue" href="/soc?model=baseline">Baseline Alerts</a>
+      <a class="btn btn-blue" href="/soc?model=xgboost">XGBoost Alerts</a>
+    </div>
+
+    <div class="summary">
+      <div>
+        <div class="title">High-risk detections</div>
+      </div>
+      <div>
+        <span class="badge">Total Alerts: {{ total_alerts }}</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Alert Queue</h3>
+        <div style="font-size:12px;color:#666;">Review these messages first</div>
+      </div>
+
+      {% if alerts and alerts|length > 0 %}
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
             <th>Sender</th>
+            <th>Receiver</th>
             <th>Subject</th>
-            <th>Phishing Probability</th>
-            <th>Real-Time Analyst Recommendation</th>
-        </tr>
-
-        {% for a in alerts %}
-        {% set prob = a.phishing_probability %}
-
-        {% if prob >= 0.85 %}
-            {% set cls = "critical" %}
-            {% set action = 
-            " Immediate response required. Block sender at email gateway and firewall level. 
-             Reset affected user credentials, isolate endpoint if links were clicked, 
-             and perform IOC sweep across mailboxes and proxy logs." %}
-        {% elif prob >= 0.6 %}
-            {% set cls = "suspicious" %}
-            {% set action = 
-            "Suspicious activity detected. Quarantine email, notify user, 
-             monitor authentication logs, and analyze embedded URLs or attachments 
-             before escalation." %}
-        {% else %}
-            {% set cls = "monitor" %}
-            {% set action = 
-            " Low confidence alert. No immediate containment required. 
-             Retain email for correlation, continue monitoring user activity, 
-             and reassess if similar patterns reoccur." %}
-        {% endif %}
-
-        <tr class="{{ cls }}">
-            <td>{{ a.mailbox }}</td>
+            <th>Score</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in alerts %}
+          <tr>
+            <td>{{ a.date }}</td>
             <td>{{ a.sender }}</td>
+            <td>{{ a.receiver }}</td>
             <td>{{ a.subject }}</td>
-            <td class="prob">{{ (prob * 100) | round(2) }}%</td>
-            <td class="recommendation">{{ action }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
 
+            <td class="prob">
+              {% if a.phishing_probability is defined %}
+                {{ (a.phishing_probability * 100) | round(2) }}%
+              {% else %}
+                -
+              {% endif %}
+            </td>
+
+            <td>
+              <span class="pill">
+                {% if a.final_label is defined and a.final_label %}
+                  {{ a.final_label }}
+                {% else %}
+                  SOC ALERT
+                {% endif %}
+              </span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <div class="empty">No SOC alerts found for this model.</div>
+      {% endif %}
+    </div>
+
+  </div>
 </body>
 </html>

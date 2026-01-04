@@ -1,101 +1,111 @@
-from flask import Flask, render_template, request
-import pandas as pd
-import threading
-import time
+from flask import Flask, render_template, request, redirect, session
 import os
+import csv
+import threading
+
+import auth
+import database
+from gmail_dataset_builder import sync_gmail_to_csv
 
 app = Flask(__name__)
+app.secret_key = "coursework-secret-key"
 
-BASELINE_PATH = "data/processed/imap_emails_with_predictions.csv"
-XGB_PATH = "data/processed/imap_emails_with_predictions_xgb.csv"
-
-
-def background_updater():
-    while True:
-        print("[*] Running background update...")
-        os.system("python src/gmail_dataset_builder.py")
-        os.system("python src/predict_all.py")
-        time.sleep(60)  # 2 minutes
+DB_PATH = "data/users.db"
 
 
-def load_data(model_type):
-    path = BASELINE_PATH if model_type == "baseline" else XGB_PATH
-    df = pd.read_csv(path)
-
-    # ---- FIX: handle text and numeric columns separately ----
-    text_cols = ["mailbox", "sender", "receiver", "subject", "body", "final_label"]
-    for col in text_cols:
-        if col in df.columns:
-            df[col] = df[col].fillna("")
-
-    if "phishing_probability" in df.columns:
-        df["phishing_probability"] = pd.to_numeric(
-            df["phishing_probability"], errors="coerce"
-        ).fillna(0.0)
-
-    # ---- Date handling ----
-    if "date" in df.columns:
-        df["date"] = pd.to_datetime(df["date"], errors="coerce")
-
-    df = df.sort_values("date", ascending=False)
-
-    # ---- SOC alert logic ----
-    df["soc_alert"] = df["phishing_probability"] >= 0.7
-
-    return df
-
+def get_user_dir(user_id):
+    path = os.path.join("user_data", f"user_{user_id}")
+    os.makedirs(path, exist_ok=True)
+    return path
 
 
 @app.route("/")
+def index():
+    if "user" in session:
+        return redirect("/dashboard")
+    return redirect("/login")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+
+        user = auth.login_user(email, password, DB_PATH)
+        if not user:
+            return render_template("login.html", error="Invalid credentials")
+
+        session["user"] = user
+
+        user_dir = get_user_dir(user["id"])
+        threading.Thread(
+            target=sync_gmail_to_csv,
+            args=(user["email"], user["app_password"], user_dir),
+            daemon=True
+        ).start()
+
+        return redirect("/dashboard")
+
+    return render_template("login.html", error=None)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        ok, msg = auth.register_user(
+            request.form["email"],
+            request.form["password"],
+            request.form["imap"],
+            DB_PATH
+        )
+        if not ok:
+            return render_template("register.html", error=msg)
+
+        return redirect("/login")
+
+    return render_template("register.html")
+
+
+@app.route("/dashboard")
 def dashboard():
-    model = request.args.get("model", "baseline")
-    df = load_data(model)
+    if "user" not in session:
+        return redirect("/login")
 
-    total = len(df)
-    phishing = df["final_label"].str.contains("Phishing").sum()
-    legit = total - phishing
+    user = session["user"]
+    user_dir = get_user_dir(user["id"])
+    csv_path = os.path.join(user_dir, "imap_email.csv")
 
-    top_phishing = (
-        df[df["final_label"].str.contains("Phishing")]
-        .sort_values("phishing_probability", ascending=False)
-        .head(5)
-    )
+    emails = []
+    if os.path.exists(csv_path):
+        with open(csv_path, encoding="utf-8") as f:
+            emails = list(csv.DictReader(f))
+
+    # pagination-safe
+    page = int(request.args.get("page", 1))
+    per_page = 15
+    total = len(emails)
+    total_pages = max(1, (total + per_page - 1) // per_page)
+
+    start = (page - 1) * per_page
+    end = start + per_page
 
     return render_template(
         "dashboard.html",
-        model=model,
-        emails=df.to_dict(orient="records"),
-        top_phishing=top_phishing.to_dict(orient="records"),
-        total_emails=total,
-        phishing_count=phishing,
-        legit_count=legit,
-        soc_alert_count=df["soc_alert"].sum()
+        emails=emails[start:end],
+        email_count=total,
+        page=page,
+        total_pages=total_pages,
+        user_email=user["email"]
     )
 
 
-@app.route("/soc")
-def soc():
-    model = request.args.get("model", "baseline")
-    df = load_data(model)
-    alerts = df[df["soc_alert"]]
-
-    return render_template(
-        "soc.html",
-        alerts=alerts.to_dict(orient="records"),
-        total_alerts=len(alerts),
-        model=model
-    )
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/login")
 
 
 if __name__ == "__main__":
-    print("[✓] Starting background updater thread")
-    updater = threading.Thread(target=background_updater, daemon=True)
-    updater.start()
-
-    print("[✓] Starting Flask server")
-    app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=False,
-        use_reloader=False
-    )
+    database.init_db(DB_PATH)
+    app.run()

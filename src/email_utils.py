@@ -1,69 +1,40 @@
 import re
-from bs4 import BeautifulSoup
-
-TRACKING_DOMAINS = [
-    "customeriomail.com",
-    "googleusercontent.com",
-    "doubleclick.net",
-    "gravatar.com",
-    "amazonaws.com",
-    "mailchimp.com",
-    "sendgrid.net"
-]
-
-IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
+from email.header import decode_header
+from typing import Optional
 
 
-def extract_urls(text):
-    urls = set()
-
-    if not text:
-        return []
-
-    # 1️⃣ Extract normal URLs
-    urls.update(re.findall(r"https?://[^\s\"'>]+", text))
-
-    # 2️⃣ Extract href URLs from HTML
-    soup = BeautifulSoup(text, "html.parser")
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if href.startswith("http"):
-            urls.add(href)
-
-    return list(urls)
-
-
-def clean_urls(urls):
-    final_urls = []
-
-    for url in urls:
-        url = url.strip().replace('"', "").replace("'", "")
-
-        if url.lower().endswith(IMAGE_EXTENSIONS):
-            continue
-
-        if any(domain in url for domain in TRACKING_DOMAINS):
-            continue
-
-        if len(url) < 10:
-            continue
-
-        final_urls.append(url)
-
-    return list(set(final_urls))
-
-
-def clean_email_body(raw_text):
-    if not raw_text:
+def safe_decode_header(value: Optional[str]) -> str:
+    if not value:
         return ""
+    try:
+        parts = decode_header(value)
+        out = []
+        for text, enc in parts:
+            if isinstance(text, bytes):
+                out.append(text.decode(enc or "utf-8", errors="replace"))
+            else:
+                out.append(str(text))
+        return "".join(out).strip()
+    except Exception:
+        return str(value).strip()
 
-    soup = BeautifulSoup(raw_text, "html.parser")
-    text = soup.get_text(separator=" ")
 
-    # remove URLs from body
-    text = re.sub(r"https?://[^\s]+", "", text)
-
-    # normalize spaces
+def strip_html(html: str) -> str:
+    html = re.sub(r"(?is)<(script|style).*?>.*?(</\1>)", " ", html)
+    text = re.sub(r"(?is)<.*?>", " ", html)
+    text = (
+        text.replace("&nbsp;", " ")
+            .replace("&amp;", "&")
+            .replace("&lt;", "<")
+            .replace("&gt;", ">")
+    )
     text = re.sub(r"\s+", " ", text).strip()
+    return text
 
+
+def clean_text(text: str) -> str:
+    if not text:
+        return ""
+    text = text.replace("\u200b", " ").replace("\ufeff", " ")
+    text = re.sub(r"\s+", " ", text).strip()
     return text
