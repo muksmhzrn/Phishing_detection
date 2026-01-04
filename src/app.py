@@ -2,9 +2,20 @@ from flask import Flask, render_template, request, redirect, session
 from auth import register_user, login_user, get_user_gmail_credentials
 from gmail_dataset_builder import sync_gmail_to_csv
 import subprocess, threading, os, time
+from flask import Flask, render_template, request, redirect, session, url_for
+import os
+from database import init_db
+from auth import login_required
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # for session
+
+
+MODEL_FILES = {
+    "baseline": "imap_emails_with_predictions_logistic.csv",
+    "xgboost": "imap_emails_with_predictions_xgb.csv"
+}
+# Initialize database
 
 # Keep track of running sync threads per user
 user_sync_threads = {}
@@ -53,23 +64,71 @@ def login():
 
     return render_template("login.html", error=error)
 
-
 # =======================
 # DASHBOARD
 # =======================
 @app.route("/dashboard")
+@login_required
 def dashboard():
+    user_id = session["user_id"]
+    model = request.args.get("model", "baseline")
+
+    user_data_dir = os.path.join("data", "user_data", user_id)
+
+    csv_file = MODEL_FILES.get(model, MODEL_FILES["baseline"])
+    csv_path = os.path.join(user_data_dir, csv_file)
+
+    baseline_data = []
+
+    if os.path.exists(csv_path):
+        import pandas as pd
+        df = pd.read_csv(csv_path)
+
+        # ✅ normalize column names (old vs new compatibility)
+        if "prediction" in df.columns and "final_label" not in df.columns:
+            df["final_label"] = df["prediction"]
+
+        if "probability" in df.columns and "phishing_probability" not in df.columns:
+            df["phishing_probability"] = df["probability"]
+
+        baseline_data = df.to_dict(orient="records")
+
+    return render_template(
+        "dashboard.html",
+        baseline_data=baseline_data,
+        model=model
+    )
+
+# =======================
+# soc ALERTS
+# =======================
+
+@app.route("/soc")
+def soc():
     user_id = session.get("user_id")
     if not user_id:
         return redirect("/login")
 
-    # Start background sync if not already running
-    user_email = get_user_gmail_credentials(user_id).get("email")
-    start_background_sync(user_id, user_email)
+    model = request.args.get("model", "baseline")
+    user_data_dir = os.path.join("data", "user_data", user_id)
+    csv_path = os.path.join(user_data_dir, MODEL_FILES.get(model, MODEL_FILES["baseline"]))
 
-    creds = get_user_gmail_credentials(user_id)
-    emails_csv = os.path.join("data", "user_data", user_id, "imap_emails_with_predictions.csv")
-    return render_template("dashboard.html", user_id=user_id, user_email=user_email, emails_csv=emails_csv)
+    alerts = []
+    if os.path.exists(csv_path):
+        import pandas as pd
+        df = pd.read_csv(csv_path)
+
+    # SOC logic: high-risk phishing emails
+        alerts = df[
+             (df["final_label"].str.contains("Phishing", na=False)) &
+            (df["phishing_probability"] >= 0.85)
+        ].sort_values(
+            "phishing_probability", ascending=False
+        ).to_dict(orient="records")
+
+    total_alerts = len(alerts) 
+
+    return render_template("soc.html", user_id=user_id, alerts=alerts,total_alerts=total_alerts, model=model)
 
 
 # =======================

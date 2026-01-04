@@ -2,6 +2,8 @@ import os
 import json
 import uuid
 import sqlite3
+from functools import wraps
+from flask import session, redirect, url_for
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 USER_DATA_DIR = os.path.join(BASE_DIR, "data", "user_data")
@@ -83,3 +85,12 @@ def get_user_gmail_credentials(user_id):
     except Exception as e:
         print(f"[GMAIL CREDENTIALS ERROR] {e}")
         return None
+   
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user_id" not in session:
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated_function

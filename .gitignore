@@ -2,6 +2,7 @@
 merged_phishing_dataset.csv
 email_dataset.csv
 .venv
+meta.json
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
@@ -135,6 +136,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
 
 # Spyder project settings
 .spyderproject
