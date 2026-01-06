@@ -2,6 +2,9 @@ import os
 import sys
 import pandas as pd
 import joblib
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 PHISHING_THRESHOLD = 0.5
 SOC_THRESHOLD = 0.7

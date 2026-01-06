@@ -170,6 +170,47 @@ def dashboard():
     )
 
 # =======================
+# DASHBOARD LIVE DATA API
+# =======================
+@app.route("/api/dashboard_data")
+@login_required
+def dashboard_data():
+    user_id = session["user_id"]
+    model = request.args.get("model", "baseline")
+
+    user_dir = get_user_dir()
+    csv_path = os.path.join(user_dir, MODEL_FILES.get(model))
+
+    response = {
+        "total": 0,
+        "phishing": 0,
+        "legit": 0
+    }
+
+    if not csv_path or not os.path.exists(csv_path):
+        return response
+
+    try:
+        df = pd.read_csv(csv_path)
+
+        if "prediction" in df.columns:
+            df["final_label"] = df["prediction"]
+
+        response["total"] = len(df)
+        response["phishing"] = int(
+            df["final_label"].str.contains("Phishing", na=False).sum()
+        )
+        response["legit"] = int(
+            df["final_label"].str.contains("Legit", na=False).sum()
+        )
+
+    except Exception as e:
+        print("[API ERROR] dashboard_data:", e)
+
+    return response
+
+
+# =======================
 # SOC ALERTS
 # =======================
 @app.route("/soc")
@@ -245,18 +286,30 @@ def home():
 # =======================
 def start_background_sync(user_id, email):
     if user_id in user_sync_threads and user_sync_threads[user_id].is_alive():
+        print("[SYNC] Background sync already running for", email)
         return
 
     def worker():
         user_dir = os.path.join(os.getcwd(), "data", "user_data", str(user_id))
+        print(f"[SYNC] Background Gmail sync started for {email}")
+
         while True:
             try:
+                print("[SYNC] Pulling new Gmail emails...")
                 sync_gmail_to_csv(user_id)
-                subprocess.run(["python", "src/predict_all.py", user_dir], check=False)
-                time.sleep(60)
+
+                print("[SYNC] Running ML predictions...")
+                subprocess.run(
+                    ["python", "src/predict_all.py", user_dir],
+                    check=False
+                )
+
+                print("[SYNC] Cycle complete. Sleeping 20s...\n")
+                time.sleep(20)
+
             except Exception as e:
                 print("[ERROR] Background sync failed:", e)
-                time.sleep(60)
+                time.sleep(20)
 
     thread = threading.Thread(target=worker, daemon=True)
     thread.start()
