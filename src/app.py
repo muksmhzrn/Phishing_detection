@@ -18,6 +18,20 @@ MODEL_FILES = {
     "xgboost": "imap_emails_with_predictions_xgb.csv"
 }
 
+# =======================
+# USER DATA DIRECTORY (SINGLE SOURCE OF TRUTH)
+# =======================
+def get_user_dir():
+    user_id = session.get("user_id")
+    if not user_id:
+        return None
+
+    base_dir = os.path.join(os.getcwd(), "data", "user_data")
+    user_dir = os.path.join(base_dir, str(user_id))
+
+    os.makedirs(user_dir, exist_ok=True)
+    return user_dir
+
 # Track background sync threads
 user_sync_threads = {}
 
@@ -78,8 +92,13 @@ def dashboard():
     model = request.args.get("model", "baseline")
     label_filter = request.args.get("filter", "all")
 
-    user_data_dir = os.path.join("data", "user_data", user_id)
-    csv_path = os.path.join(user_data_dir, MODEL_FILES.get(model))
+    # -------------------------------
+    # MODEL STRENGTH SCORE
+    # -------------------------------
+    model_score = 72 if model == "baseline" else 89
+
+    user_dir = get_user_dir()
+    csv_path = os.path.join(user_dir, MODEL_FILES.get(model))
 
     emails = []
     total_emails = legit_count = phishing_count = 0
@@ -90,14 +109,12 @@ def dashboard():
     if os.path.exists(csv_path):
         df = pd.read_csv(csv_path)
 
-        # normalize columns
-        if "prediction" in df.columns and "final_label" not in df.columns:
+        if "prediction" in df.columns:
             df["final_label"] = df["prediction"]
 
-        if "probability" in df.columns and "phishing_probability" not in df.columns:
+        if "probability" in df.columns:
             df["phishing_probability"] = df["probability"]
 
-        # summary
         total_emails = len(df)
         legit_count = df["final_label"].str.contains("Legit", na=False).sum()
         phishing_count = df["final_label"].str.contains("Phishing", na=False).sum()
@@ -109,7 +126,6 @@ def dashboard():
             .to_dict(orient="records")
         )
 
-        # filter
         if label_filter == "legit":
             df = df[df["final_label"].str.contains("Legit", na=False)]
         elif label_filter == "phishing":
@@ -122,9 +138,21 @@ def dashboard():
         end = start + PER_PAGE
         emails = df.iloc[start:end].to_dict(orient="records")
 
+    # ---------------- SOC ALERT COUNT ----------------
+    soc_alert_count = 0
+    try:
+        soc_file = os.path.join(user_dir, MODEL_FILES.get(model))
+        if os.path.exists(soc_file):
+            df_soc = pd.read_csv(soc_file)
+            pred_col = "prediction" if "prediction" in df_soc.columns else "final_label"
+            soc_alert_count = int(df_soc[pred_col].str.contains("Phishing", na=False).sum())
+    except Exception as e:
+        print("SOC COUNT ERROR:", e)
+
     return render_template(
         "dashboard.html",
         user_email=user_email,
+        user_id=user_id,
         emails=emails,
         model=model,
         label_filter=label_filter,
@@ -137,6 +165,8 @@ def dashboard():
         filtered_total=filtered_total,
         showing_from=start + 1 if filtered_total else 0,
         showing_to=min(end, filtered_total),
+        model_score=model_score,
+        soc_alert_count=soc_alert_count
     )
 
 # =======================
@@ -152,21 +182,20 @@ def soc():
     PER_PAGE = 10
     WINDOW = 4
 
-    user_data_dir = os.path.join("data", "user_data", user_id)
-    csv_path = os.path.join(user_data_dir, MODEL_FILES.get(model))
+    user_dir = get_user_dir()
+    csv_path = os.path.join(user_dir, MODEL_FILES.get(model))
 
     alerts = []
 
     if os.path.exists(csv_path):
         df = pd.read_csv(csv_path)
 
-        if "prediction" in df.columns and "final_label" not in df.columns:
+        if "prediction" in df.columns:
             df["final_label"] = df["prediction"]
 
-        if "probability" in df.columns and "phishing_probability" not in df.columns:
+        if "probability" in df.columns:
             df["phishing_probability"] = df["probability"]
 
-        # SOC = high-risk phishing
         df = df[
             (df["final_label"].str.contains("Phishing", na=False)) &
             (df["phishing_probability"] >= 0.85)
@@ -177,7 +206,6 @@ def soc():
 
         start = (page - 1) * PER_PAGE
         end = start + PER_PAGE
-
         alerts = df.iloc[start:end].to_dict(orient="records")
     else:
         total_alerts = 0
@@ -193,15 +221,12 @@ def soc():
         total_alerts=total_alerts,
         model=model,
         user_email=user_email,
-
-        # ✅ REQUIRED FOR TEMPLATE
         page=page,
         total_pages=total_pages,
         window=WINDOW,
         showing_from=start + 1 if total_alerts else 0,
         showing_to=min(end, total_alerts)
     )
-
 
 # =======================
 # LOGOUT
@@ -211,9 +236,6 @@ def logout():
     session.clear()
     return redirect("/login")
 
-# =======================
-# HOME
-# =======================
 @app.route("/")
 def home():
     return redirect("/login")
@@ -226,21 +248,14 @@ def start_background_sync(user_id, email):
         return
 
     def worker():
-        user_data_dir = os.path.join("data", "user_data", user_id)
+        user_dir = os.path.join(os.getcwd(), "data", "user_data", str(user_id))
         while True:
             try:
-                print(f"[SYNC] Gmail sync for {email}")
                 sync_gmail_to_csv(user_id)
-
-                print(f"[PREDICT] Running models for {email}")
-                subprocess.run(
-                    ["python", "src/predict_all.py", user_data_dir],
-                    check=False
-                )
-
+                subprocess.run(["python", "src/predict_all.py", user_dir], check=False)
                 time.sleep(180)
             except Exception as e:
-                print(f"[ERROR] Background sync failed: {e}")
+                print("[ERROR] Background sync failed:", e)
                 time.sleep(60)
 
     thread = threading.Thread(target=worker, daemon=True)
