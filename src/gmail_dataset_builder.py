@@ -7,7 +7,7 @@ import threading
 from auth import get_user_gmail_credentials
 
 DATA_DIR = "data/user_data"
-SYNC_INTERVAL = 60  # seconds
+SYNC_INTERVAL = 50  # seconds
 
 MAILBOXES = {
     "inbox": "INBOX",

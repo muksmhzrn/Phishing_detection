@@ -612,12 +612,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function closeModal(){
   document.getElementById("emailModal").style.display = "none";
 }
-</script>
-
-
-</script>
- <!-- <-- piechart -->  
- <script>
 const ctx = document.getElementById('alertPie').getContext('2d');
 
 new Chart(ctx, {
@@ -667,6 +661,19 @@ new Chart(ctx, {
     }
   }
 });
+
+function loadDashboard() {
+    fetch("/api/dashboard_data")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("total").innerText = data.total;
+            document.getElementById("phishing").innerText = data.phishing;
+            document.getElementById("safe").innerText = data.safe;
+        });
+}
+
+loadDashboard();              // initial load
+setInterval(loadDashboard, 5000); 
 </script>
 
 

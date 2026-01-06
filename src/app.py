@@ -253,7 +253,7 @@ def start_background_sync(user_id, email):
             try:
                 sync_gmail_to_csv(user_id)
                 subprocess.run(["python", "src/predict_all.py", user_dir], check=False)
-                time.sleep(180)
+                time.sleep(60)
             except Exception as e:
                 print("[ERROR] Background sync failed:", e)
                 time.sleep(60)
