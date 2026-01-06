@@ -291,12 +291,20 @@
     <h3>Summary</h3>
     <div class="muted">Current model: <b>{{ model|default('baseline') }}</b></div>
     <div class="big-number">{{ total_emails|default(0) }}</div>
-    <div class="muted">Total emails processed</div>
+<div class="muted">Emails analysed by ML model</div>
 
-    <div class="stat-row">
-      <span class="pill green">Legit: {{ legit_count|default(0) }}</span>
-      <span class="pill red">Phishing: {{ phishing_count|default(0) }}</span>
-    </div>
+<div class="stat-row" style="margin-top:18px;">
+  <div class="pill green" style="flex:1;text-align:center;">
+    <div style="font-size:22px;font-weight:900;">{{ legit_count|default(0) }}</div>
+    Legitimate
+  </div>
+
+  <div class="pill red" style="flex:1;text-align:center;">
+    <div style="font-size:22px;font-weight:900;">{{ phishing_count|default(0) }}</div>
+    Phishing
+  </div>
+</div>
+
   </div>
 
   <!-- Top phishing -->
@@ -305,10 +313,20 @@
     {% if top_phishing|default([])|length > 0 %}
       <ul style="margin:0;padding-left:18px;">
         {% for p in top_phishing %}
-          <li style="margin-bottom:10px;">
-            <b>{{ (p.phishing_probability*100)|round(2) }}%</b> — {{ p.subject }}<br>
-            <span style="font-size:12px;color:#555">{{ p.sender }}</span>
-          </li>
+        <li class="email-row"
+            style="margin-bottom:10px; cursor:pointer;"
+            data-subject="{{ p.subject|e }}"
+            data-sender="{{ p.sender|e }}"
+            data-receiver="{{ p.receiver|default('')|e }}"
+            data-date="{{ p.date|default('') }}"
+            data-label="{{ p.final_label|default('Phishing')|e }}"
+            data-prob="{{ (p.phishing_probability*100)|round(2) }}%"
+            data-body="{{ p.cleaned_body|default('No body available')|e }}"
+        >
+          <b>{{ (p.phishing_probability*100)|round(2) }}%</b> — {{ p.subject }}<br>
+          <span style="font-size:12px;color:#555">{{ p.sender }}</span>
+        </li>
+
         {% endfor %}
       </ul>
     {% else %}
@@ -318,16 +336,34 @@
 
 </div>
 
+<div id="email-table-container">
 <!-- ===== FILTER + SHOWING ===== -->
 <div class="filter-bar">
   <div class="filters">
-    <a class="filter-btn {{ 'active' if label_filter=='all' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=all&page=1">All</a>
-    <a class="filter-btn {{ 'active' if label_filter=='legit' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=legit&page=1">Legitimate</a>
-    <a class="filter-btn {{ 'active' if label_filter=='phishing' else '' }}" href="/dashboard?model={{ model|default('baseline') }}&filter=phishing&page=1">Phishing</a>
+    <form method="get" id="filterForm">
+      <input type="hidden" name="model" value="{{ model }}">
+      <input type="hidden" name="page" value="1">
+
+
+      <select name="filter" onchange="this.form.submit()"
+        style="
+          padding:8px 14px;
+          border-radius:999px;
+          border:1px solid #d7deea;
+          font-weight:900;
+          background:white;
+          cursor:pointer;
+        "
+      >
+        <option value="all" {{ 'selected' if label_filter=='all' }}>All Emails</option>
+        <option value="legit" {{ 'selected' if label_filter=='legit' }}>Legitimate</option>
+        <option value="phishing" {{ 'selected' if label_filter=='phishing' }}>Phishing</option>
+      </select>
+    </form>
   </div>
 
   <div class="showing">
-    Showing <b>{{ showing_from|default(0) }}</b>–<b>{{ showing_to|default(0) }}</b> of <b>{{ filtered_total|default(0) }}</b>
+    Showing <b>{{ showing_from }}</b>–<b>{{ showing_to }}</b> of <b>{{ filtered_total }}</b>
   </div>
 </div>
 
@@ -338,16 +374,16 @@
   </tr>
 
   {% for e in emails|default([]) %}
-  <tr class="email-row"
-      onclick="openEmail(
-        '{{ e.subject|default('')|escape }}',
-        '{{ e.sender|default('')|escape }}',
-        '{{ e.receiver|default('')|escape }}',
-        '{{ e.date|default('') }}',
-        '{{ e.final_label|default('')|escape }}',
-        '{{ ((e.phishing_probability|float|default(0))*100)|round(2) }}%',
-        '{{ e.cleaned_body|default('')|escape }}'
-      )">
+      <tr class="email-row"
+        data-subject="{{ e.subject|e }}"
+        data-sender="{{ e.sender|e }}"
+        data-receiver="{{ e.receiver|e }}"
+        data-date="{{ e.date }}"
+        data-label="{{ e.final_label|e }}"
+        data-prob="{{ ((e.phishing_probability|float|default(0))*100)|round(2) }}%"
+        data-body="{{ e.cleaned_body|e }}"
+    >
+
     <td>{{ e.mailbox|default('') }}</td>
     <td>{{ e.sender|default('') }}</td>
     <td>{{ e.date|default('') }}</td>
@@ -356,43 +392,39 @@
     <td>{{ ((e.phishing_probability|float|default(0))*100)|round(2) }}%</td>
   </tr>
   {% endfor %}
+    
 </table>
-
+ 
 <!-- ===== PAGINATION ===== -->
 <div class="pagination">
-  {% set page = page|default(1) %}
-  {% set total_pages = total_pages|default(1) %}
+  {% set window = 4 %}
+  {% set start_p = ((page-1)//window)*window + 1 %}
+  {% set end_p = start_p + window - 1 %}
+  {% if end_p > total_pages %}{% set end_p = total_pages %}{% endif %}
 
   {% if page > 1 %}
-    <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ page-1 }}">Prev</a>
+    <a class="page-link"
+       href="/dashboard?page={{ page-1 }}&model={{ model }}&filter={{ label_filter }}">
+      Prev
+    </a>
   {% endif %}
 
-  {% for p in range(1, total_pages+1) %}
-    {% if p == page %}
-      <a class="page-link active" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ p }}">{{ p }}</a>
-    {% else %}
-      <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ p }}">{{ p }}</a>
-    {% endif %}
+  {% for p in range(start_p, end_p+1) %}
+    <a class="page-link {{ 'active' if p==page else '' }}"
+       href="/dashboard?page={{ p }}&model={{ model }}&filter={{ label_filter }}">
+      {{ p }}
+    </a>
   {% endfor %}
 
   {% if page < total_pages %}
-    <a class="page-link" href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&page={{ page+1 }}">Next</a>
+    <a class="page-link"
+       href="/dashboard?page={{ page+1 }}&model={{ model }}&filter={{ label_filter }}">
+      Next
+    </a>
   {% endif %}
 </div>
 
-<!-- ===== MODAL ===== -->
-<div id="emailModal">
-  <div id="modalBox">
-    <span id="closeModal" onclick="closeModal()">X</span>
-    <h2 id="mSubject"></h2>
-    <p><b>From:</b> <span id="mSender"></span></p>
-    <p><b>To:</b> <span id="mReceiver"></span></p>
-    <p><b>Date:</b> <span id="mDate"></span></p>
-    <p><b>Label:</b> <span id="mLabel"></span></p>
-    <p><b>Probability:</b> <span id="mProb"></span></p>
-    <h3>Body</h3>
-    <pre id="mBody"></pre>
-  </div>
+
 </div>
 
 <script>
@@ -401,30 +433,74 @@
   const legit = {{ legit_count|default(0) }};
 
   new Chart(document.getElementById("pie"), {
-    type: "pie",
-    data: {
-      labels: ["Phishing", "Legitimate"],
-      datasets: [{
-        data: [phishing, legit],
-        backgroundColor: ['#e74c3c', '#27ae60']
-      }]
+  type: "doughnut",
+  data: {
+    labels: ["Phishing", "Legitimate"],
+    datasets: [{
+      data: [phishing, legit],
+      backgroundColor: ['#e74c3c', '#27ae60'],
+      borderWidth: 6,
+      borderColor: "#fff",
+      hoverOffset: 10
+    }]
+  },
+  options: {
+    cutout: "70%",
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          font: { weight: "bold" }
+        }
+      }
     }
-  });
+  }
+});
 
-  function openEmail(subject, sender, receiver, date, label, prob, body){
-    document.getElementById("mSubject").innerText = subject;
-    document.getElementById("mSender").innerText = sender;
-    document.getElementById("mReceiver").innerText = receiver;
-    document.getElementById("mDate").innerText = date;
-    document.getElementById("mLabel").innerText = label;
-    document.getElementById("mProb").innerText = prob;
-    document.getElementById("mBody").innerText = body;
-    document.getElementById("emailModal").style.display = "block";
-  }
-  function closeModal(){
-    document.getElementById("emailModal").style.display = "none";
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".email-row").forEach(row => {
+    row.addEventListener("click", function () {
+      document.getElementById("mSubject").innerText = this.dataset.subject;
+      document.getElementById("mSender").innerText = this.dataset.sender;
+      document.getElementById("mReceiver").innerText = this.dataset.receiver;
+      document.getElementById("mDate").innerText = this.dataset.date;
+      document.getElementById("mLabel").innerText = this.dataset.label;
+      document.getElementById("mProb").innerText = this.dataset.prob;
+      document.getElementById("mBody").innerText = this.dataset.body;
+
+      document.getElementById("emailModal").style.display = "block";
+    });
+  });
+});
+
+function closeModal(){
+  document.getElementById("emailModal").style.display = "none";
+}
 </script>
 
+
+</script>
+
+<!-- ===== EMAIL MODAL ===== -->
+<div id="emailModal">
+  <div id="modalBox">
+    <span id="closeModal" onclick="closeModal()">✕</span>
+
+    <h2 id="mSubject"></h2>
+
+    <p><b>From:</b> <span id="mSender"></span></p>
+    <p><b>To:</b> <span id="mReceiver"></span></p>
+    <p><b>Date:</b> <span id="mDate"></span></p>
+    <p><b>Label:</b> <span id="mLabel"></span></p>
+    <p><b>Score:</b> <span id="mProb"></span></p>
+
+    <hr>
+
+    <h4>Email Body</h4>
+    <pre id="mBody"></pre>
+  </div>
+</div>
+
 </body>
+
 </html>
