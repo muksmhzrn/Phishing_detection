@@ -677,6 +677,26 @@ function loadDashboard() {
 
 loadDashboard();
 setInterval(loadDashboard, 5000);
+
+
+
+  let lastTotal = {{ total_emails | default(0) }};
+
+  function autoRefreshDashboard() {
+    fetch("/api/dashboard_data")
+      .then(res => res.json())
+      .then(data => {
+        if (data.total > lastTotal) {
+          console.log("New emails detected → full dashboard reload");
+          window.location.href = window.location.pathname + window.location.search;
+        }
+      })
+      .catch(err => console.error("Auto refresh error:", err));
+  }
+
+  // match backend sync interval
+  setInterval(autoRefreshDashboard, 5000);
+
 </script>
 
 </script>
