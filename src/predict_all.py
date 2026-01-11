@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 PHISHING_THRESHOLD = 0.5
-SOC_THRESHOLD = 0.7
+SOC_THRESHOLD = 0.85
 
 # Paths to models
 LOGISTIC_MODEL_PATH = "data/raw/phishing_email_model.joblib"     # baseline logistic model
@@ -21,7 +21,15 @@ def assign_final_label(prob: float) -> str:
 
 def prepare_dataset(input_csv: str) -> pd.DataFrame:
     """Load and preprocess dataset for prediction"""
+    if not os.path.exists(input_csv) or os.path.getsize(input_csv) == 0:
+        print(f"[WARN] Dataset empty or missing: {input_csv}")
+        return None
+
     df = pd.read_csv(input_csv)
+
+    if df.empty:
+        print(f"[WARN] No rows in dataset: {input_csv}")
+        return None
 
     # Ensure columns exist
     for col in ["subject", "body", "date"]:
@@ -63,7 +71,10 @@ def run_model(model_path: str, df: pd.DataFrame, out_path: str, name: str) -> bo
 
     out = df.copy()
     out["phishing_probability"] = probs
-    out["final_label"] = out["phishing_probability"].apply(assign_final_label)
+    out["final_label"] = out["phishing_probability"].apply(
+    lambda p: "Phishing" if p >= PHISHING_THRESHOLD else "Legitimate"
+    )
+
     out["soc_alert"] = out["phishing_probability"] >= SOC_THRESHOLD
 
     out.to_csv(out_path, index=False)
@@ -87,6 +98,9 @@ def main():
         sys.exit(1)
 
     df = prepare_dataset(input_csv)
+    if df is None:
+        return
+
 
     # Logistic model predictions
     logistic_out = os.path.join(output_dir, "imap_emails_with_predictions_logistic.csv")

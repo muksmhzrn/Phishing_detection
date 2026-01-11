@@ -680,26 +680,62 @@ setInterval(loadDashboard, 5000);
 
 
 
-  let lastTotal = {{ total_emails | default(0) }};
+/* =====================================================
+   REAL SOC ALERT MECHANISM (NO FALSE ALERTS)
+   ===================================================== */
 
-  function autoRefreshDashboard() {
-    fetch("/api/dashboard_data")
-      .then(res => res.json())
-      .then(data => {
-        if (data.total > lastTotal) {
-          console.log("New emails detected → full dashboard reload");
-          window.location.href = window.location.pathname + window.location.search;
-        }
-      })
-      .catch(err => console.error("Auto refresh error:", err));
-  }
+const CURRENT_MODEL = "{{ model|default('baseline') }}";
+const STORAGE_KEY = "soc_alert_count_" + CURRENT_MODEL;
 
-  // match backend sync interval
-  setInterval(autoRefreshDashboard, 5000);
 
+function closePhishingAlert(){
+  document.getElementById("phishingAlert").style.display = "none";
+}
+
+function checkForNewPhishing(){
+  fetch("/api/dashboard_data?model=" + CURRENT_MODEL)
+    .then(res => res.json())
+    .then(data => {
+
+      let lastCount = localStorage.getItem(STORAGE_KEY);
+
+
+
+      // First load → store count, no alert
+      if(lastCount === null){
+        localStorage.setItem(STORAGE_KEY, data.soc_alerts);
+        return;
+      }
+
+      lastCount = parseInt(lastCount);
+
+      // New phishing detected
+      if(data.soc_alerts > lastCount){
+        const diff = data.phishing - lastCount;
+
+        document.getElementById("alertText").innerText =
+          diff + " new phishing email(s) detected by " +
+          CURRENT_MODEL.toUpperCase() + " model.";
+
+        document.getElementById("phishingAlert").style.display = "block";
+      }
+
+      localStorage.setItem(STORAGE_KEY, data.phishing);
+    })
+    .catch(err => console.error("Alert check failed:", err));
+}
+
+// Run once after load
+checkForNewPhishing();
+
+// Check every 10 seconds (matches background sync)
+setInterval(checkForNewPhishing, 10000);
+
+setInterval(() => {
+    window.location.reload();
+}, 30000);
 </script>
 
-</script>
 
 
 <!-- ===== EMAIL MODAL ===== -->
@@ -719,6 +755,39 @@ setInterval(loadDashboard, 5000);
 
     <h4>Email Body</h4>
     <pre id="mBody"></pre>
+  </div>
+</div>
+<!-- ===== PHISHING ALERT POPUP ===== -->
+<div id="phishingAlert" style="
+  display:none;
+  position:fixed;
+  top:30px;
+  right:30px;
+  background:#b91c1c;
+  color:white;
+  padding:18px 22px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  z-index:9999;
+  width:320px;
+">
+  <div style="font-weight:900;font-size:16px;margin-bottom:6px;">
+    ⚠ New Phishing Email Detected
+  </div>
+  <div id="alertText" style="font-size:14px;opacity:.95;"></div>
+
+  <div style="text-align:right;margin-top:12px;">
+    <button onclick="closePhishingAlert()" style="
+      background:#111;
+      color:white;
+      border:none;
+      padding:6px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+    ">
+      Close
+    </button>
   </div>
 </div>
 
