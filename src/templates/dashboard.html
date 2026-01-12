@@ -245,121 +245,6 @@
       border-radius:12px;
       border:1px solid #e6ebf3;
     }
-
-    .chart-wrapper{
-  position:relative;
-  width:100%;
-  height:280px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.chart-wrapper canvas{
-  max-width:260px !important;
-  max-height:260px !important;
-}
-
-/* CENTER TEXT */
-.chart-center{
-  position:absolute;
-  text-align:center;
-  pointer-events:none;
-}
-
-.center-number{
-  font-size:36px;
-  font-weight:900;
-  color:#111;
-  line-height:1;
-}
-
-.center-label{
-  font-size:13px;
-  font-weight:700;
-  color:#666;
-  margin-top:4px;
-}
-.summary{
-  background:white;
-  border-radius:16px;
-  padding:16px 20px;
-  box-shadow:0 8px 22px rgba(0,0,0,.10);
-  margin-bottom:16px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.summary .title{
-  font-size:16px;
-  font-weight:900;
-  color:#111;
-}
-
-.summary .meta{
-  font-size:13px;
-  color:#555;
-  margin-top:4px;
-}
-
-.badge{
-  padding:8px 14px;
-  border-radius:999px;
-  font-weight:900;
-  font-size:13px;
-  color:white;
-  background:linear-gradient(135deg,#ff416c,#ff4b2b);
-  white-space:nowrap;
-}
-/* ===== MODEL BAR ===== */
-.model-bar{
-  margin-top:14px;
-}
-
-.bar-label{
-  font-size:13px;
-  font-weight:900;
-  color:#111;
-  margin-bottom:8px;
-}
-
-.bar-track{
-  background:#edf1f7;
-  border-radius:999px;
-  height:14px;
-  overflow:hidden;
-}
-
-.bar-fill{
-  height:100%;
-  border-radius:999px;
-  animation: growBar 1s ease-out;
-}
-
-.bar-fill.baseline{
-  background:linear-gradient(135deg,#6a85ff,#3b5bff);
-}
-
-.bar-fill.xgboost{
-  background:linear-gradient(135deg,#ff416c,#ff4b2b);
-}
-
-.bar-meta{
-  font-size:12px;
-  font-weight:900;
-  margin-top:4px;
-  color:#555;
-}
-
-@keyframes growBar{
-  from{ width:0; }
-}
-
-
   </style>
 </head>
 
@@ -368,7 +253,7 @@
 <!-- ===== TOP BAR ===== -->
 <div class="topbar">
   <div>
-    <div class="title">Phishing Detection </div>
+    <div class="title">Phishing Detection Dashboard</div>
     <div class="sub">Logged in as: <b>{{ user_email|default('Unknown') }}</b> • User ID: <b>{{ user_id|default('N/A') }}</b></div>
   </div>
 
@@ -379,10 +264,10 @@
       <button name="model" value="xgboost" class="{{ 'active' if model=='xgboost' else '' }}"> XGBoost</button>
     </form>
 
-    <a href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&refresh=1" class="btn refresh-btn">Refresh</a>
+    <!-- <a href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&refresh=1" class="btn refresh-btn">Refresh</a> -->
 
     <a href="/soc?model={{ model|default('baseline') }}" class="btn soc-btn">
-       Alerts {{ soc_alert_count|default(0) }}
+      SOC Alerts {{ soc_alerts_count|default(0) }}
     </a>
 
     <a href="/logout" class="btn logout-btn">Logout</a>
@@ -394,16 +279,11 @@
 
   <!-- Pie -->
   <div class="card" style="flex: 1.2;">
-    <div class="card">
-  <h3>Phishing Distribution</h3>
-
-  <div class="chart-wrapper">
-    <canvas id="alertPie"></canvas>
-    <div class="chart-center"> 
+    <h3>Email Classification</h3>
+    <div class="chart-container">
+      <canvas id="pie"></canvas>
+      <div class="chart-center"></div>
     </div>
-  </div>
-</div>
-
   </div>
 
   <!-- Middle stats -->
@@ -423,22 +303,6 @@
     <div style="font-size:22px;font-weight:900;">{{ phishing_count|default(0) }}</div>
     Phishing
   </div>
-  <div class="model-bar">
-  <div class="bar-label">
-    Detection Strength ({{ model|upper }})
-  </div>
-
-  <div class="bar-track">
-    <div class="bar-fill {{ model }}"
-         style="width: {{ model_score }}%;">
-    </div>
-  </div>
-
-  <div class="bar-meta">
-    {{ model_score }}%
-  </div>
-</div>
-
 </div>
 
   </div>
@@ -491,7 +355,7 @@
           cursor:pointer;
         "
       >
-        <option value="all" {{ 'selected' if label_filter=='all' }}> All Emails</option>
+        <option value="all" {{ 'selected' if label_filter=='all' }}>All Emails</option>
         <option value="legit" {{ 'selected' if label_filter=='legit' }}>Legitimate</option>
         <option value="phishing" {{ 'selected' if label_filter=='phishing' }}>Phishing</option>
       </select>
@@ -612,135 +476,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function closeModal(){
   document.getElementById("emailModal").style.display = "none";
 }
-const ctx = document.getElementById('alertPie').getContext('2d');
-
-new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Phishing', 'Legitimate'],
-    datasets: [{
-      data: [
-        {{ phishing_count }},
-        {{ legit_count }}
-      ],
-      backgroundColor: [
-        '#ff4d4d',
-        '#2ecc71'
-      ],
-      borderWidth: 0,
-      hoverOffset: 12
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '72%',
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          padding: 20,
-          boxWidth: 14,
-          font: {
-            size: 13,
-            weight: 'bold'
-          }
-        }
-      },
-      tooltip: {
-        backgroundColor: '#111',
-        titleFont: { weight: 'bold' },
-        bodyFont: { size: 13 },
-        padding: 12
-      }
-    },
-    animation: {
-      animateScale: true,
-      animateRotate: true,
-      duration: 1200
-    }
-  }
-});
-
-
-function loadDashboard() {
-    fetch("/api/dashboard_data")
-        .then(res => res.json())
-        .then(data => {
-            document.querySelector(".big-number").innerText = data.total;
-
-            document.querySelector(".pill.red div").innerText = data.phishing;
-            document.querySelector(".pill.green div").innerText = data.legit;
-        })
-        .catch(err => console.error("Dashboard refresh error:", err));
-}
-
-loadDashboard();
-setInterval(loadDashboard, 5000);
-
-
-
-/* =====================================================
-   REAL SOC ALERT MECHANISM (NO FALSE ALERTS)
-   ===================================================== */
-
-const CURRENT_MODEL = "{{ model|default('baseline') }}";
-const STORAGE_KEY = "soc_alert_count_" + CURRENT_MODEL;
-
-
-function closePhishingAlert(){
-  document.getElementById("phishingAlert").style.display = "none";
-}
-
-function checkForNewPhishing(){
-  fetch("/api/dashboard_data?model=" + CURRENT_MODEL)
-    .then(res => res.json())
-    .then(data => {
-
-      let lastCount = localStorage.getItem(STORAGE_KEY);
-
-
-
-      // First load → store count, no alert
-      if(lastCount === null){
-        localStorage.setItem(STORAGE_KEY, data.soc_alerts);
-        return;
-      }
-
-      lastCount = parseInt(lastCount);
-
-      // New phishing detected
-      if(data.soc_alerts > lastCount){
-        const diff = data.phishing - lastCount;
-
-        document.getElementById("alertText").innerText =
-          diff + " new phishing email(s) detected by " +
-          CURRENT_MODEL.toUpperCase() + " model.";
-
-        document.getElementById("phishingAlert").style.display = "block";
-      }
-
-      localStorage.setItem(STORAGE_KEY, data.phishing);
-    })
-    .catch(err => console.error("Alert check failed:", err));
-}
-
-// Run once after load
-checkForNewPhishing();
-
-// Check every 10 seconds (matches background sync)
-setInterval(checkForNewPhishing, 10000);
-
-setInterval(() => {
-    window.location.reload();
-}, 30000);
 </script>
 
 
+</script>
 
 <!-- ===== EMAIL MODAL ===== -->
 <div id="emailModal">
-    <div id="modalBox">
+  <div id="modalBox">
     <span id="closeModal" onclick="closeModal()">✕</span>
 
     <h2 id="mSubject"></h2>
@@ -755,39 +498,6 @@ setInterval(() => {
 
     <h4>Email Body</h4>
     <pre id="mBody"></pre>
-  </div>
-</div>
-<!-- ===== PHISHING ALERT POPUP ===== -->
-<div id="phishingAlert" style="
-  display:none;
-  position:fixed;
-  top:30px;
-  right:30px;
-  background:#b91c1c;
-  color:white;
-  padding:18px 22px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.4);
-  z-index:9999;
-  width:320px;
-">
-  <div style="font-weight:900;font-size:16px;margin-bottom:6px;">
-    ⚠ New Phishing Email Detected
-  </div>
-  <div id="alertText" style="font-size:14px;opacity:.95;"></div>
-
-  <div style="text-align:right;margin-top:12px;">
-    <button onclick="closePhishingAlert()" style="
-      background:#111;
-      color:white;
-      border:none;
-      padding:6px 14px;
-      border-radius:999px;
-      font-weight:900;
-      cursor:pointer;
-    ">
-      Close
-    </button>
   </div>
 </div>
 

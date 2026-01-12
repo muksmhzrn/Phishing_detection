@@ -1,0 +1,14 @@
+# Google / Gmail / Play system emails
+@google.com
+@accounts.google.com
+@googlemail.com
+@googlegroups.com
+@support.google.com
+@youtube.com
+@notifications.google.com
+@payments.google.com
+@cloud.google.com
+@firebase.com
+
+# Mail Delivery subsystem (bounces)
+@googlemail.com

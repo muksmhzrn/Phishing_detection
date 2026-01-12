@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session
 from auth import register_user, login_user, get_user_gmail_credentials, login_required
 from gmail_dataset_builder import sync_gmail_to_csv
+from database import init_db
 import subprocess, threading, os, time, sys
 import pandas as pd
+from predict_all import SOC_THRESHOLD
 
 print("PYTHON EXECUTABLE:", sys.executable)
 
@@ -12,25 +14,13 @@ print("PYTHON EXECUTABLE:", sys.executable)
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-SOC_THRESHOLD = 0.85  # SINGLE SOURCE OF TRUTH
+
+
 
 MODEL_FILES = {
     "baseline": "imap_emails_with_predictions_logistic.csv",
     "xgboost": "imap_emails_with_predictions_xgb.csv"
 }
-
-# =======================
-# USER DATA DIRECTORY
-# =======================
-def get_user_dir():
-    user_id = session.get("user_id")
-    if not user_id:
-        return None
-
-    base_dir = os.path.join(os.getcwd(), "data", "user_data")
-    user_dir = os.path.join(base_dir, str(user_id))
-    os.makedirs(user_dir, exist_ok=True)
-    return user_dir
 
 # Track background sync threads
 user_sync_threads = {}
@@ -76,7 +66,7 @@ def login():
 
     return render_template("login.html", error=error)
 
-# =======================
+# # =======================
 # DASHBOARD
 # =======================
 @app.route("/dashboard")
@@ -92,59 +82,82 @@ def dashboard():
     model = request.args.get("model", "baseline")
     label_filter = request.args.get("filter", "all")
 
-    model_score = 72 if model == "baseline" else 89
+    user_data_dir = os.path.join("data", "user_data", user_id)
+    csv_path = os.path.join(user_data_dir, MODEL_FILES.get(model))
 
-    user_dir = get_user_dir()
-    if not user_dir:
-        return redirect("/login")
-
-    csv_path = os.path.join(user_dir, MODEL_FILES.get(model))
-
+    # defaults (SAFE)
     emails = []
     total_emails = legit_count = phishing_count = 0
     top_phishing = []
     filtered_total = total_pages = 1
     start = end = 0
-    soc_alert_count = 0
+    soc_alerts_count = 0
 
     if os.path.exists(csv_path):
-        df = pd.read_csv(csv_path)
+        try:
+            df = pd.read_csv(csv_path)
+        except Exception:
+            df = pd.DataFrame()
 
-        # SAFE FALLBACKS
-        if "final_label" not in df:
-            df["final_label"] = "Unknown"
-        if "phishing_probability" not in df:
-            df["phishing_probability"] = 0.0
+        if not df.empty:
+            # ======================
+            # NORMALIZE COLUMNS
+            # ======================
+            if "prediction" in df.columns and "final_label" not in df.columns:
+                df["final_label"] = df["prediction"]
 
-        total_emails = len(df)
-        legit_count = int(df["final_label"].str.contains("Legit", na=False).sum())
-        phishing_count = int(df["final_label"].str.contains("Phishing", na=False).sum())
+            if "probability" in df.columns and "phishing_probability" not in df.columns:
+                df["phishing_probability"] = df["probability"]
 
-        top_phishing = (
-            df[df["final_label"].str.contains("Phishing", na=False)]
-            .sort_values("phishing_probability", ascending=False)
-            .head(5)
-            .to_dict(orient="records")
-        )
+            # ensure required columns exist
+            for col in ["final_label", "phishing_probability"]:
+                if col not in df.columns:
+                    df[col] = ""
 
-        if label_filter == "legit":
-            df = df[df["final_label"].str.contains("Legit", na=False)]
-        elif label_filter == "phishing":
-            df = df[df["final_label"].str.contains("Phishing", na=False)]
+            df["phishing_probability"] = pd.to_numeric(
+                df["phishing_probability"], errors="coerce"
+            ).fillna(0.0)
 
-        filtered_total = len(df)
-        total_pages = max(1, (filtered_total + PER_PAGE - 1) // PER_PAGE)
+            # ======================
+            # FULL DATASET (NO FILTER)
+            # ======================
+            df_all = df.copy()
 
-        start = (page - 1) * PER_PAGE
-        end = start + PER_PAGE
-        emails = df.iloc[start:end].to_dict(orient="records")
+            total_emails = len(df_all)
+            legit_count = df_all["final_label"].str.contains("Legit", na=False).sum()
+            phishing_count = df_all["final_label"].str.contains("Phishing", na=False).sum()
 
-        soc_alert_count = int(
-            (
-                df["final_label"].str.contains("Phishing", na=False)
-                & (df["phishing_probability"] >= SOC_THRESHOLD)
+            # SOC alerts count (GLOBAL)
+            soc_alerts_count = (
+                (df_all["final_label"].str.contains("Phishing", na=False)) &
+                (df_all["phishing_probability"] >= 0.85)
             ).sum()
-        )
+
+            # TOP PHISHING (GLOBAL)
+            top_phishing = (
+                df_all[df_all["final_label"].str.contains("Phishing", na=False)]
+                .sort_values("phishing_probability", ascending=False)
+                .head(5)
+                .to_dict(orient="records")
+            )
+
+            # ======================
+            # APPLY FILTER FOR TABLE ONLY
+            # ======================
+            if label_filter == "legit":
+                df = df[df["final_label"].str.contains("Legit", na=False)]
+            elif label_filter == "phishing":
+                df = df[df["final_label"].str.contains("Phishing", na=False)]
+
+            # ======================
+            # PAGINATION
+            # ======================
+            filtered_total = len(df)
+            total_pages = max(1, (filtered_total + PER_PAGE - 1) // PER_PAGE)
+
+            start = (page - 1) * PER_PAGE
+            end = start + PER_PAGE
+            emails = df.iloc[start:end].to_dict(orient="records")
 
     return render_template(
         "dashboard.html",
@@ -156,18 +169,17 @@ def dashboard():
         total_emails=total_emails,
         legit_count=legit_count,
         phishing_count=phishing_count,
+        soc_alerts_count=int(soc_alerts_count),
         top_phishing=top_phishing,
         page=page,
         total_pages=total_pages,
         filtered_total=filtered_total,
         showing_from=start + 1 if filtered_total else 0,
         showing_to=min(end, filtered_total),
-        model_score=model_score,
-        soc_alert_count=soc_alert_count
     )
 
 # =======================
-# SOC PAGE
+# SOC ALERTS
 # =======================
 @app.route("/soc")
 @login_required
@@ -179,24 +191,24 @@ def soc():
     PER_PAGE = 10
     WINDOW = 4
 
-    user_dir = get_user_dir()
-    if not user_dir:
-        return redirect("/login")
+    user_data_dir = os.path.join("data", "user_data", user_id)
+    csv_path = os.path.join(user_data_dir, MODEL_FILES.get(model))
 
-    csv_path = os.path.join(user_dir, MODEL_FILES.get(model))
     alerts = []
 
     if os.path.exists(csv_path):
         df = pd.read_csv(csv_path)
 
-        if "final_label" not in df:
-            df["final_label"] = "Unknown"
-        if "phishing_probability" not in df:
-            df["phishing_probability"] = 0.0
+        if "prediction" in df.columns and "final_label" not in df.columns:
+            df["final_label"] = df["prediction"]
 
+        if "probability" in df.columns and "phishing_probability" not in df.columns:
+            df["phishing_probability"] = df["probability"]
+
+        # SOC = high-risk phishing
         df = df[
             (df["final_label"].str.contains("Phishing", na=False)) &
-            (df["phishing_probability"] >= SOC_THRESHOLD)
+            (df["phishing_probability"] >= 0.85)
         ].sort_values("phishing_probability", ascending=False)
 
         total_alerts = len(df)
@@ -204,6 +216,7 @@ def soc():
 
         start = (page - 1) * PER_PAGE
         end = start + PER_PAGE
+
         alerts = df.iloc[start:end].to_dict(orient="records")
     else:
         total_alerts = 0
@@ -219,6 +232,8 @@ def soc():
         total_alerts=total_alerts,
         model=model,
         user_email=user_email,
+
+        # ✅ REQUIRED FOR TEMPLATE
         page=page,
         total_pages=total_pages,
         window=WINDOW,
@@ -226,44 +241,6 @@ def soc():
         showing_to=min(end, total_alerts)
     )
 
-# =======================
-# API ENDPOINT
-# =======================
-@app.route("/api/dashboard_data")
-@login_required
-def api_dashboard_data():
-    model = request.args.get("model", "baseline")
-
-    user_dir = get_user_dir()
-    if not user_dir:
-        return redirect("/login")
-
-    csv_path = os.path.join(user_dir, MODEL_FILES.get(model, ""))
-
-    if not os.path.exists(csv_path):
-        return jsonify({
-            "summary": {"total": 0, "phishing": 0, "legitimate": 0},
-            "emails": []
-        })
-
-    df = pd.read_csv(csv_path)
-
-    if "final_label" not in df:
-        df["final_label"] = "Unknown"
-    if "phishing_probability" not in df:
-        df["phishing_probability"] = 0.0
-
-    summary = {
-        "total": len(df),
-        "phishing": int(df["final_label"].str.contains("Phishing", na=False).sum()),
-        "legitimate": int(df["final_label"].str.contains("Legit", na=False).sum())
-    }
-
-    emails = df.sort_values(
-        "phishing_probability", ascending=False
-    ).head(20).to_dict(orient="records")
-
-    return jsonify({"summary": summary, "emails": emails})
 
 # =======================
 # LOGOUT
@@ -273,6 +250,9 @@ def logout():
     session.clear()
     return redirect("/login")
 
+# =======================
+# HOME
+# =======================
 @app.route("/")
 def home():
     return redirect("/login")
@@ -285,17 +265,22 @@ def start_background_sync(user_id, email):
         return
 
     def worker():
-        user_dir = os.path.join(os.getcwd(), "data", "user_data", str(user_id))
-        print(f"[SYNC] Gmail sync started for {email}")
-
+        user_data_dir = os.path.join("data", "user_data", user_id)
         while True:
             try:
+                print(f"[SYNC] Gmail sync for {email}")
                 sync_gmail_to_csv(user_id)
-                subprocess.run(["python", "src/predict_all.py", user_dir], check=False)
-                time.sleep(20)
+
+                print(f"[PREDICT] Running models for {email}")
+                subprocess.run(
+                    ["python", "src/predict_all.py", user_data_dir],
+                    check=False
+                )
+
+                time.sleep(180)
             except Exception as e:
-                print("[SYNC ERROR]", e)
-                time.sleep(20)
+                print(f"[ERROR] Background sync failed: {e}")
+                time.sleep(60)
 
     thread = threading.Thread(target=worker, daemon=True)
     thread.start()
