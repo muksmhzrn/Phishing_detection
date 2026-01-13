@@ -127,6 +127,10 @@ def dashboard():
             legit_count = df_all["final_label"].str.contains("Legit", na=False).sum()
             phishing_count = df_all["final_label"].str.contains("Phishing", na=False).sum()
 
+            phishing_count = int(phishing_count)
+            legit_count = int(legit_count)
+            total_emails = int(total_emails)    
+
             # SOC alerts count (GLOBAL)
             soc_alerts_count = (
                 (df_all["final_label"].str.contains("Phishing", na=False)) &
@@ -159,6 +163,27 @@ def dashboard():
             end = start + PER_PAGE
             emails = df.iloc[start:end].to_dict(orient="records")
 
+            # ======================
+            # SIMPLE PHISHING ALERT
+            # ======================
+            show_phishing_alert = False
+            new_phishing_count = 0
+
+            # ENSURE PYTHON INT (CRITICAL)
+            phishing_count = int(phishing_count)
+
+            prev_count = session.get("prev_phishing_count")
+
+            if prev_count is None:
+                session["prev_phishing_count"] = phishing_count
+            else:
+                prev_count = int(prev_count)
+
+                if phishing_count > prev_count:
+                    show_phishing_alert = True
+                    new_phishing_count = phishing_count - prev_count
+                    session["prev_phishing_count"] = phishing_count
+
     return render_template(
         "dashboard.html",
         user_email=user_email,
@@ -176,6 +201,8 @@ def dashboard():
         filtered_total=filtered_total,
         showing_from=start + 1 if filtered_total else 0,
         showing_to=min(end, filtered_total),
+        show_phishing_alert=show_phishing_alert,
+        new_phishing_count=new_phishing_count,
     )
 
 # =======================
@@ -277,7 +304,7 @@ def start_background_sync(user_id, email):
                     check=False
                 )
 
-                time.sleep(180)
+                time.sleep(20)
             except Exception as e:
                 print(f"[ERROR] Background sync failed: {e}")
                 time.sleep(60)

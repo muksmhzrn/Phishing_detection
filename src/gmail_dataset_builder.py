@@ -137,9 +137,9 @@ def fetch_emails_from_gmail(user_email, app_password, csv_path):
         else:
             df_combined = df_new
 
-        # Deduplicate (UID + mailbox)
+        # Deduplicate (UID + sender + subject)
         df_combined.drop_duplicates(
-            subset=["uid", "mailbox"],
+            subset=["uid", "sender","subject"],
             keep="first",
             inplace=True
         )

@@ -37,6 +37,22 @@
       opacity:.9;
     }
 
+    .truncate {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email-subject {
+    display: inline-block;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
     .right-controls{
       display:flex;
       align-items:center;
@@ -245,6 +261,51 @@
       border-radius:12px;
       border:1px solid #e6ebf3;
     }
+
+    .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 360px;
+    text-align: center;
+    border-top: 6px solid #d32f2f;
+    animation: popupFade 0.3s ease-in-out;
+}
+
+.modal-box h2 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+.modal-box button {
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: none;
+    background: #d32f2f;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@keyframes popupFade {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
   </style>
 </head>
 
@@ -254,6 +315,8 @@
 <div class="topbar">
   <div>
     <div class="title">Phishing Detection Dashboard</div>
+    
+
     <div class="sub">Logged in as: <b>{{ user_email|default('Unknown') }}</b> • User ID: <b>{{ user_id|default('N/A') }}</b></div>
   </div>
 
@@ -323,7 +386,8 @@
             data-prob="{{ (p.phishing_probability*100)|round(2) }}%"
             data-body="{{ p.cleaned_body|default('No body available')|e }}"
         >
-          <b>{{ (p.phishing_probability*100)|round(2) }}%</b> — {{ p.subject }}<br>
+          <b>{{ (p.phishing_probability*100)|round(2) }}%
+          </b> —<span class="email-subject" title="{{ p.subject }}">{{ p.subject }}</span><br>
           <span style="font-size:12px;color:#555">{{ p.sender }}</span>
         </li>
 
@@ -422,6 +486,8 @@
       Next
     </a>
   {% endif %}
+
+ 
 </div>
 
 
@@ -477,19 +543,22 @@ function closeModal(){
   document.getElementById("emailModal").style.display = "none";
 }
 
+function closePhishingModal() {
+    document.getElementById("phishingModal").style.display = "none";
+}
 
-/* Auto refresh dashboard every 2 minutes */
+
+
+/* Auto refresh dashboard every 40sec  */
 setInterval(() => {
     window.location.reload();
-}, 120000);
-</script>
-</body>
-</html>
+}, 60000);
 
 </script>
 
 
 </script>
+
 
 <!-- ===== EMAIL MODAL ===== -->
 <div id="emailModal">
@@ -510,6 +579,21 @@ setInterval(() => {
     <pre id="mBody"></pre>
   </div>
 </div>
+
+
+<!-- ===== PHISHING ALERT MODAL ===== -->
+{% if show_phishing_alert %}
+<div id="phishingModal" class="modal-overlay">
+  <div class="modal-box">
+    <h2>⚠️ Phishing Alert</h2>
+    <p>
+      {{ new_phishing_count }} new phishing email(s) detected!
+    </p>
+    <button onclick="closePhishingModal()">OK</button>
+  </div>
+</div>
+{% endif %}
+
 
 </body>
 

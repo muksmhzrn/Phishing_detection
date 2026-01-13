@@ -1,4 +1,280 @@
 uid,mailbox,sender,receiver,subject,body,date,Email Text,cleaned_body,phishing_probability,final_label,soc_alert,sender_domain
+134,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",8888888888888888888888888888888888,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 06:20:16+00:00,"8888888888888888888888888888888888 Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
+133,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",999999999999999999999999999999,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 06:18:38+00:00,"999999999999999999999999999999 Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
+132,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Dear User, We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited. To restore full access, please verify your account immediately by clicking the link below: 👉 Verify Account Now http://c","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 06:16:57+00:00,"Dear User, We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited. To restore full access, please verify your account immediately by clicking the link below: 👉 Verify Account Now http://c Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.85956883,Phishing,True,bwnepal.com
+131,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",phishing,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 06:13:23+00:00,"phishing Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
+130,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 05:56:53+00:00," Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
+129,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: 1111111111111111111111111111111111111111111111111111111111111111,"
+",2026-01-13 05:47:37+00:00,"Fw: 1111111111111111111111111111111111111111111111111111111111111111 
+","
+",0.19338717,Legitimate,False,bwnepal.com
+128,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",22222222222222,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 05:46:06+00:00,"22222222222222 Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
+127,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Dear User, We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited. To restore full access, please verify your account immediately by clicking the link below: 👉 Verify Account Now http://c","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 05:33:54+00:00,"Dear User, We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited. To restore full access, please verify your account immediately by clicking the link below: 👉 Verify Account Now http://c Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.85956883,Phishing,True,bwnepal.com
+126,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",ctivity on your email account.,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 02:46:55+00:00,"ctivity on your email account. Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.8272699,Phishing,True,bwnepal.com
 125,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",unusual sign-in activity on your email accou11111111111111111,"Dear User,
 We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
 To restore full access, please verify your account immediately by clicking the link below:
@@ -8670,10 +8946,6 @@ IT Security Team
 Secure IT Helpdesk
 
 ",0.76080173,Phishing,True,bwnepal.com
-7,spam,"""Hissatsu !"" <abhistha1012@gmail.com>",filter420m@gmail.com,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message.","
-",2026-01-13 01:13:52+00:00,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message. 
-","
-",0.9892029,Phishing,True,gmail.com
 6,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",account,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your
 account has been *temporarily limited*.
