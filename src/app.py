@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request, redirect, session
-from auth import register_user, login_user, get_user_gmail_credentials, login_required
+from auth import (
+    register_user,
+    login_user,
+    get_user_gmail_credentials,
+    login_required,
+)
 from gmail_dataset_builder import sync_gmail_to_csv
 from database import init_db
 import subprocess, threading, os, time, sys
@@ -15,15 +20,14 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 
-
-
 MODEL_FILES = {
     "baseline": "imap_emails_with_predictions_logistic.csv",
-    "xgboost": "imap_emails_with_predictions_xgb.csv"
+    "xgboost": "imap_emails_with_predictions_xgb.csv",
 }
 
 # Track background sync threads
 user_sync_threads = {}
+
 
 # =======================
 # REGISTRATION
@@ -45,6 +49,7 @@ def register():
 
     return render_template("register.html", error=error, success=success)
 
+
 # =======================
 # LOGIN
 # =======================
@@ -65,6 +70,7 @@ def login():
             error = "Invalid email or password"
 
     return render_template("login.html", error=error)
+
 
 # # =======================
 # DASHBOARD
@@ -106,7 +112,10 @@ def dashboard():
             if "prediction" in df.columns and "final_label" not in df.columns:
                 df["final_label"] = df["prediction"]
 
-            if "probability" in df.columns and "phishing_probability" not in df.columns:
+            if (
+                "probability" in df.columns
+                and "phishing_probability" not in df.columns
+            ):
                 df["phishing_probability"] = df["probability"]
 
             # ensure required columns exist
@@ -124,22 +133,28 @@ def dashboard():
             df_all = df.copy()
 
             total_emails = len(df_all)
-            legit_count = df_all["final_label"].str.contains("Legit", na=False).sum()
-            phishing_count = df_all["final_label"].str.contains("Phishing", na=False).sum()
+            legit_count = (
+                df_all["final_label"].str.contains("Legit", na=False).sum()
+            )
+            phishing_count = (
+                df_all["final_label"].str.contains("Phishing", na=False).sum()
+            )
 
             phishing_count = int(phishing_count)
             legit_count = int(legit_count)
-            total_emails = int(total_emails)    
+            total_emails = int(total_emails)
 
             # SOC alerts count (GLOBAL)
             soc_alerts_count = (
-                (df_all["final_label"].str.contains("Phishing", na=False)) &
-                (df_all["phishing_probability"] >= 0.85)
+                (df_all["final_label"].str.contains("Phishing", na=False))
+                & (df_all["phishing_probability"] >= 0.85)
             ).sum()
 
             # TOP PHISHING (GLOBAL)
             top_phishing = (
-                df_all[df_all["final_label"].str.contains("Phishing", na=False)]
+                df_all[
+                    df_all["final_label"].str.contains("Phishing", na=False)
+                ]
                 .sort_values("phishing_probability", ascending=False)
                 .head(5)
                 .to_dict(orient="records")
@@ -164,25 +179,23 @@ def dashboard():
             emails = df.iloc[start:end].to_dict(orient="records")
 
             # ======================
-            # SIMPLE PHISHING ALERT
-            # ======================
-            show_phishing_alert = False
-            new_phishing_count = 0
+    # PHISHING ALERT (PERSISTENT)
+    # ======================
+    phishing_count = int(phishing_count)
 
-            # ENSURE PYTHON INT (CRITICAL)
-            phishing_count = int(phishing_count)
+    if "prev_phishing_count" not in session:
+        session["prev_phishing_count"] = phishing_count
+        session["show_phishing_alert"] = False
+        session["new_phishing_count"] = 0
 
-            prev_count = session.get("prev_phishing_count")
+    elif phishing_count > session["prev_phishing_count"]:
+        session["show_phishing_alert"] = True
+        session["new_phishing_count"] = (
+            phishing_count - session["prev_phishing_count"]
+        )
 
-            if prev_count is None:
-                session["prev_phishing_count"] = phishing_count
-            else:
-                prev_count = int(prev_count)
-
-                if phishing_count > prev_count:
-                    show_phishing_alert = True
-                    new_phishing_count = phishing_count - prev_count
-                    session["prev_phishing_count"] = phishing_count
+    show_phishing_alert = session.get("show_phishing_alert", False)
+    new_phishing_count = session.get("new_phishing_count", 0)
 
     return render_template(
         "dashboard.html",
@@ -204,6 +217,7 @@ def dashboard():
         show_phishing_alert=show_phishing_alert,
         new_phishing_count=new_phishing_count,
     )
+
 
 # =======================
 # SOC ALERTS
@@ -229,13 +243,16 @@ def soc():
         if "prediction" in df.columns and "final_label" not in df.columns:
             df["final_label"] = df["prediction"]
 
-        if "probability" in df.columns and "phishing_probability" not in df.columns:
+        if (
+            "probability" in df.columns
+            and "phishing_probability" not in df.columns
+        ):
             df["phishing_probability"] = df["probability"]
 
         # SOC = high-risk phishing
         df = df[
-            (df["final_label"].str.contains("Phishing", na=False)) &
-            (df["phishing_probability"] >= 0.85)
+            (df["final_label"].str.contains("Phishing", na=False))
+            & (df["phishing_probability"] >= 0.85)
         ].sort_values("phishing_probability", ascending=False)
 
         total_alerts = len(df)
@@ -259,13 +276,12 @@ def soc():
         total_alerts=total_alerts,
         model=model,
         user_email=user_email,
-
         # ✅ REQUIRED FOR TEMPLATE
         page=page,
         total_pages=total_pages,
         window=WINDOW,
         showing_from=start + 1 if total_alerts else 0,
-        showing_to=min(end, total_alerts)
+        showing_to=min(end, total_alerts),
     )
 
 
@@ -277,12 +293,14 @@ def logout():
     session.clear()
     return redirect("/login")
 
+
 # =======================
 # HOME
 # =======================
 @app.route("/")
 def home():
     return redirect("/login")
+
 
 # =======================
 # BACKGROUND SYNC
@@ -301,7 +319,7 @@ def start_background_sync(user_id, email):
                 print(f"[PREDICT] Running models for {email}")
                 subprocess.run(
                     ["python", "src/predict_all.py", user_data_dir],
-                    check=False
+                    check=False,
                 )
 
                 time.sleep(20)
@@ -312,6 +330,18 @@ def start_background_sync(user_id, email):
     thread = threading.Thread(target=worker, daemon=True)
     thread.start()
     user_sync_threads[user_id] = thread
+
+
+@app.route("/dismiss-phishing-alert", methods=["POST"])
+@login_required
+def dismiss_phishing_alert():
+    session["prev_phishing_count"] = int(
+        session.get("prev_phishing_count", 0)
+    ) + int(session.get("new_phishing_count", 0))
+    session["show_phishing_alert"] = False
+    session["new_phishing_count"] = 0
+    return "", 204
+
 
 # =======================
 # RUN

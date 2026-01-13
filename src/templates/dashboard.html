@@ -100,19 +100,21 @@
 
     .card h3{margin:0 0 12px 0}
 
-    /* ===== PIE ===== */
-    .chart-container{
-      position:relative;
-      height:260px;
-    }
-    .chart-center{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      text-align:center;
-      pointer-events:none;
-    }
+/* ===== PIE ===== */
+.chart-container {
+  position: relative;
+  height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 
     /* ===== STATS CARD (MIDDLE) ===== */
     .big-number{
@@ -301,6 +303,34 @@
     cursor: pointer;
 }
 
+/* ===== SUMMARY CENTERING ===== */
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.summary-card h3 {
+  margin-bottom: 6px;
+}
+
+.summary-card .muted {
+  margin-bottom: 8px;
+}
+
+/* ===== SUMMARY SPACING ===== */
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  gap: 14px;           /* 🔥 MAIN CONTROL */
+}
+
+
+
 @keyframes popupFade {
     from { transform: scale(0.9); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
@@ -310,6 +340,21 @@
 </head>
 
 <body>
+{% if show_phishing_alert %}
+<div id="phishing-alert"
+     style="background:#b91c1c;color:white;padding:14px;
+            margin-bottom:12px;border-radius:6px;
+            display:flex;justify-content:space-between;align-items:center;">
+  <div>
+    ⚠️ <b>{{ new_phishing_count }}</b> new phishing email(s) detected!
+  </div>
+  <button onclick="dismissAlert()"
+          style="background:#7f1d1d;color:white;border:none;
+                 padding:6px 12px;border-radius:4px;cursor:pointer;">
+    Dismiss
+  </button>
+</div>
+{% endif %}
 
 <!-- ===== TOP BAR ===== -->
 <div class="topbar">
@@ -330,7 +375,7 @@
     <!-- <a href="/dashboard?model={{ model|default('baseline') }}&filter={{ label_filter|default('all') }}&refresh=1" class="btn refresh-btn">Refresh</a> -->
 
     <a href="/soc?model={{ model|default('baseline') }}" class="btn soc-btn">
-      SOC Alerts {{ soc_alerts_count|default(0) }}
+       Alerts {{ soc_alerts_count|default(0) }}
     </a>
 
     <a href="/logout" class="btn logout-btn">Logout</a>
@@ -350,13 +395,13 @@
   </div>
 
   <!-- Middle stats -->
-  <div class="card" style="flex: .9;">
+  <div class="card summary-card">
     <h3>Summary</h3>
-    <div class="muted">Current model: <b>{{ model|default('baseline') }}</b></div>
+    <div class="muted">Current model: <b>{{ model|default('Baseline') }}</b></div>
     <div class="big-number">{{ total_emails|default(0) }}</div>
 <div class="muted">Emails analysed by ML model</div>
 
-<div class="stat-row" style="margin-top:18px;">
+<div class="stat-row centered-stats">
   <div class="pill green" style="flex:1;text-align:center;">
     <div style="font-size:22px;font-weight:900;">{{ legit_count|default(0) }}</div>
     Legitimate
@@ -547,6 +592,12 @@ function closePhishingModal() {
     document.getElementById("phishingModal").style.display = "none";
 }
 
+function dismissAlert() {
+  fetch("/dismiss-phishing-alert", { method: "POST" })
+    .then(() => {
+      document.getElementById("phishing-alert").remove();
+    });
+}
 
 
 /* Auto refresh dashboard every 40sec  */
