@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SOC Alerts | Phishing Detection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  font-family:"Segoe UI",Tahoma,sans-serif;
+  background:linear-gradient(180deg,#eef2f7,#f9fbfd);
+  margin:0;
+  padding:20px;
+  color:#2c3e50;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:18px 22px;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.14);
+  margin-bottom:18px;
+}
+
+.title-wrap h1{
+  margin:0;
+  font-size:24px;
+  font-weight:900;
+}
+.title-wrap .sub{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.9;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ===== BUTTONS ===== */
+.btn{
+  padding:10px 18px;
+  color:#fff;
+  border-radius:24px;
+  text-decoration:none;
+  font-weight:900;
+  display:inline-block;
+  box-shadow:0 10px 22px rgba(0,0,0,.20);
+}
+.btn-blue{background:linear-gradient(135deg,#0072ff,#00c6ff)}
+.btn-green{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.btn-gray{background:linear-gradient(135deg,#444,#111)}
+
+/* ===== CARD ===== */
+.card{
+  background:white;
+  border-radius:18px;
+  padding:0;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.card-head{
+  padding:14px 18px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th,td{
+  padding:12px 14px;
+  border-bottom:1px solid #e1e4e8;
+  font-size:14px;
+  vertical-align:top;
+}
+
+th{
+  background:#f6f8fb;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:#333;
+}
+
+tr:hover td{
+  background:#f2f7ff;
+  cursor:pointer;
+}
+
+.prob{
+  font-weight:900;
+  color:#e74c3c;
+}
+
+.pill{
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  color:#111;
+  background:#fff0f0;
+  border:1px solid #ffd0d0;
+}
+
+.empty{
+  padding:20px;
+  color:#666;
+  font-size:14px;
+}
+
+/* ===== PAGINATION ===== */
+.pagination{
+  text-align:center;
+  margin:16px 0;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.page-link{
+  padding:8px 12px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #d7deea;
+  color:#111;
+  text-decoration:none;
+  font-weight:900;
+  font-size:13px;
+}
+
+.page-link.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* ===== MODAL ===== */
+#emailModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:1000;
+}
+
+#modalBox{
+  background:white;
+  width:70%;
+  margin:5% auto;
+  padding:20px;
+  border-radius:14px;
+  max-height:80%;
+  overflow:auto;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+#closeModal{
+  float:right;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+}
+
+pre{
+  white-space:pre-wrap;
+  word-wrap:break-word;
+  background:#f6f8fb;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #e6ebf3;
+}
+color:#2c3e50;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:18px 22px;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.14);
+  margin-bottom:18px;
+}
+
+.title-wrap h1{
+  margin:0;
+  font-size:26px;
+  font-weight:900;
+}
+
+.title-wrap .sub{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.9;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:10px 14px;
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
+}
+
+.btn-blue{background:linear-gradient(135deg,#0072ff,#00c6ff)}
+.btn-green{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.btn-gray{background:linear-gradient(135deg,#444,#111)}
+
+
+
+/* ===== CARD ===== */
+.card{
+  background:white;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  overflow:hidden;
+}
+
+.card-head{
+  padding:14px 18px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  font-size:13px;
+  vertical-align:top;
+}
+
+th{
+  background:#f6f8fb;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+tr:hover td{background:#fafcff;cursor:pointer}
+
+.prob{font-weight:900;color:#b30000}
+.pill{
+  padding:5px 10px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12px;
+  color:#fff;
+  background:linear-gradient(135deg,#ff416c,#ff4b2b);
+}
+
+.empty{padding:20px;color:#666}
+
+/* ===== PAGINATION ===== */
+.pagination{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.page-link{
+  padding:8px 12px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #d7deea;
+  font-weight:900;
+  text-decoration:none;
+  color:#111;
+}
+
+.page-link.active{
+  background:#111;
+  color:#fff;
+}
+
+/* ===== MODAL ===== */
+#emailModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:1000;
+}
+
+#modalBox{
+  background:white;
+  width:80%;
+  margin:3% auto;
+  padding:20px;
+  border-radius:14px;
+  max-height:80%;
+  overflow:auto;
+}
+
+#closeModal{
+  float:right;
+  cursor:pointer;
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#111;
+  color:#fff;
+}
+
+pre{
+  white-space:pre-wrap;
+  background:#f6f8fb;
+  padding:12px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="title-wrap">
+    <h1>SOC Alerts</h1>
+    <div class="sub">Logged in as {{ user_email }} • Model: {{ model }}</div>
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-blue" href="/dashboard?model={{ model }}">Dashboard</a>
+    <a class="btn {{ 'btn-green' if model=='baseline' else 'btn-gray' }}" href="/soc?model=baseline">Baseline</a>
+    <a class="btn {{ 'btn-green' if model=='xgboost' else 'btn-gray' }}" href="/soc?model=xgboost">XGBoost</a>
+    <span class="btn btn-gray">Total Alerts: {{ total_alerts }}</span>
+    <a class="btn btn-green" href="/soc?model={{ model }}&refresh=1">Refresh</a>
+    <a class="btn btn-gray" href="/logout">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="card">
+  <div class="card-head">
+    <h3>Alert Queue</h3>
+  </div>
+
+{% if alerts %}
+<table>
+<thead>
+<tr>
+  <th>Date</th>
+  <th>Sender</th>
+  <th>Receiver</th>
+  <th>Subject</th>
+  <th>Score</th>
+  <th>Label</th>
+</tr>
+</thead>
+<tbody>
+{% for a in alerts %}
+<tr onclick="openEmail(
+  '{{ a.subject|e }}',
+  '{{ a.sender|e }}',
+  '{{ a.receiver|e }}',
+  '{{ a.date }}',
+  `{{ a.body|e }}`
+)">
+<td>{{ a.date }}</td>
+<td>{{ a.sender }}</td>
+<td>{{ a.receiver }}</td>
+<td>{{ a.subject }}</td>
+<td class="prob">{{ (a.phishing_probability*100)|round(2) }}%</td>
+<td><span class="pill">{{ a.final_label }}</span></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="empty">No SOC alerts found.</div>
+{% endif %}
+</div>
+
+<div class="pagination">
+{% for p in range(1, total_pages+1) %}
+<a class="page-link {{ 'active' if p==page else '' }}"
+   href="/soc?page={{ p }}&model={{ model }}">{{ p }}</a>
+{% endfor %}
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="emailModal">
+  <div id="modalBox">
+    <span id="closeModal" onclick="closeEmail()">✕</span>
+    <h3 id="modalSubject"></h3>
+    <p><b>From:</b> <span id="modalFrom"></span></p>
+    <p><b>To:</b> <span id="modalTo"></span></p>
+    <p><b>Date:</b> <span id="modalDate"></span></p>
+    <hr>
+    <pre id="modalBody"></pre>
+  </div>
+</div>
+
+<script>
+function openEmail(s,f,t,d,b){
+  modalSubject.innerText=s;
+  modalFrom.innerText=f;
+  modalTo.innerText=t;
+  modalDate.innerText=d;
+  modalBody.innerText=b || "No email body available";
+  emailModal.style.display="block";
+}
+function closeEmail(){
+  emailModal.style.display="none";
+}
+</script>
+
+</body>
+</html>

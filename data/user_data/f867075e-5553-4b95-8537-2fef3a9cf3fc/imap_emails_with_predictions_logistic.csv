@@ -1,4 +1,424 @@
 uid,mailbox,sender,receiver,subject,body,date,Email Text,cleaned_body,phishing_probability,final_label,soc_alert,sender_domain
+125,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",unusual sign-in activity on your email accou11111111111111111,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 02:21:48+00:00,"unusual sign-in activity on your email accou11111111111111111 Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.9850713521365817,Phishing,True,bwnepal.com
+124,inbox,"""Hissatsu !"" <abhistha1012@gmail.com>",filter420m@gmail.com,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message.","
+",2026-01-13 01:13:52+00:00,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message. 
+","
+",0.9806412165658398,Phishing,True,gmail.com
+123,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+You allowed Google Drive for desktop access to some of your Google Account
+data
+
+
+filter420m@gmail.com
+
+If you didn’t allow Google Drive for desktop access to some of your Google
+Account data, someone else may be trying to access your Google Account data.
+
+Take a moment now to check your account activity and secure your account.
+Check activity
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768267668000?rfn%3D127%26rfnc%3D1%26eid%3D5310700443003274134%26et%3D0>
+To make changes at any time to the access that Google Drive for desktop has
+to your data, go to your Google Account
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9FtVEuJ8CaU3DvPnamtAeSCANFfTcYjkU9YVb9Ku6DoBv21Q8YVXJi_JE7Exc-k4-m8wL-8kncLVOjUcv-xVEA?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
+You can also see security activity at
+https://myaccount.google.com/notifications
+You received this email to let you know about important changes to your
+Google Account and services.
+© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+",,"Security alert [image: Google]
+You allowed Google Drive for desktop access to some of your Google Account
+data
+
+
+filter420m@gmail.com
+
+If you didn’t allow Google Drive for desktop access to some of your Google
+Account data, someone else may be trying to access your Google Account data.
+
+Take a moment now to check your account activity and secure your account.
+Check activity
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768267668000?rfn%3D127%26rfnc%3D1%26eid%3D5310700443003274134%26et%3D0>
+To make changes at any time to the access that Google Drive for desktop has
+to your data, go to your Google Account
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9FtVEuJ8CaU3DvPnamtAeSCANFfTcYjkU9YVb9Ku6DoBv21Q8YVXJi_JE7Exc-k4-m8wL-8kncLVOjUcv-xVEA?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
+You can also see security activity at
+https://myaccount.google.com/notifications
+You received this email to let you know about important changes to your
+Google Account and services.
+© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+","[image: Google]
+You allowed Google Drive for desktop access to some of your Google Account
+data
+
+
+filter420m@gmail.com
+
+If you didn’t allow Google Drive for desktop access to some of your Google
+Account data, someone else may be trying to access your Google Account data.
+
+Take a moment now to check your account activity and secure your account.
+Check activity
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768267668000?rfn%3D127%26rfnc%3D1%26eid%3D5310700443003274134%26et%3D0>
+To make changes at any time to the access that Google Drive for desktop has
+to your data, go to your Google Account
+<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9FtVEuJ8CaU3DvPnamtAeSCANFfTcYjkU9YVb9Ku6DoBv21Q8YVXJi_JE7Exc-k4-m8wL-8kncLVOjUcv-xVEA?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
+You can also see security activity at
+https://myaccount.google.com/notifications
+You received this email to let you know about important changes to your
+Google Account and services.
+© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+",0.0,Legitimate,False,accounts.google.com
+122,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>", unusual sign-in activity on your email account.,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 01:23:34+00:00," unusual sign-in activity on your email account. Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.9859425707947298,Phishing,True,bwnepal.com
+121,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: 1111111111111111111111111111111111111111111111111111111111111111,"
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:0dc8b8cc-2c01-42e0-90c5-c290b506610f]
+
+
+
+
+________________________________
+From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 8:16 PM
+To: muksgraphy@gmail.com <muksgraphy@gmail.com>
+Subject: 1111111111111111111111111111111111111111111111111111111111111111
+
+
+
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:98f7be21-a567-4aee-b893-ac803743cfd8]
+
+
+________________________________
+From: BQT KTM <bqt.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 5:19 PM
+To: astt1.ktm@bwnepal.com <astt1.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Binisha <marcom.ktm@bwnepal.com>; Birkha ji <exechef.ktm@bwnepal.com>; DEVI NEUPANE <ro.ktm@bwnepal.com>; dosm.ktm@bwnepal.com <dosm.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Fron <afom.ktm@bwnepal.com>; Front office <fo.ktm@bwnepal.com>; Hari Lamsal <cer.ktm@bwnepal.com>; HEMANTA RAJ <hr.ktm@bwnepal.com>; Kabita ji <ahk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; NIKKI SHRETSHA <lnd.ktm@bwnepal.com>; Nisha Tamang <sales1.ktm@bwnepal.com>; Raj Basnet <ehk.ktm@bwnepal.com>; Rajesh Ji <fnb.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; SANGEETA SHRESTHA <reservations.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>
+Cc: Jatin Shrestha <gm.ktm@bwnepal.com>
+Subject: BOB of Jan,2026 & Monthly wise BOB of 2026
+
+
+Dear Team,
+Greetings of the Day..!
+Kindly find the attached BOB of Jan,2026 & Monthly wise BOB of 2026.
+If you need further details regarding specific dates and Venue please feel free to reach out.
+Thank you for your cooperation and continued support.
+
+""We'd love to hear your thoughts! Please take a moment to share by clicking Feedback<https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> <https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> ""
+
+
+Best Regards,
+
+Jyoti Magar | Banquet Sales Executive | bqt.ktm@bwnepal.com<mailto:bqt.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan,Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:8070c486-ccc6-4abb-85a7-756acbde625c]
+
+",2026-01-13 01:18:31+00:00,"Fw: 1111111111111111111111111111111111111111111111111111111111111111 
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:0dc8b8cc-2c01-42e0-90c5-c290b506610f]
+
+
+
+
+________________________________
+From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 8:16 PM
+To: muksgraphy@gmail.com <muksgraphy@gmail.com>
+Subject: 1111111111111111111111111111111111111111111111111111111111111111
+
+
+
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:98f7be21-a567-4aee-b893-ac803743cfd8]
+
+
+________________________________
+From: BQT KTM <bqt.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 5:19 PM
+To: astt1.ktm@bwnepal.com <astt1.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Binisha <marcom.ktm@bwnepal.com>; Birkha ji <exechef.ktm@bwnepal.com>; DEVI NEUPANE <ro.ktm@bwnepal.com>; dosm.ktm@bwnepal.com <dosm.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Fron <afom.ktm@bwnepal.com>; Front office <fo.ktm@bwnepal.com>; Hari Lamsal <cer.ktm@bwnepal.com>; HEMANTA RAJ <hr.ktm@bwnepal.com>; Kabita ji <ahk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; NIKKI SHRETSHA <lnd.ktm@bwnepal.com>; Nisha Tamang <sales1.ktm@bwnepal.com>; Raj Basnet <ehk.ktm@bwnepal.com>; Rajesh Ji <fnb.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; SANGEETA SHRESTHA <reservations.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>
+Cc: Jatin Shrestha <gm.ktm@bwnepal.com>
+Subject: BOB of Jan,2026 & Monthly wise BOB of 2026
+
+
+Dear Team,
+Greetings of the Day..!
+Kindly find the attached BOB of Jan,2026 & Monthly wise BOB of 2026.
+If you need further details regarding specific dates and Venue please feel free to reach out.
+Thank you for your cooperation and continued support.
+
+""We'd love to hear your thoughts! Please take a moment to share by clicking Feedback<https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> <https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> ""
+
+
+Best Regards,
+
+Jyoti Magar | Banquet Sales Executive | bqt.ktm@bwnepal.com<mailto:bqt.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan,Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:8070c486-ccc6-4abb-85a7-756acbde625c]
+
+","
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:0dc8b8cc-2c01-42e0-90c5-c290b506610f]
+
+
+
+
+________________________________
+From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 8:16 PM
+To: muksgraphy@gmail.com <muksgraphy@gmail.com>
+Subject: 1111111111111111111111111111111111111111111111111111111111111111
+
+
+
+
+Dear  Ji
+
+Greetings of the Day!
+
+I hope you are doing well.
+
+
+I appreciate you taking the time to look into this and look forward to your support.
+
+Best Regards,
+
+Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan, Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:98f7be21-a567-4aee-b893-ac803743cfd8]
+
+
+________________________________
+From: BQT KTM <bqt.ktm@bwnepal.com>
+Sent: Sunday, January 11, 2026 5:19 PM
+To: astt1.ktm@bwnepal.com <astt1.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Binisha <marcom.ktm@bwnepal.com>; Birkha ji <exechef.ktm@bwnepal.com>; DEVI NEUPANE <ro.ktm@bwnepal.com>; dosm.ktm@bwnepal.com <dosm.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Fron <afom.ktm@bwnepal.com>; Front office <fo.ktm@bwnepal.com>; Hari Lamsal <cer.ktm@bwnepal.com>; HEMANTA RAJ <hr.ktm@bwnepal.com>; Kabita ji <ahk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; NIKKI SHRETSHA <lnd.ktm@bwnepal.com>; Nisha Tamang <sales1.ktm@bwnepal.com>; Raj Basnet <ehk.ktm@bwnepal.com>; Rajesh Ji <fnb.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; SANGEETA SHRESTHA <reservations.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>
+Cc: Jatin Shrestha <gm.ktm@bwnepal.com>
+Subject: BOB of Jan,2026 & Monthly wise BOB of 2026
+
+
+Dear Team,
+Greetings of the Day..!
+Kindly find the attached BOB of Jan,2026 & Monthly wise BOB of 2026.
+If you need further details regarding specific dates and Venue please feel free to reach out.
+Thank you for your cooperation and continued support.
+
+""We'd love to hear your thoughts! Please take a moment to share by clicking Feedback<https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> <https://www.tripadvisor.com/UserReviewEdit-g293890-d33244199-Best_Western_Plus_Kathmandu-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html> ""
+
+
+Best Regards,
+
+Jyoti Magar | Banquet Sales Executive | bqt.ktm@bwnepal.com<mailto:bqt.ktm@bwnepal.com>
+Kathmandu Hotel
+Pingalasthan,Tilganga Marg | Kathmandu
+P: 01-5971499
+Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
+Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
+
+[cid:8070c486-ccc6-4abb-85a7-756acbde625c]
+
+",0.19954088074109247,Legitimate,False,bwnepal.com
+120,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Urgent: Account Verification Required Within 24 Hours,"Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",2026-01-13 01:08:17+00:00,"Urgent: Account Verification Required Within 24 Hours Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+","Dear User,
+We detected unusual sign-in activity on your email account. For your protection, your access has been temporarily limited.
+To restore full access, please verify your account immediately by clicking the link below:
+👉 Verify Account Now
+http://company-it-support[.]verify-login[.]net
+If verification is not completed within 24 hours, your email account will be permanently suspended.
+If you believe this is an error, please complete the verification to avoid disruption to your work.
+Thank you for your cooperation,
+IT Support Team
+Company IT Department
+
+",0.9918763130077678,Phishing,True,bwnepal.com
 119,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,filter420m@gmail.com,your account will be permanently suspended,"From: Security Team <no-reply@account-security-alert.com>
 To: User
 Date: [DATE]
@@ -1586,1373 +2006,7 @@ Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfT
 © 2025 TryHackMe. All rights reserved.
 [https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09In0=]
 ",0.384964901510725,Legitimate,False,bwnepal.com
-92,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,filter420m@gmail.com,qwertyuiop,"sdfghcvbnjkasdfghjhgfdvzcxZvbnmlkujhdfsaZXcv bn
-",2026-01-12 14:30:04+00:00,"qwertyuiop sdfghcvbnjkasdfghjhgfdvzcxZvbnmlkujhdfsaZXcv bn
-","sdfghcvbnjkasdfghjhgfdvzcxZvbnmlkujhdfsaZXcv bn
-",0.2160206010584895,Legitimate,False,gmail.com
-91,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,filter420m@gmail.com,hacking,"hackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghacking
-",2026-01-12 14:11:12+00:00,"hacking hackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghacking
-","hackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghackinghacking
-",0.20748012673099242,Legitimate,False,gmail.com
-90,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: To submit the original documents,"
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:2f09c6a5-0029-4bae-8ba5-af2ba9ea3893]
-
-
-________________________________
-From: Uma Thapa <hr.ktm@bwnepal.com>
-Sent: Tuesday, November 26, 2024 1:24 PM
-To: Sailesh KC <ufc.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Sales3 KTM BWNepal <sales3.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>
-Subject: To submit the original documents
-
-Dear all,
-
-Greetings of the day,
-
-Regarding HR documentation, I would like to inform you all that you will submit your  original experience and academic certificate and other related documents (i.e citizenship, voting card) till tomorrow 27th Nov 2024, 4 pm.
-
-
-Thank you,
-
-Best Regards,
-Uma Thapa
-HR Manager
-BWP Kathmandu
-
-
-",2026-01-12 11:27:44+00:00,"Fw: To submit the original documents 
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:2f09c6a5-0029-4bae-8ba5-af2ba9ea3893]
-
-
-________________________________
-From: Uma Thapa <hr.ktm@bwnepal.com>
-Sent: Tuesday, November 26, 2024 1:24 PM
-To: Sailesh KC <ufc.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Sales3 KTM BWNepal <sales3.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>
-Subject: To submit the original documents
-
-Dear all,
-
-Greetings of the day,
-
-Regarding HR documentation, I would like to inform you all that you will submit your  original experience and academic certificate and other related documents (i.e citizenship, voting card) till tomorrow 27th Nov 2024, 4 pm.
-
-
-Thank you,
-
-Best Regards,
-Uma Thapa
-HR Manager
-BWP Kathmandu
-
-
-","
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:2f09c6a5-0029-4bae-8ba5-af2ba9ea3893]
-
-
-________________________________
-From: Uma Thapa <hr.ktm@bwnepal.com>
-Sent: Tuesday, November 26, 2024 1:24 PM
-To: Sailesh KC <ufc.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Duty Manager FO <dm.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>; Sales3 KTM BWNepal <sales3.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>
-Subject: To submit the original documents
-
-Dear all,
-
-Greetings of the day,
-
-Regarding HR documentation, I would like to inform you all that you will submit your  original experience and academic certificate and other related documents (i.e citizenship, voting card) till tomorrow 27th Nov 2024, 4 pm.
-
-
-Thank you,
-
-Best Regards,
-Uma Thapa
-HR Manager
-BWP Kathmandu
-
-
-",0.18513511533459423,Legitimate,False,bwnepal.com
-89,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""muksgraphy@gmail.com"" <muksgraphy@gmail.com>, ""filter420m@gmail.com""
-	<filter420m@gmail.com>",Fw: Leave form ,"
-
-
-________________________________
-From: Hemanta Raj Adhiakari <hr.ktm@bwnepal.com>
-Sent: Sunday, January 12, 2025 5:26 PM
-To: Aaryan Bastola <aaryanbastola@traveality.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Padam Ale Magar <exechef.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>; Tara Pd Aryal <deputydirector.ktm@bwnepal.com>
-Subject: Leave form
-
-
-Dear All-Greetings,
-Please find attached herewith the leave form for usage, Thank you
-  Best regards,
-  Hemanta Raj Adhikari
-  HR Manager
-
-  hr.ktm@bwnepal.com
-
-
-
-[cid:cf65475c-5cfa-4656-909e-8a89baad827b]
-
-
-",2026-01-12 10:54:08+00:00,"Fw: Leave form  
-
-
-________________________________
-From: Hemanta Raj Adhiakari <hr.ktm@bwnepal.com>
-Sent: Sunday, January 12, 2025 5:26 PM
-To: Aaryan Bastola <aaryanbastola@traveality.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Padam Ale Magar <exechef.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>; Tara Pd Aryal <deputydirector.ktm@bwnepal.com>
-Subject: Leave form
-
-
-Dear All-Greetings,
-Please find attached herewith the leave form for usage, Thank you
-  Best regards,
-  Hemanta Raj Adhikari
-  HR Manager
-
-  hr.ktm@bwnepal.com
-
-
-
-[cid:cf65475c-5cfa-4656-909e-8a89baad827b]
-
-
-","
-
-
-________________________________
-From: Hemanta Raj Adhiakari <hr.ktm@bwnepal.com>
-Sent: Sunday, January 12, 2025 5:26 PM
-To: Aaryan Bastola <aaryanbastola@traveality.com>; Ganesh Budhathoki <afom.ktm@bwnepal.com>; Bachchuram Chaulagain <afnb.ktm@bwnepal.com>; Sanjay Maharjan <purchase.ktm@bwnepal.com>; Umesh Shrestha <sales2.ktm@bwnepal.com>; Sumendu Ghimire <sales1.ktm@bwnepal.com>; Kamal Mani Chapagain <cer.ktm@bwnepal.com>; Heknath Tiwari <ehk.ktm@bwnepal.com>; MUKESH MAHARJAN <it.ktm@bwnepal.com>; Padam Ale Magar <exechef.ktm@bwnepal.com>; Shyam Sundar Giri <cso.ktm@bwnepal.com>; Sailesh KC <ufc.ktm@bwnepal.com>; Bidur K Koirala <dfc.ktm@bwnepal.com>
-Cc: Dinesh Kumar <gm.ktm@bwnepal.com>; Tara Pd Aryal <deputydirector.ktm@bwnepal.com>
-Subject: Leave form
-
-
-Dear All-Greetings,
-Please find attached herewith the leave form for usage, Thank you
-  Best regards,
-  Hemanta Raj Adhikari
-  HR Manager
-
-  hr.ktm@bwnepal.com
-
-
-
-[cid:cf65475c-5cfa-4656-909e-8a89baad827b]
-
-
-",0.28405814943083707,Legitimate,False,bwnepal.com
-88,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>, ""muksgraphy@gmail.com""
-	<muksgraphy@gmail.com>",Security Team <security-alert@fake-mail.example>,"Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",2026-01-12 07:31:40+00:00,"Security Team <security-alert@fake-mail.example> Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-","Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",0.96737205805575,Phishing,True,bwnepal.com
-87,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768180198362?rfn%3D20%26rfnc%3D1%26eid%3D1544481111222375854%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768180198362?rfn%3D20%26rfnc%3D1%26eid%3D1544481111222375854%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768180198362?rfn%3D20%26rfnc%3D1%26eid%3D1544481111222375854%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-86,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-Your password was changed
-
-
-filter420m@gmail.com
-The password for your Google account filter420m@gmail.com was changed. If
-you didn't change it, you should recover your account
-<https://accounts.google.com/RecoverAccount?fpOnly=1&source=ancp&Email=filter420m@gmail.com&et=0>
-.
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-Your password was changed
-
-
-filter420m@gmail.com
-The password for your Google account filter420m@gmail.com was changed. If
-you didn't change it, you should recover your account
-<https://accounts.google.com/RecoverAccount?fpOnly=1&source=ancp&Email=filter420m@gmail.com&et=0>
-.
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-Your password was changed
-
-
-filter420m@gmail.com
-The password for your Google account filter420m@gmail.com was changed. If
-you didn't change it, you should recover your account
-<https://accounts.google.com/RecoverAccount?fpOnly=1&source=ancp&Email=filter420m@gmail.com&et=0>
-.
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-85,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179663242?rfn%3D20%26rfnc%3D1%26eid%3D6612098168435218198%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179663242?rfn%3D20%26rfnc%3D1%26eid%3D6612098168435218198%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gmail_listner, someone might be
-using your account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179663242?rfn%3D20%26rfnc%3D1%26eid%3D6612098168435218198%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-84,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179597138?rfn%3D325%26rfnc%3D1%26eid%3D-4586811547132871941%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179597138?rfn%3D325%26rfnc%3D1%26eid%3D-4586811547132871941%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768179597138?rfn%3D325%26rfnc%3D1%26eid%3D-4586811547132871941%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-83,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gml, someone might be using your
-account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135214446?rfn%3D20%26rfnc%3D1%26eid%3D8393107028900813911%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gml, someone might be using your
-account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135214446?rfn%3D20%26rfnc%3D1%26eid%3D8393107028900813911%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-App password created to sign in to your account
-
-
-filter420m@gmail.com
-If you didn't generate this password for gml, someone might be using your
-account. Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135214446?rfn%3D20%26rfnc%3D1%26eid%3D8393107028900813911%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-82,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135206827?rfn%3D325%26rfnc%3D1%26eid%3D-419691470961310497%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135206827?rfn%3D325%26rfnc%3D1%26eid%3D-419691470961310497%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768135206827?rfn%3D325%26rfnc%3D1%26eid%3D-419691470961310497%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-81,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-App password used to sign in was removed
-
-
-filter420m@gmail.com
-If you didn't remove this password, someone might be using your account.
-Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131354447?rfn%3D269%26rfnc%3D1%26eid%3D-7057235323566974384%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-App password used to sign in was removed
-
-
-filter420m@gmail.com
-If you didn't remove this password, someone might be using your account.
-Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131354447?rfn%3D269%26rfnc%3D1%26eid%3D-7057235323566974384%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-App password used to sign in was removed
-
-
-filter420m@gmail.com
-If you didn't remove this password, someone might be using your account.
-Check and secure your account now.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131354447?rfn%3D269%26rfnc%3D1%26eid%3D-7057235323566974384%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-80,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131348443?rfn%3D325%26rfnc%3D1%26eid%3D5193503637966660556%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131348443?rfn%3D325%26rfnc%3D1%26eid%3D5193503637966660556%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-A new sign-in on Windows
-
-
-filter420m@gmail.com
-We noticed a new sign-in to your Google Account on a Windows device. If
-this was you, you don’t need to do anything. If not, we’ll help you secure
-your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768131348443?rfn%3D325%26rfnc%3D1%26eid%3D5193503637966660556%26et%3D0>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-79,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
-You allowed Google Drive for desktop access to some of your Google Account
-data
-
-
-filter420m@gmail.com
-
-If you didn’t allow Google Drive for desktop access to some of your Google
-Account data, someone else may be trying to access your Google Account data.
-
-Take a moment now to check your account activity and secure your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768097126000?rfn%3D127%26rfnc%3D1%26eid%3D-1973503438697589655%26et%3D0>
-To make changes at any time to the access that Google Drive for desktop has
-to your data, go to your Google Account
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9EHHgKIojg-9lNbgwjRrnFutLM1PlOan96Rtc45kajqpyy941xPnyGTIF1Jq3uTay1Y93NB99_Juy39M_DQGDQ?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",,"Security alert [image: Google]
-You allowed Google Drive for desktop access to some of your Google Account
-data
-
-
-filter420m@gmail.com
-
-If you didn’t allow Google Drive for desktop access to some of your Google
-Account data, someone else may be trying to access your Google Account data.
-
-Take a moment now to check your account activity and secure your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768097126000?rfn%3D127%26rfnc%3D1%26eid%3D-1973503438697589655%26et%3D0>
-To make changes at any time to the access that Google Drive for desktop has
-to your data, go to your Google Account
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9EHHgKIojg-9lNbgwjRrnFutLM1PlOan96Rtc45kajqpyy941xPnyGTIF1Jq3uTay1Y93NB99_Juy39M_DQGDQ?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-","[image: Google]
-You allowed Google Drive for desktop access to some of your Google Account
-data
-
-
-filter420m@gmail.com
-
-If you didn’t allow Google Drive for desktop access to some of your Google
-Account data, someone else may be trying to access your Google Account data.
-
-Take a moment now to check your account activity and secure your account.
-Check activity
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/alert/nt/1768097126000?rfn%3D127%26rfnc%3D1%26eid%3D-1973503438697589655%26et%3D0>
-To make changes at any time to the access that Google Drive for desktop has
-to your data, go to your Google Account
-<https://accounts.google.com/AccountChooser?Email=filter420m@gmail.com&continue=https://myaccount.google.com/connections/overview/ASjxo9EHHgKIojg-9lNbgwjRrnFutLM1PlOan96Rtc45kajqpyy941xPnyGTIF1Jq3uTay1Y93NB99_Juy39M_DQGDQ?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>
-You can also see security activity at
-https://myaccount.google.com/notifications
-You received this email to let you know about important changes to your
-Google Account and services.
-© 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-",0.0,Legitimate,False,accounts.google.com
-78,inbox,R e e y e e s <crimsonpearl987@gmail.com>,filter420m@gmail.com,Action Required: Unusual Sign-In Activity Detected,"*⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-",2026-01-11 01:42:35+00:00,"Action Required: Unusual Sign-In Activity Detected *⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-","*⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-",0.9197872432825388,Phishing,True,gmail.com
-77,inbox,R e e y e e s <crimsonpearl987@gmail.com>,filter420m@gmail.com,Re: Action Required: Unusual Sign-In Activity Detected,"On Sun, Jan 11, 2026 at 6:53 AM R e e y e e s <crimsonpearl987@gmail.com>
-wrote:
-
-> Subject: Action Required: Unusual Sign-In Activity Detected
->
-> *⚠️ This is a simulated phishing email for security testing purposes only.*
->
-> Hello,
->
-> We detected an unusual sign-in attempt to your *SecureMail Portal*
-> account from a new device on *January 11, 2026*.
->
-> *Location:* Eastern Europe
-> *Device:* Windows Desktop
-> *IP Address:* 192.168.47.221
->
-> If this was you, no further action is required.
-> If you do *not* recognize this activity, please verify your account
-> immediately to prevent temporary suspension.
->
-> 👉 *Verify Account Activity:*
-> http://securemail-verification[.]net/session/confirm
->
-> Failure to verify within *2 hours* may result in restricted access to
-> your email services.
->
-> Thank you for helping us keep your account secure.
->
-> Security Operations Team
-> SecureMail Services
-> support@securemail-alerts[.]net
->
-> *This message was generated automatically. Please do not reply.*
->
-",2026-01-11 01:35:32+00:00,"Re: Action Required: Unusual Sign-In Activity Detected On Sun, Jan 11, 2026 at 6:53 AM R e e y e e s <crimsonpearl987@gmail.com>
-wrote:
-
-> Subject: Action Required: Unusual Sign-In Activity Detected
->
-> *⚠️ This is a simulated phishing email for security testing purposes only.*
->
-> Hello,
->
-> We detected an unusual sign-in attempt to your *SecureMail Portal*
-> account from a new device on *January 11, 2026*.
->
-> *Location:* Eastern Europe
-> *Device:* Windows Desktop
-> *IP Address:* 192.168.47.221
->
-> If this was you, no further action is required.
-> If you do *not* recognize this activity, please verify your account
-> immediately to prevent temporary suspension.
->
-> 👉 *Verify Account Activity:*
-> http://securemail-verification[.]net/session/confirm
->
-> Failure to verify within *2 hours* may result in restricted access to
-> your email services.
->
-> Thank you for helping us keep your account secure.
->
-> Security Operations Team
-> SecureMail Services
-> support@securemail-alerts[.]net
->
-> *This message was generated automatically. Please do not reply.*
->
-","On Sun, Jan 11, 2026 at 6:53 AM R e e y e e s <crimsonpearl987@gmail.com>
-wrote:
-
-> Subject: Action Required: Unusual Sign-In Activity Detected
->
-> *⚠️ This is a simulated phishing email for security testing purposes only.*
->
-> Hello,
->
-> We detected an unusual sign-in attempt to your *SecureMail Portal*
-> account from a new device on *January 11, 2026*.
->
-> *Location:* Eastern Europe
-> *Device:* Windows Desktop
-> *IP Address:* 192.168.47.221
->
-> If this was you, no further action is required.
-> If you do *not* recognize this activity, please verify your account
-> immediately to prevent temporary suspension.
->
-> 👉 *Verify Account Activity:*
-> http://securemail-verification[.]net/session/confirm
->
-> Failure to verify within *2 hours* may result in restricted access to
-> your email services.
->
-> Thank you for helping us keep your account secure.
->
-> Security Operations Team
-> SecureMail Services
-> support@securemail-alerts[.]net
->
-> *This message was generated automatically. Please do not reply.*
->
-",0.8714483372109042,Phishing,True,gmail.com
-76,inbox,R e e y e e s <crimsonpearl987@gmail.com>,filter420m@gmail.com,Action Required: Unusual Sign-In Activity Detected,"Subject: Action Required: Unusual Sign-In Activity Detected
-
-*⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-",2026-01-11 01:08:14+00:00,"Action Required: Unusual Sign-In Activity Detected Subject: Action Required: Unusual Sign-In Activity Detected
-
-*⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-","Subject: Action Required: Unusual Sign-In Activity Detected
-
-*⚠️ This is a simulated phishing email for security testing purposes only.*
-
-Hello,
-
-We detected an unusual sign-in attempt to your *SecureMail Portal* account
-from a new device on *January 11, 2026*.
-
-*Location:* Eastern Europe
-*Device:* Windows Desktop
-*IP Address:* 192.168.47.221
-
-If this was you, no further action is required.
-If you do *not* recognize this activity, please verify your account
-immediately to prevent temporary suspension.
-
-👉 *Verify Account Activity:*
-http://securemail-verification[.]net/session/confirm
-
-Failure to verify within *2 hours* may result in restricted access to your
-email services.
-
-Thank you for helping us keep your account secure.
-
-Security Operations Team
-SecureMail Services
-support@securemail-alerts[.]net
-
-*This message was generated automatically. Please do not reply.*
-",0.9069481994870293,Phishing,True,gmail.com
-75,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: account,"
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:38e99e51-d443-4e20-ba3a-5d569222ed20]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:33 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",2026-01-11 01:05:19+00:00,"Fw: account 
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:38e99e51-d443-4e20-ba3a-5d569222ed20]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:33 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-","
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:38e99e51-d443-4e20-ba3a-5d569222ed20]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:33 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",0.827279184007051,Phishing,True,bwnepal.com
-74,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: account ,"
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:9dd6b51a-8723-464d-8cb8-5be7ef78df35]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:37 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",2026-01-11 00:24:34+00:00,"Fw: account  
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:9dd6b51a-8723-464d-8cb8-5be7ef78df35]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:37 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-","
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:9dd6b51a-8723-464d-8cb8-5be7ef78df35]
-
-
-________________________________
-From: MUKESH MAHARJAN <it.ktm@bwnepal.com>
-Sent: Friday, January 9, 2026 12:37 PM
-To: filter420m@gmail.com <filter420m@gmail.com>
-Subject: account
-
-Dear Customer,
-We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
-To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
-👉 Verify Now: https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-
-",0.8323116760614016,Phishing,True,bwnepal.com
-73,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Progress starts with one click 💪,"
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:b9ae6457-7c37-45eb-b5ea-843dae312d32]
-
-
-________________________________
-From: TryHackMe <donotreply@tryhackme.com>
-Sent: Friday, January 9, 2026 8:17 PM
-To: it.ktm@bwnepal.com <it.ktm@bwnepal.com>
-Subject: Progress starts with one click 💪
-
-Build momentum, earn rewards, and unlock 25% off Premium.  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­
-[TryHackMe Logo]
-[TryHackMe Motivation Banner] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-Hey it.ktm,
-
-You don’t have to become an expert overnight, just take one step forward today.
-
-Each room you complete helps you:
-
-🔓 Build real-world cyber skills, one challenge at a time.
-
-🔥 Keep your learning streak alive and visible on your dashboard.
-
-🎁 Unlock your 25% Premium reward when you complete one room within 7 days.
-
-You’ve got this! One room today can change everything.
-
-💥 Continue My Progress <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-
-⭐ Premium Advantage ⭐
-
-With TryHackMe Premium, you’ll go further, faster:
-
-🔍 Explore advanced paths and challenges.
-🧩 Learn interactively, not passively.
-🚀 Keep growing at your own pace, anytime.
-[Discord] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vZGlzY29yZC5nZy90cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjM0MX0/064c67055ee86a17bc51b1411f1fbdd35de159d825c4ff2d4345217f133f0a4a>   [X]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHdpdHRlci5jb20vdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTd9/92a73e309b68ead559cb91d8057cd4c60e23e5617c7c02e0815eb330500e9bee>       [Instagram]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vaW5zdGFncmFtLmNvbS9yZWFsdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6M30/aa0f447cd7d2ab81200c39bfdf135f6569a143c840ad89e79fc24c0f99339c72>    [LinkedIn]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vbGlua2VkaW4uY29tL2NvbXBhbnkvdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTl9/0aa0d93a2bbec03371a67ec41143710dec3f1d5eb75a7c724f3ba880ef905e83>    [YouTube]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8veW91dHViZS5jb20vQHJlYWx0cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjQzMX0/fb28fe05f0d0af7e0b8423e45fa969f795158d4d4f57d0237a76f2e93cf5a047>
-
-Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS90ZXJtcyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjEwfQ/f63e5202174a0ed8afb33e5461ac06889f290c9283b1163aee759a639ab9fe0d> | Unsubscribe<https://e.customeriomail.com/unsubscribe/dgTK1QULAKz80gKr_NICAZujLFAWh1lntkzS9MyO1Q==>
-
-© 2025 TryHackMe. All rights reserved.
-[https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09In0=]
-",2026-01-09 15:21:38+00:00,"Fw: Progress starts with one click 💪 
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:b9ae6457-7c37-45eb-b5ea-843dae312d32]
-
-
-________________________________
-From: TryHackMe <donotreply@tryhackme.com>
-Sent: Friday, January 9, 2026 8:17 PM
-To: it.ktm@bwnepal.com <it.ktm@bwnepal.com>
-Subject: Progress starts with one click 💪
-
-Build momentum, earn rewards, and unlock 25% off Premium.  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­
-[TryHackMe Logo]
-[TryHackMe Motivation Banner] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-Hey it.ktm,
-
-You don’t have to become an expert overnight, just take one step forward today.
-
-Each room you complete helps you:
-
-🔓 Build real-world cyber skills, one challenge at a time.
-
-🔥 Keep your learning streak alive and visible on your dashboard.
-
-🎁 Unlock your 25% Premium reward when you complete one room within 7 days.
-
-You’ve got this! One room today can change everything.
-
-💥 Continue My Progress <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-
-⭐ Premium Advantage ⭐
-
-With TryHackMe Premium, you’ll go further, faster:
-
-🔍 Explore advanced paths and challenges.
-🧩 Learn interactively, not passively.
-🚀 Keep growing at your own pace, anytime.
-[Discord] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vZGlzY29yZC5nZy90cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjM0MX0/064c67055ee86a17bc51b1411f1fbdd35de159d825c4ff2d4345217f133f0a4a>   [X]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHdpdHRlci5jb20vdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTd9/92a73e309b68ead559cb91d8057cd4c60e23e5617c7c02e0815eb330500e9bee>       [Instagram]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vaW5zdGFncmFtLmNvbS9yZWFsdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6M30/aa0f447cd7d2ab81200c39bfdf135f6569a143c840ad89e79fc24c0f99339c72>    [LinkedIn]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vbGlua2VkaW4uY29tL2NvbXBhbnkvdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTl9/0aa0d93a2bbec03371a67ec41143710dec3f1d5eb75a7c724f3ba880ef905e83>    [YouTube]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8veW91dHViZS5jb20vQHJlYWx0cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjQzMX0/fb28fe05f0d0af7e0b8423e45fa969f795158d4d4f57d0237a76f2e93cf5a047>
-
-Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS90ZXJtcyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjEwfQ/f63e5202174a0ed8afb33e5461ac06889f290c9283b1163aee759a639ab9fe0d> | Unsubscribe<https://e.customeriomail.com/unsubscribe/dgTK1QULAKz80gKr_NICAZujLFAWh1lntkzS9MyO1Q==>
-
-© 2025 TryHackMe. All rights reserved.
-[https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09In0=]
-","
-
-Dear  Ji
-
-Greetings of the Day!
-
-I hope you are doing well.
-
-
-I appreciate you taking the time to look into this and look forward to your support.
-
-Best Regards,
-
-Mukesh Maharjan | Asst Manager Network & System | it.ktm@bwnepal.com<mailto:it.ktm@bwnepal.com>
-Kathmandu Hotel
-Pingalasthan, Tilganga Marg | Kathmandu
-P: 01-5971499
-Reservations: reservations.ktm@bwnepal.com<mailto:reservations.ktm@bwnepal.com>
-Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html>®<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
-
-[cid:b9ae6457-7c37-45eb-b5ea-843dae312d32]
-
-
-________________________________
-From: TryHackMe <donotreply@tryhackme.com>
-Sent: Friday, January 9, 2026 8:17 PM
-To: it.ktm@bwnepal.com <it.ktm@bwnepal.com>
-Subject: Progress starts with one click 💪
-
-Build momentum, earn rewards, and unlock 25% off Premium.  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏  ͏ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­ ­
-[TryHackMe Logo]
-[TryHackMe Motivation Banner] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-Hey it.ktm,
-
-You don’t have to become an expert overnight, just take one step forward today.
-
-Each room you complete helps you:
-
-🔓 Build real-world cyber skills, one challenge at a time.
-
-🔥 Keep your learning streak alive and visible on your dashboard.
-
-🎁 Unlock your 25% Premium reward when you complete one room within 7 days.
-
-You’ve got this! One room today can change everything.
-
-💥 Continue My Progress <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS9oYWNrdGl2aXRpZXM_dXRtX3NvdXJjZT1jaW9cdTAwMjZ1dG1fbWVkaXVtPWVtYWlsXHUwMDI2dXRtX2NhbXBhaWduPWVuZ3N0YWxlc3RlcDNtb3RpdmF0aW9uYWxuZyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjI5MzM1fQ/634b5aa855d011acb080e0cd773f573a3473173f9e6986d5275148f33edddfd2>
-
-⭐ Premium Advantage ⭐
-
-With TryHackMe Premium, you’ll go further, faster:
-
-🔍 Explore advanced paths and challenges.
-🧩 Learn interactively, not passively.
-🚀 Keep growing at your own pace, anytime.
-[Discord] <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vZGlzY29yZC5nZy90cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjM0MX0/064c67055ee86a17bc51b1411f1fbdd35de159d825c4ff2d4345217f133f0a4a>   [X]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHdpdHRlci5jb20vdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTd9/92a73e309b68ead559cb91d8057cd4c60e23e5617c7c02e0815eb330500e9bee>       [Instagram]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vaW5zdGFncmFtLmNvbS9yZWFsdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6M30/aa0f447cd7d2ab81200c39bfdf135f6569a143c840ad89e79fc24c0f99339c72>    [LinkedIn]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vbGlua2VkaW4uY29tL2NvbXBhbnkvdHJ5aGFja21lIiwiaW50ZXJuYWwiOiJjYWQ1MDViOTAxZmIxY2FjZmNkMjAyIiwibGlua19pZCI6MjIxOTl9/0aa0d93a2bbec03371a67ec41143710dec3f1d5eb75a7c724f3ba880ef905e83>    [YouTube]  <https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8veW91dHViZS5jb20vQHJlYWx0cnloYWNrbWUiLCJpbnRlcm5hbCI6ImNhZDUwNWI5MDFmYjFjYWNmY2QyMDIiLCJsaW5rX2lkIjoyMjQzMX0/fb28fe05f0d0af7e0b8423e45fa969f795158d4d4f57d0237a76f2e93cf5a047>
-
-Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09IiwiaHJlZiI6Imh0dHBzOi8vdHJ5aGFja21lLmNvbS90ZXJtcyIsImludGVybmFsIjoiY2FkNTA1YjkwMWZiMWNhY2ZjZDIwMiIsImxpbmtfaWQiOjEwfQ/f63e5202174a0ed8afb33e5461ac06889f290c9283b1163aee759a639ab9fe0d> | Unsubscribe<https://e.customeriomail.com/unsubscribe/dgTK1QULAKz80gKr_NICAZujLFAWh1lntkzS9MyO1Q==>
-
-© 2025 TryHackMe. All rights reserved.
-[https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09In0=]
-",0.384964901510725,Legitimate,False,bwnepal.com
-72,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+92,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 You allowed Google Drive for desktop access to some of your Google Account
 data
 
@@ -3016,7 +2070,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-71,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Progress starts with one click 💪,"
+91,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Progress starts with one click 💪,"
 
 Dear  Ji
 
@@ -3200,7 +2254,7 @@ Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfT
 © 2025 TryHackMe. All rights reserved.
 [https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1akxGQVdoMWxudGt6UzlNeU8xUT09In0=]
 ",0.384964901510725,Legitimate,False,bwnepal.com
-70,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",unusual activity on your account,"Dear Customer,
+90,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",unusual activity on your account,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
 To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
 👉 Verify Now: https://verification.example/secure-login
@@ -3231,7 +2285,7 @@ Support Team
 Customer Security Department
 
 ",0.9744199966867493,Phishing,True,bwnepal.com
-69,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",account,"Dear Customer,
+88,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",account,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
 To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
 👉 Verify Now: https://verification.example/secure-login
@@ -3262,7 +2316,7 @@ Support Team
 Customer Security Department
 
 ",0.9775955569506393,Phishing,True,bwnepal.com
-68,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss testingg ,"
+87,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss testingg ,"
 
 Dear  Ji
 
@@ -3584,7 +2638,7 @@ If this activity was not confirmed, your account may be disabled automatically t
 **Failure to verify may result in:
 
 ",0.46309384093155975,Legitimate,False,bwnepal.com
-67,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",FINAL NOTICE: Email Access Terminated — Action Required Immediately,"Dear Valued Employee,
+85,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",FINAL NOTICE: Email Access Terminated — Action Required Immediately,"Dear Valued Employee,
 This is to inform you that your email account has been flagged for policy violations and is scheduled for immediate termination.
 Failure to complete verification within 30 minutes will result in:
 
@@ -3687,7 +2741,7 @@ Microsoft Exchange Administrator
 Ticket ID: EX-771029
 
 ",0.7515603327081588,Phishing,True,bwnepal.com
-66,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",⚠️ Immediate Action Required: Account Suspension in 2 Hours,"Dear User,
+84,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",⚠️ Immediate Action Required: Account Suspension in 2 Hours,"Dear User,
 We detected unusual login activity on your email account from an unknown device located outside Nepal.
 To protect your account and prevent permanent suspension, you must verify your identity within 2 hours.
 🔐 Verify Your Account Now
@@ -3754,7 +2808,7 @@ Support ID: #SEC-99431
 This is an automated message. Do not reply.
 
 ",0.923194775017003,Phishing,True,bwnepal.com
-65,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss testingg ,"
+83,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss testingg ,"
 
 Dear  Ji
 
@@ -3986,7 +3040,7 @@ If this activity was not confirmed, your account may be disabled automatically t
 **Failure to verify may result in:
 
 ",0.5559330738083988,Phishing,False,bwnepal.com
-64,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: security ,"
+82,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: security ,"
 
 Dear  Ji
 
@@ -4110,7 +3164,7 @@ Customer Security Department
 
 
 ",0.8425300591167554,Phishing,True,bwnepal.com
-63,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss,"
+81,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: ssss,"
 
 Dear  Ji
 
@@ -4252,7 +3306,7 @@ If this activity was not confirmed, your account may be disabled automatically t
 **Failure to verify may result in:
 
 ",0.7411465773202512,Phishing,True,bwnepal.com
-62,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Action Required: Unusual Sign-In Detected,"
+80,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Action Required: Unusual Sign-In Detected,"
 
 Dear  Ji
 
@@ -4391,7 +3445,7 @@ If this activity was not confirmed, your account may be disabled automatically t
 
 **Failure to verify may result in:
 ",0.7506579406225741,Phishing,True,bwnepal.com
-61,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",ssss,"Dear User,
+79,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",ssss,"Dear User,
 
 We detected an unusual sign-in attempt on your email account from a new device on 03 January 2026.
 
@@ -4443,7 +3497,7 @@ If this activity was not confirmed, your account may be disabled automatically t
 **Failure to verify may result in:
 
 ",0.9120722728481333,Phishing,True,bwnepal.com
-60,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",security ,"Dear Customer,
+77,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",security ,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
 To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
 👉 Verify Now: https://verification.example/secure-login
@@ -4480,7 +3534,7 @@ Customer Security Department
 
 
 ",0.9754174564318406,Phishing,True,bwnepal.com
-59,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Security Team <security-alert@fake-mail.example>,"
+76,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Security Team <security-alert@fake-mail.example>,"
 
 Dear  Ji
 
@@ -4598,7 +3652,7 @@ Support Team
 Customer Security Department
 
 ",0.8307837747124047,Phishing,True,bwnepal.com
-58,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Subject: Urgent Account Action Required,"Dear User,
+74,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Subject: Urgent Account Action Required,"Dear User,
 
 We detected unusual activity on your account. Failure to respond within *24
 hours* may result in restricted access.
@@ -4629,7 +3683,7 @@ Please verify your information using the secure portal below:
 Thank you,
 Support Team
 ",0.9100250993540222,Phishing,True,gmail.com
-57,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: MOD Report of 05.01.2026,"
+73,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: MOD Report of 05.01.2026,"
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
 ________________________________
@@ -4708,7 +3762,7 @@ Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-k
 
 [cid:c1758f4c-6550-448b-ac00-ba568fbf2116]
 ",0.3014371860852413,Legitimate,False,gmail.com
-56,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Subject: Urgent Account Action Required,"Dear User,
+72,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Subject: Urgent Account Action Required,"Dear User,
 
 We detected unusual activity on your account. Failure to respond within *24
 hours* may result in restricted access.
@@ -4739,7 +3793,7 @@ Please verify your information using the secure portal below:
 Thank you,
 Support Team
 ",0.9100250993540222,Phishing,True,gmail.com
-55,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Security alert,"---------- Forwarded message ---------
+71,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Security alert,"---------- Forwarded message ---------
 From: narendra maharjan <narendramaharjan070@gmail.com>
 Date: Tue, Jan 6, 2026 at 10:05 PM
 Subject: Fwd: Security alert
@@ -4845,7 +3899,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.48290589804843365,Legitimate,False,gmail.com
-54,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+70,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: laxmi maya maharjan <laxmimayamaharjan41@gmail.com>
 Date: Tue, Jan 6, 2026 at 10:21 PM
 Subject: Fwd: Application Report (Police Clearance System)
@@ -5017,7 +4071,7 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.0837871571669286,Legitimate,False,gmail.com
-53,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+69,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: laxmi maya maharjan <laxmimayamaharjan41@gmail.com>
 Date: Tue, Jan 6, 2026 at 10:21 PM
 Subject: Fwd: Application Report (Police Clearance System)
@@ -5162,7 +4216,7 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.08823342021332084,Legitimate,False,gmail.com
-52,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+68,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: laxmi maya maharjan <laxmimayamaharjan41@gmail.com>
 Date: Tue, Jan 6, 2026 at 10:21 PM
 Subject: Fwd: Application Report (Police Clearance System)
@@ -5280,7 +4334,7 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.09539206915807577,Legitimate,False,gmail.com
-51,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+67,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: laxmi maya maharjan <laxmimayamaharjan41@gmail.com>
 Date: Tue, Jan 6, 2026 at 10:10 PM
 Subject: Fwd: Application Report (Police Clearance System)
@@ -5371,11 +4425,11 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.10891626110516762,Legitimate,False,gmail.com
-50,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",nothinf,"jbfkadsvcscbsdbsdcvdv ds
+66,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",nothinf,"jbfkadsvcscbsdbsdcvdv ds
 ",2026-01-06 16:26:00+00:00,"nothinf jbfkadsvcscbsdbsdcvdv ds
 ","jbfkadsvcscbsdbsdcvdv ds
 ",0.4254503169279384,Legitimate,False,gmail.com
-49,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+65,inbox,laxmi maya maharjan <laxmimayamaharjan41@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: Nepal Police (OPCR) <opcr@nepalpolice.gov.np>
 Date: Tue, Jun 3, 2025 at 2:31 PM
 Subject: Application Report (Police Clearance System)
@@ -5439,7 +4493,7 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.166144178468918,Legitimate,False,gmail.com
-48,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Security alert,"---------- Forwarded message ---------
+64,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Security alert,"---------- Forwarded message ---------
 From: Google <no-reply@accounts.google.com>
 Date: Mon, Jan 5, 2026 at 9:37 PM
 Subject: Security alert
@@ -5518,7 +4572,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.627867350641913,Phishing,False,gmail.com
-47,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
+63,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Application Report (Police Clearance System),"---------- Forwarded message ---------
 From: Nepal Police (OPCR) <opcr@nepalpolice.gov.np>
 Date: Tue, Jun 3, 2025 at 12:15 PM
 Subject: Application Report (Police Clearance System)
@@ -5585,7 +4639,7 @@ For additional help or information, email us at opcr@nepalpolice.gov.np
 ------------------------------
 This email was scanned by Bitdefender
 ",0.17168800196256478,Legitimate,False,gmail.com
-46,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fwd: US Visa & American Citizen Services Processing account email
+62,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fwd: US Visa & American Citizen Services Processing account email
  verification code","---------- Forwarded message ---------
 From: Microsoft on behalf of US Visa & American Citizen Services Processing
 <msonlineservicesteam@microsoftonline.com>
@@ -5645,7 +4699,7 @@ Your code is: 572328
 Sincerely,
 US Visa & American Citizen Services Processing
 ",0.4775085769045273,Legitimate,False,gmail.com
-45,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Introduction — [Your Name],"ntroductory email example
+61,inbox,narendra maharjan <narendramaharjan070@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Introduction — [Your Name],"ntroductory email example
 
 An email that introduces yourself or someone else in order to establish a
 connection or initiate a working relationship.
@@ -5709,7 +4763,7 @@ out if you have any questions or want to discuss further.
 
 Best regards,
 ",0.17595614652016378,Legitimate,False,gmail.com
-44,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Payment Failure – Immediate Review Required,"Dear Valued Partner,
+59,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Payment Failure – Immediate Review Required,"Dear Valued Partner,
 We were unable to process your most recent invoice due to a payment verification error. To avoid disruption to your services, please review and confirm your billing details as soon as possible.
 👉 Review Invoice: https://secure-bookings.example/verify-payment
 If the issue is not resolved within 12 hours, automated service restrictions may apply.
@@ -5737,7 +4791,7 @@ Accounts & Billing Team
 Secure Bookings Portal
 
 ",0.7704310497883478,Phishing,True,bwnepal.com
-43,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Ready to restart your cyber journey? 🔥,"
+58,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Ready to restart your cyber journey? 🔥,"
 
 Dear  Ji
 
@@ -5918,7 +4972,7 @@ Terms<https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfT
 © 2025 TryHackMe. All rights reserved.
 [https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVMQUt6ODBnS3JfTklDQVp1T2tiYVVtN09RMWs5ekRVX2ZZZz09In0=]
 ",0.34423521018651976,Legitimate,False,bwnepal.com
-42,inbox,"""Hissatsu !"" <abhistha1012@gmail.com>",filter420m@gmail.com,🔥 LIMITED-TIME OFFER — Act Now!,"Hello Valued User,
+57,inbox,"""Hissatsu !"" <abhistha1012@gmail.com>",filter420m@gmail.com,🔥 LIMITED-TIME OFFER — Act Now!,"Hello Valued User,
 
 Congratulations! 🎉
 You’ve been selected to receive exclusive access to our Premium Digital
@@ -6003,7 +5057,7 @@ support@fictionalpromo.test
 This message is part of a system test. No real products or services are
 offered.
 ",0.6877574549922741,Phishing,False,gmail.com
-41,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+55,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 You allowed Google Drive for desktop access to some of your Google Account
 data
 
@@ -6067,7 +5121,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-40,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,filter420m@gmail.com,Fwd: Final edition: your exclusive access series,"---------- Forwarded message ---------
+54,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,filter420m@gmail.com,Fwd: Final edition: your exclusive access series,"---------- Forwarded message ---------
 From: Coursera <Coursera@m.learn.coursera.org>
 Date: Tue, Dec 30, 2025 at 6:00 AM
 Subject: Final edition: your exclusive access series
@@ -6644,7 +5698,7 @@ preferences in Email Settings
 
 Coursera | 2440 W El Camino Real 5th floor, Mountain View, CA 94040 USA
 ",0.4015493484926085,Legitimate,False,bwnepal.com
-39,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Security Team <security-alert@fake-mail.example>,"Dear Customer,
+51,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Security Team <security-alert@fake-mail.example>,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your account has been temporarily limited.
 To restore full access, please verify your information within 24 hours, otherwise your account may be permanently suspended.
 👉 Verify Now: https://verification.example/secure-login
@@ -6675,7 +5729,7 @@ Support Team
 Customer Security Department
 
 ",0.96737205805575,Phishing,True,bwnepal.com
-38,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+47,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 You allowed Google Drive for desktop access to some of your Google Account
 data
 
@@ -6739,7 +5793,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-37,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+46,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 You allowed Google Drive for desktop access to some of your Google Account
 data
 
@@ -6803,7 +5857,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2026 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-36,inbox,Google <no-reply@google.com>,filter420m@gmail.com,"Filter, review your Google Account settings","
+45,inbox,Google <no-reply@google.com>,filter420m@gmail.com,"Filter, review your Google Account settings","
 Hi Filter,
 
 Welcome to Google on your new PC. Here are a few tips to get you started.
@@ -6918,7 +5972,7 @@ unsubscribe
 
 © 2026 Google LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043
 ",0.0,Legitimate,False,google.com
-35,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
+44,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 A new sign-in on Mac
 
 
@@ -6964,7 +6018,7 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-34,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Issue 309: Your year Stacked,"---------- Forwarded message ---------
+43,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fwd: Issue 309: Your year Stacked,"---------- Forwarded message ---------
 From: Stack Overflow <do-not-reply@hello.stackoverflow.email>
 Date: Wed, Dec 24, 2025 at 9:15 PM
 Subject: Issue 309: Your year Stacked
@@ -7460,7 +6514,7 @@ Privacy Policy
 
 <3
 ",0.012458893125605601,Legitimate,False,gmail.com
-33,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Request for Information,"Dear Sir/Madam,
+41,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Request for Information,"Dear Sir/Madam,
 
 I hope this email finds you well.
 
@@ -7506,7 +6560,7 @@ Thank you for your time and support.
 Kind regards,
 Muk S Mhrzn
 ",0.21628578788498012,Legitimate,False,gmail.com
-32,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fw: REG : Update on Planned Network Activity - Possible Brief Service
+39,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fw: REG : Update on Planned Network Activity - Possible Brief Service
  Interruption","
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
@@ -7587,7 +6641,7 @@ Enterprise Department
 Vianet Communications
 
 ",0.24604040940437005,Legitimate,False,gmail.com
-31,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: A design has been shared with you!,"
+38,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: A design has been shared with you!,"
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
 ________________________________
@@ -7690,7 +6744,7 @@ ABN 80 158 929 938 | Privacy Policy<https://trail.canva.com/CL0/https:%2F%2Fwww.
 
 [http://trail.canva.com/CI0/0100019b59df63bd-6bc0a1e6-43eb-4349-b7cc-10c104c44b9f-000000/vJUinAXn_EKfcFbrzLwy3ko5sZq1-H_yoG2-broTLnQ=437]
 ",0.9041236395432062,Phishing,True,gmail.com
-30,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: We received your request,"
+35,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: We received your request,"
 
 Dear  Ji
 
@@ -7940,7 +6994,7 @@ Manage your email preferences<https://lp.netwrix.com/UnsubscribePage.html?mkt_un
 
 <https://go.netwrix.com/MTMwLU1BTi0wODkAAAGexojHz-UEW87_bCzZflTIWjEA8wPW-As3Bg7xicrphBAyKk0u0R6wgna7T8Tb6Wi5G__PpZE=>
 ",0.23693062596085465,Legitimate,False,bwnepal.com
-29,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fw: REG : Update on Planned Network Activity - Possible Brief Service
+34,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fw: REG : Update on Planned Network Activity - Possible Brief Service
  Interruption","
 
 Dear  Ji
@@ -8195,7 +7249,7 @@ W: www.vianet.com.np<http://www.vianet.com.np>
 
 
 ",0.2881126531336134,Legitimate,False,bwnepal.com
-28,inbox,"""Suno"" <suno@creators.suno.com>",filter420m@gmail.com,Give the gift of a personalized song 🎵,"Skip the stuff, make them a song     Give the gift of song this
+30,inbox,"""Suno"" <suno@creators.suno.com>",filter420m@gmail.com,Give the gift of a personalized song 🎵,"Skip the stuff, make them a song     Give the gift of song this
 holiday ( https://clicks.suno.com/f/a/lyRnt1qr4s96YT6cB-hihQ~~/AAQRxRA~/6_j_hOnF7U2WOvk3sViWRqiVr8yckXxts9YBwSFycpt39vw0f11fY-Nb18JtMCv_d0TuleEKVG25OgdMp9uaKNFp34Q-pKSZGISWtZ_pAtBxGxHv3lTWUTiACcF7440NfC-Jlc54TaD2zFNqYsAoog~~ )
 Gift a song  ( https://clicks.suno.com/f/a/XoR_AQ3TF302jTE-vsCyNA~~/AAQRxRA~/6_j_hOnF7U2WOvk3sViWRqiVr8yckXxts9YBwSFycpuX3wcKeQdnmux2m1n_kdanK8krGYl-EVYJQmAjwv3T19swW7FWwPhMhXdZ_cPySgGTXz_FWsX4uGZd4XsbW0frvkpKJWM6yVCkdReXnQ5yJA~~ )
 Skip the stuff and make them a custom song they’ll play on
@@ -8259,7 +7313,7 @@ receive these emails? Unsubscribe (
 https://clicks.suno.com/f/a/zMq8OuKvBfUc1IVPHgUxMw~~/AAQRxRA~/Mzb-Fd116cK2jgbWkPdsn1SH89TAGSy40BAQKYsoonfmseube7oCOkHSmpTJNh5I-Wc9BLTNrhRTk24wKQ_lgdHLrkWkX8U2PNg0dQRlkp15oiP2RCEj8B_8ntMGqjJQh4W8j21faRbP37bXP5V20VY7_YAFtkXBsrwLert_nEgC4HFNhu8DFaks9dswKA3Kh1oJ_o76bEGCnXLO_tLc6yPTNUQQnASSYhtgJicM_HrigrCN_K3_31p8axEqIi-WPa6SxhBmmtgfj9CSMYG0ODpdBKGgQ-pp0uijYzSw8B1e7YRBF-b5d7M3qfTXJ7giHjLQs6CyCvb5F79IyGb4LD95xP6pBrjnnfudpoJN-2H9xHGvNh5i2cj-vRxipNs8h9wfcajLGYXwrRGuRgRtQ3J7T9Wa3tWHp0KxOorQt92Q3VnWsOrlDmyvBRxPigy12N6Pw-FPlm3sCEhjI9mxQ-WTXmCQcr1d4j40ZFiDhdY-bk6s3v2gIGaQa-ujXRWzxXKEzRfOLeS7E32WVIGI327Do31m2SIankMAtD6QWWFjptQ4OawIk77YnqNdIzysl2b8QwSB5w5FkmT56MtfTpPlF1Pty7g83wYj5uqyROk77CdXSXQERTv01h0f-3zgUpsEEdhVOkAjepxvkJVtYqL4whkgYzpHLNMe7MmjJ38~ ).
 
 Suno 101 Main Street Cambridge, Massachusetts 02142",0.6248140158999282,Phishing,False,creators.suno.com
-27,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Official Rewards Team” <rewards-now@free-offer-win[.]xyz>,"HELLO USER!!!
+29,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Official Rewards Team” <rewards-now@free-offer-win[.]xyz>,"HELLO USER!!!
 
 CONGRATULATIONS!!!
 YOU HAVE BEEN SELECTED TO RECEIVE *$5,000 CASH BONUS* 💰💰💰
@@ -8365,7 +7419,7 @@ Reply with:
 
 THIS IS YOUR LAST NOTICE!!!
 ",0.9987349669387645,Phishing,True,gmail.com
-26,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Immediate Action Required – Account Suspension in 24 Hours,"Dear Valued Customer,
+28,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Immediate Action Required – Account Suspension in 24 Hours,"Dear Valued Customer,
 
 We detected *unusual activity* on your account that violates our security
 policy.
@@ -8456,7 +7510,7 @@ Sincerely,
 *Security Operations Team*
 PayPal Customer SupportF
 ",0.996001500845948,Phishing,True,gmail.com
-25,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",security upgrade,"Dear Employee,
+26,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",security upgrade,"Dear Employee,
 As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
 🔗 http://it-support[.]example/reset
@@ -8478,7 +7532,7 @@ Non-compliance may result in account lockout.
 IT Helpdesk
 
 ",0.8036021373748841,Phishing,True,bwnepal.com
-24,inbox,"""Hissatsu !"" <abhistha1012@gmail.com>","""filter420m@gmail.com"" <filter420m@gmail.com>",phis,"Subject: Action Required: Unusual Login Activity Detected
+25,inbox,"""Hissatsu !"" <abhistha1012@gmail.com>","""filter420m@gmail.com"" <filter420m@gmail.com>",phis,"Subject: Action Required: Unusual Login Activity Detected
 
 From: IT Support Team <it-support@example.com
 >
@@ -8551,7 +7605,7 @@ Thank you for your cooperation,
 IT Support Team
 Company Name
 ",0.8474886156597975,Phishing,True,gmail.com
-23,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Mandatory Password Reset – Action Required,"Dear Employee,
+24,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Mandatory Password Reset – Action Required,"Dear Employee,
 As part of our security upgrade, all users must reset their passwords today.
 Click below to continue:
 🔗 http://it-support[.]example/reset
@@ -8573,7 +7627,7 @@ Non-compliance may result in account lockout.
 IT Helpdesk
 
 ",0.834125449203025,Phishing,True,bwnepal.com
-22,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Invoice #87432  Payment Pending,"Hello,
+23,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Invoice #87432  Payment Pending,"Hello,
 Please find attached the invoice for your recent transaction. Payment is overdue.
 Amount Due: $1,245.00
 Download Invoice: http://billing-docs[.]example/invoice.pdf
@@ -8595,7 +7649,7 @@ Kindly process the payment today to avoid service interruption.
 Accounts Department
 
 ",0.8071023573446294,Phishing,True,bwnepal.com
-21,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",⚠️ Unusual Login Attempt Detected,"Dear User,
+22,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",⚠️ Unusual Login Attempt Detected,"Dear User,
 We detected a suspicious login attempt on your email account from an unknown device.
 If this was not you, please verify your account immediately to prevent suspension.
 🔗 Verify Account: http://security-check[.]example/login
@@ -8620,14 +7674,14 @@ Security Team
 Email Protection Services
 
 ",0.9674777632042485,Phishing,True,bwnepal.com
-20,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",global ,"global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .
+21,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",global ,"global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .
 
 ",2025-12-15 09:46:14+00:00,"global  global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .
 
 ","global risk management operations sally congratulations on your new role . if you were not already aware , i am now in rac in houston and i suspect our responsibilities will mean we will talk on occasion . i look forward to that . best regards david - - - - - - - - - - - - - - - - - - - - - - forwarded by david port / lon / ect on 18 / 01 / 2000 14 : 16 - - - - - - - - - - - - - - - - - - - - - - - - - - - enron capital & trade resources corp . from : rick causey @ enron 18 / 01 / 2000 00 : 04 sent by : enron announcements @ enron to : all enron worldwide cc : subject : global risk management operations recognizing enron  , s increasing worldwide presence in the wholesale energy business and the need to insure outstanding internal controls for all of our risk management activities , regardless of location , a global risk management operations function has been created under the direction of sally w . beck , vice president . in this role , sally will report to rick causey , executive vice president and chief accounting officer . sally  , s responsibilities with regard to global risk management operations will mirror those of other recently created enron global functions . in this role , sally will work closely with all enron geographic regions and wholesale companies to insure that each entity receives individualized regional support while also focusing on the following global responsibilities : 1 . enhance communication among risk management operations professionals . 2 . assure the proliferation of best operational practices around the globe . 3 . facilitate the allocation of human resources . 4 . provide training for risk management operations personnel . 5 . coordinate user requirements for shared operational systems . 6 . oversee the creation of a global internal control audit plan for risk management activities . 7 . establish procedures for opening new risk management operations offices and create key benchmarks for measuring on - going risk controls . each regional operations team will continue its direct reporting relationship within its business unit , and will collaborate with sally in the delivery of these critical items . the houston - based risk management operations team under sue frusco  , s leadership , which currently supports risk management activities for south america and australia , will also report directly to sally . sally retains her role as vice president of energy operations for enron north america , reporting to the ena office of the chairman . she has been in her current role over energy operations since 1997 , where she manages risk consolidation and reporting , risk management administration , physical product delivery , confirmations and cash management for ena  , s physical commodity trading , energy derivatives trading and financial products trading . sally has been with enron since 1992 , when she joined the company as a manager in global credit . prior to joining enron , sally had four years experience as a commercial banker and spent seven years as a registered securities principal with a regional investment banking firm . she also owned and managed a retail business for several years . please join me in supporting sally in this additional coordination role for global risk management operations .
 
 ",0.005219714356505026,Legitimate,False,bwnepal.com
-19,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Dear All,","Dear All,
+20,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Dear All,","Dear All,
 
 Please find the attached file regarding meeting minute of 14th December 2025
 
@@ -8676,7 +7730,7 @@ Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-k
 [cid:6003002c-2c38-42fc-8589-816380f6c668]
 
 ",0.23675818173812135,Legitimate,False,bwnepal.com
-18,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Action Required: Unusual Login Activity Detected,"From: IT Support Team <it-support@example.com<mailto:it-support@example.com>
+19,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Action Required: Unusual Login Activity Detected,"From: IT Support Team <it-support@example.com<mailto:it-support@example.com>
 >
 To: Employee Name
 Date: [Simulation Date]
@@ -8743,7 +7797,7 @@ IT Support Team
 Company Name
 
 ",0.84332021559591,Phishing,True,bwnepal.com
-17,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",gaaga,"import re
+18,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",gaaga,"import re
 from bs4 import BeautifulSoup
 
 TRACKING_DOMAINS = [
@@ -9017,7 +8071,7 @@ Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-k
 
 
 ",0.25154003305321654,Legitimate,False,bwnepal.com
-16,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",test,"Hello test
+17,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",test,"Hello test
 
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 ",2025-12-15 07:45:20+00:00,"test Hello test
@@ -9027,7 +8081,7 @@ Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-k
 
 Best Western Hotels & Resorts<https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html><https://www.bestwestern.com/en_US/book/hotels-in-kathmandu/best-western-plus-kathmandu-hotel/propertyCode.78736.html> | bestwestern.com<https://www.bestwestern.com/en_US.html>
 ",0.521548357443765,Phishing,False,bwnepal.com
-15,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",,"We all know the classics. But what happens when you give them a twist?
+16,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",,"We all know the classics. But what happens when you give them a twist?
 
 With Suno, you can create genre-bending covers that sound like they came from another dimension. This is your chance to flip the script and surprise your ears.
 
@@ -9067,7 +8121,7 @@ You already know the lyrics. Now imagine them in a genre no one saw coming.
 Create a cover and see how it sounds<https://clicks.suno.com/f/a/um8uGQ6h_KIu0evpugu4Jw~~/AAQRxRA~/Ie2OrIRVgK51ntzVnlVHmPcyOiWSLMJyt5jymcg0d-gy1KKByWEmZdfGLjWoCLmOFtHt4LM4kv58u6qi-KZG8I_njSO6-ocCdChqQ0_mA7r-Zy5QBCCOJkzTQ4WbBPIA>
 
 ",0.1862867048310302,Legitimate,False,bwnepal.com
-14,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",temporary suspension of email access.,"Dear User,
+15,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",temporary suspension of email access.,"Dear User,
 We detected unusual sign-in activity on your email account earlier today.
 As part of our security policy, your password is scheduled to *expire
 within the next 2 hours*. Failure to verify your account may result in
@@ -9110,7 +8164,7 @@ Thank you for your cooperation,
 *IT Security Team*
 Secure IT Helpdesk
 ",0.8813662235161481,Phishing,True,bwnepal.com
-13,inbox,Mukesh Maharjan <NP01MS7A240038@islingtoncollege.edu.np>,"""filter420m@gmail.com"" <filter420m@gmail.com>",hacked ,"hacking
+14,inbox,Mukesh Maharjan <NP01MS7A240038@islingtoncollege.edu.np>,"""filter420m@gmail.com"" <filter420m@gmail.com>",hacked ,"hacking
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
 ",2025-12-15 05:39:59+00:00,"hacked  hacking
@@ -9120,7 +8174,7 @@ Get Outlook for iOS<https://aka.ms/o0ukef>
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
 ",0.49800799704940124,Legitimate,False,islingtoncollege.edu.np
-12,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",tessssss,"
+13,inbox,Muk S Mhrzn <khecha.apex@gmail.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",tessssss,"
 
 Get Outlook for iOS<https://aka.ms/o0ukef>
 ",2025-12-15 05:34:55+00:00,"tessssss 
@@ -9301,6 +8355,70 @@ IT Security Team
 Secure IT Helpdesk
 
 ",0.7414232788089771,Phishing,True,bwnepal.com
+8,spam,Suraj Neupane <Suraj@vertexspecial.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Urgent: Your Account Has Been Suspended Mukesh Ji!,"Dear Mukesh Sir,
+
+We are writing to inform you that there has been suspicious activity detected on your account. For your security, we have temporarily suspended your access.
+
+To resolve this issue and restore full access to your account, please follow the steps below:
+
+  1.  Click on the link below to verify your identity.
+  2.  Provide the requested information to prevent unauthorized access.
+  3.  Your account will be reinstated immediately after verification.
+
+Restore My Account
+
+Failure to verify your account within 24 hours may result in permanent suspension. We take the security of your account seriously and urge you to act swiftly to protect your information.
+
+Thank you for your prompt attention to this matter.
+
+Sincerely,
+The Mukesh Security Team
+
+This is an automated message. Please do not reply to this email.
+
+",2026-01-13 02:17:40+00:00,"Urgent: Your Account Has Been Suspended Mukesh Ji! Dear Mukesh Sir,
+
+We are writing to inform you that there has been suspicious activity detected on your account. For your security, we have temporarily suspended your access.
+
+To resolve this issue and restore full access to your account, please follow the steps below:
+
+  1.  Click on the link below to verify your identity.
+  2.  Provide the requested information to prevent unauthorized access.
+  3.  Your account will be reinstated immediately after verification.
+
+Restore My Account
+
+Failure to verify your account within 24 hours may result in permanent suspension. We take the security of your account seriously and urge you to act swiftly to protect your information.
+
+Thank you for your prompt attention to this matter.
+
+Sincerely,
+The Mukesh Security Team
+
+This is an automated message. Please do not reply to this email.
+
+","Dear Mukesh Sir,
+
+We are writing to inform you that there has been suspicious activity detected on your account. For your security, we have temporarily suspended your access.
+
+To resolve this issue and restore full access to your account, please follow the steps below:
+
+  1.  Click on the link below to verify your identity.
+  2.  Provide the requested information to prevent unauthorized access.
+  3.  Your account will be reinstated immediately after verification.
+
+Restore My Account
+
+Failure to verify your account within 24 hours may result in permanent suspension. We take the security of your account seriously and urge you to act swiftly to protect your information.
+
+Thank you for your prompt attention to this matter.
+
+Sincerely,
+The Mukesh Security Team
+
+This is an automated message. Please do not reply to this email.
+
+",0.9932109723765189,Phishing,True,vertexspecial.com
 8,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Fw: Subject: URGENT: Password Expiry – Action Required Within 2 Hours,"
 
 Dear  Ji
@@ -9552,6 +8670,10 @@ IT Security Team
 Secure IT Helpdesk
 
 ",0.901954254179448,Phishing,True,bwnepal.com
+7,spam,"""Hissatsu !"" <abhistha1012@gmail.com>",filter420m@gmail.com,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message.","
+",2026-01-13 01:13:52+00:00,"Dear Valued User, Congratulations! 🎉 You have been randomly selected as one of our lucky customers to receive a LIMITED-TIME reward worth $500 USD. ✅ No forms ✅ No surveys ✅ 100% guaranteed All you need to do is act fast — this offer expires in 24 HOURS! 👉 Click below to claim your reward now: http://example-rewards-portal.test/claim Why are you receiving this email? You are subscribed to one of our partner networks and qualify for promotional rewards. If you miss this opportunity, it may never be offered again. Warm regards, Abhigna Shrestha Customer Promotions Team --- To unsubscribe, please ignore this message. 
+","
+",0.9806412165658398,Phishing,True,gmail.com
 6,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",account,"Dear Customer,
 We detected unusual activity on your account. As a security measure, your
 account has been *temporarily limited*.
@@ -9946,40 +9068,31 @@ automatically to prevent unauthorized use.
 
 **Failure to verify may result in:
 ",0.8967770502596374,Phishing,True,bwnepal.com
-4,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",account,"Dear Customer,
-We detected unusual activity on your account. As a security measure, your
-account has been *temporarily limited*.
-To restore full access, please verify your information within *24 hours*,
-otherwise your account may be permanently suspended.
-👉 *Verify Now:* https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-",2026-01-09 06:52:58+00:00,"account Dear Customer,
-We detected unusual activity on your account. As a security measure, your
-account has been *temporarily limited*.
-To restore full access, please verify your information within *24 hours*,
-otherwise your account may be permanently suspended.
-👉 *Verify Now:* https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-","Dear Customer,
-We detected unusual activity on your account. As a security measure, your
-account has been *temporarily limited*.
-To restore full access, please verify your information within *24 hours*,
-otherwise your account may be permanently suspended.
-👉 *Verify Now:* https://verification.example/secure-login
-Failure to complete this process may result in service interruption.
-Thank you for your prompt attention.
-Sincerely,
-Support Team
-Customer Security Department
-",0.9775955569506393,Phishing,True,bwnepal.com
+4,spam,Rev <revm.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Immediate Action Required,"Dear User,
+We detected unusual activity on your account. Please verify your
+information immediately to avoid suspension.
+
+Click here to verify your account.
+
+Thank you,
+Account Support Team
+",2025-12-17 09:18:06+00:00,"Immediate Action Required Dear User,
+We detected unusual activity on your account. Please verify your
+information immediately to avoid suspension.
+
+Click here to verify your account.
+
+Thank you,
+Account Support Team
+","Dear User,
+We detected unusual activity on your account. Please verify your
+information immediately to avoid suspension.
+
+Click here to verify your account.
+
+Thank you,
+Account Support Team
+",0.9773236918835477,Phishing,True,bwnepal.com
 4,inbox,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>","Fw: BOB of December,2025 & BOB of Next Year,2026.","
 
 Dear  Ji
@@ -10171,86 +9284,10 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-3,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,filter420m@gmail.com,Action Required: Unusual Sign-In Detected,"Dear User,
-
-We detected an unusual sign-in attempt on your email account from a new
-device on *03 January 2026*.
-
-For your protection, access to some features has been temporarily limited.
-What you need to do:
-
-Please verify your account activity within *30 minutes* to avoid permanent
-suspension.
-
-👉 Verify Account Access:
-https://secure-account-verify[.]example-login[.]net
-
-If this activity was not confirmed, your account may be disabled
-automatically to prevent unauthorized use.
-
-**Failure to verify may result in:
-",2026-01-04 17:14:44+00:00,"Action Required: Unusual Sign-In Detected Dear User,
-
-We detected an unusual sign-in attempt on your email account from a new
-device on *03 January 2026*.
-
-For your protection, access to some features has been temporarily limited.
-What you need to do:
-
-Please verify your account activity within *30 minutes* to avoid permanent
-suspension.
-
-👉 Verify Account Access:
-https://secure-account-verify[.]example-login[.]net
-
-If this activity was not confirmed, your account may be disabled
-automatically to prevent unauthorized use.
-
-**Failure to verify may result in:
-","Dear User,
-
-We detected an unusual sign-in attempt on your email account from a new
-device on *03 January 2026*.
-
-For your protection, access to some features has been temporarily limited.
-What you need to do:
-
-Please verify your account activity within *30 minutes* to avoid permanent
-suspension.
-
-👉 Verify Account Access:
-https://secure-account-verify[.]example-login[.]net
-
-If this activity was not confirmed, your account may be disabled
-automatically to prevent unauthorized use.
-
-**Failure to verify may result in:
-",0.8967770502596374,Phishing,True,bwnepal.com
-2,spam,Rev <revm.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",Immediate Action Required,"Dear User,
-We detected unusual activity on your account. Please verify your
-information immediately to avoid suspension.
-
-Click here to verify your account.
-
-Thank you,
-Account Support Team
-",2025-12-17 09:18:06+00:00,"Immediate Action Required Dear User,
-We detected unusual activity on your account. Please verify your
-information immediately to avoid suspension.
-
-Click here to verify your account.
-
-Thank you,
-Account Support Team
-","Dear User,
-We detected unusual activity on your account. Please verify your
-information immediately to avoid suspension.
-
-Click here to verify your account.
-
-Thank you,
-Account Support Team
-",0.9773236918835477,Phishing,True,bwnepal.com
+3,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",test,"testt
+",2025-12-14 23:38:57+00:00,"test testt
+","testt
+",0.05178642616956621,Legitimate,False,bwnepal.com
 2,inbox,Google <no-reply@accounts.google.com>,filter420m@gmail.com,Security alert,"[image: Google]
 Authenticator app added as sign-in step
 
@@ -10358,7 +9395,3 @@ You received this email to let you know about important changes to your
 Google Account and services.
 © 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
 ",0.0,Legitimate,False,accounts.google.com
-1,spam,MUKESH MAHARJAN <it.ktm@bwnepal.com>,"""filter420m@gmail.com"" <filter420m@gmail.com>",test,"testt
-",2025-12-14 23:38:57+00:00,"test testt
-","testt
-",0.05178642616956621,Legitimate,False,bwnepal.com

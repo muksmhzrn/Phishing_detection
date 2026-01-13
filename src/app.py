@@ -73,7 +73,7 @@ def login():
 @login_required
 def dashboard():
     page = int(request.args.get("page", 1))
-    PER_PAGE = 10
+    PER_PAGE = 20
 
     user_id = session["user_id"]
     creds = get_user_gmail_credentials(user_id)
